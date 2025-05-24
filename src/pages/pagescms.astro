@@ -1,0 +1,29 @@
+---
+import HeroBlock from '@/components/blocks/HeroBlock.astro'
+import CardBlock from '@/components/blocks/CardBlock.astro'
+import AccordionBlock from '@/components/blocks/AccordionBlock.astro'
+import TabsBlock from '@/components/blocks/TabsBlock.astro'
+import CodeBlock from '@/components/blocks/CodeBlock.astro'
+
+import homepage from '@/content/homepage.md'
+const { frontmatter } = homepage
+---
+
+<main>
+  {
+    frontmatter.blocks.map((block) => {
+      switch (block.type) {
+        case 'hero':
+          return <HeroBlock {...block} />
+        case 'card':
+          return <CardBlock {...block} />
+        case 'accordion':
+          return <AccordionBlock items={block.items} />
+        case 'tabs':
+          return <TabsBlock items={block.items} />
+        case 'code':
+          return <CodeBlock language={block.language}>{block.code}</CodeBlock>
+      }
+    })
+  }
+</main>
