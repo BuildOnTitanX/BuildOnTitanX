@@ -1,0 +1,35 @@
+collections:
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - name: "index"
+        label: "Homepage"
+        file: "content/homepage.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - label: "Blocks"
+            name: "blocks"
+            widget: "list"
+            types:
+              - label: "Accordion"
+                name: "accordion"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Content", name: "content", widget: "text" }
+              - label: "Card"
+                name: "card"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+              - label: "Tabs"
+                name: "tabs"
+                widget: "object"
+                fields:
+                  - label: "Items"
+                    name: "items"
+                    widget: "list"
+                    fields:
+                      - { label: "Label", name: "label", widget: "string" }
+                      - { label: "Content", name: "content", widget: "text" }
