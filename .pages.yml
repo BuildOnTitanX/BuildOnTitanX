@@ -35,16 +35,6 @@ collections:
                     fields:
                       - { label: "Title", name: "title", widget: "string" }
                       - { label: "Content", name: "content", widget: "text" }
-              - label: "Tabs"
-                name: "tabs"
-                widget: "object"
-                fields:
-                  - label: "Items"
-                    name: "items"
-                    widget: "list"
-                    fields:
-                      - { label: "Label", name: "label", widget: "string" }
-                      - { label: "Content", name: "content", widget: "text" }
               - label: "Code Block"
                 name: "code"
                 widget: "object"
