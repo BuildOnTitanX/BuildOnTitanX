@@ -2,7 +2,7 @@ collections:
   - name: "homepage"
     label: "Homepage"
     files:
-      - name: "index"
+      - name: "pagescms"
         label: "Homepage"
         file: "content/homepage.md"
         fields:
@@ -11,18 +11,30 @@ collections:
             name: "blocks"
             widget: "list"
             types:
-              - label: "Accordion"
-                name: "accordion"
+              - label: "Hero"
+                name: "hero"
                 widget: "object"
                 fields:
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Content", name: "content", widget: "text" }
+                  - { label: "Heading", name: "heading", widget: "string" }
+                  - { label: "Subheading", name: "subheading", widget: "string" }
+                  - { label: "Image", name: "image", widget: "image" }
               - label: "Card"
                 name: "card"
                 widget: "object"
                 fields:
                   - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Description", name: "description", widget: "string" }
+                  - { label: "Image", name: "image", widget: "image" }
+              - label: "Accordion"
+                name: "accordion"
+                widget: "object"
+                fields:
+                  - label: "Items"
+                    name: "items"
+                    widget: "list"
+                    fields:
+                      - { label: "Title", name: "title", widget: "string" }
+                      - { label: "Content", name: "content", widget: "text" }
               - label: "Tabs"
                 name: "tabs"
                 widget: "object"
@@ -33,3 +45,9 @@ collections:
                     fields:
                       - { label: "Label", name: "label", widget: "string" }
                       - { label: "Content", name: "content", widget: "text" }
+              - label: "Code Block"
+                name: "code"
+                widget: "object"
+                fields:
+                  - { label: "Language", name: "language", widget: "string" }
+                  - { label: "Code", name: "code", widget: "code", default_language: "js" }
