@@ -4,7 +4,7 @@ blocks:
   - _block: hero
     heading: heading
     subheading: subheading
-    image: /public/uploads/Scale-logo.jpg
+    image: /uploads/Scale-logo.jpg
   - _block: card
     title: card1
     description: desc
