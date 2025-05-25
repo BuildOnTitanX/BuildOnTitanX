@@ -39,7 +39,14 @@ const blocks: Block[] = frontmatter?.blocks || []
           case 'code':
             return <CodeBlock key={`block-${index}`} language={block.language}>{block.code}</CodeBlock>
           case 'pageheader':
-            return <PageHeader key={`block-${index}`} title={block.title} subtitle={block.subtitle} bgType={block.bgType} />
+            return (
+              <PageHeader 
+                key={`block-${index}`} 
+                title={block.title} 
+                subtitle={block.subtitle?.content} 
+                bgType={block.bgType} 
+              />
+            )
           case 'accordion':
             return (
               <Accordion 
