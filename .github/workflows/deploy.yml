@@ -114,22 +114,30 @@ jobs:
             set -euo pipefail
 
             STAGING_DIR="/var/www/buildontitanx.com/staging"
-            INCOMING_DIR="$STAGING_DIR/_incoming"
+            INCOMING_TMP="$STAGING_DIR/_incoming_tmp"
+            INCOMING_FINAL="$STAGING_DIR/_incoming"
 
-            echo "==> Starting deployment..."
-            echo "Staging dir: $STAGING_DIR"
-            echo "Incoming dir: $INCOMING_DIR"
+            echo "==> Preparing deployment..."
 
-            if [ ! -d "$INCOMING_DIR" ]; then
-              echo "❌ Incoming directory not found: $INCOMING_DIR"
+            # Warten bis _incoming_tmp vorhanden und vollständig
+            if [ ! -d "$INCOMING_TMP" ]; then
+              echo "❌ Incoming TMP dir not found: $INCOMING_TMP"
               exit 1
             fi
 
-            echo "==> Syncing incoming files into staging directory..."
-            rsync -a --delete "$INCOMING_DIR"/ "$STAGING_DIR"/
+            # Atomarer Move, nur wenn _incoming nicht existiert
+            if [ -e "$INCOMING_FINAL" ]; then
+              echo "❌ Previous incoming folder still exists. Aborting."
+              exit 1
+            fi
 
-            echo "==> Cleaning up incoming directory..."
-            rm -rf "$INCOMING_DIR"
+            mv "$INCOMING_TMP" "$INCOMING_FINAL"
+
+            echo "==> Syncing files to staging..."
+            rsync -a --delete "$INCOMING_FINAL"/ "$STAGING_DIR"/
+
+            echo "==> Cleaning up..."
+            rm -rf "$INCOMING_FINAL"
 
             echo "==> Reloading nginx..."
             sudo systemctl reload nginx
