@@ -3,8 +3,8 @@ import HeroBlock from '@blocks/HeroBlock.astro'
 import CardBlock from '@blocks/CardBlock.astro'
 import CodeBlock from '@blocks/CodeBlock.astro'
 
-import homepage from '@content/pagescms.md'
-const { frontmatter } = homepage
+import homepage from '../content/pagescms.md'
+const { frontmatter = { blocks: [] } } = homepage || {}
 ---
 
 <main>
