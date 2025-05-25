@@ -74,12 +74,9 @@ content:
                 type: string
                 default: default
                 options:
-                  - label: Default
-                    value: default
-                  - label: Bordered
-                    value: bordered
-                  - label: Filled
-                    value: filled
+                  default: Default
+                  bordered: Bordered
+                  filled: Filled
           - name: accordion
             label: Accordion
             fields:
