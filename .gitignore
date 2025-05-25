@@ -31,3 +31,4 @@ yarn-error.log*
 
 # cursor rules
 .cursor/rules
+.aider*

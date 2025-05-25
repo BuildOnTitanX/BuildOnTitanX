@@ -1,4 +1,6 @@
-media: public/uploads
+media:
+  input: public/uploads
+  output: /uploads
 
 content:
   - name: pagescms
