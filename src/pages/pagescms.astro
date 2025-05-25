@@ -17,11 +17,6 @@ interface AccordionItem {
   _block: 'accordion_item'
   title: string
   content: string
-  subitems?: {
-    _block: 'accordion_subitem'
-    title: string
-    content: string
-  }[]
 }
 
 const blocks: Block[] = frontmatter?.blocks || []
@@ -61,18 +56,6 @@ const blocks: Block[] = frontmatter?.blocks || []
                       variant={block.useChevron ? 'chevron' : undefined}
                     >
                       <Fragment set:html={item.content} />
-                      {Array.isArray(item.subitems) && item.subitems.map((subitem, j) => (
-                        subitem._block === 'accordion_subitem' && (
-                          <AccordionItem
-                            key={`accordion-subitem-${i}-${j}`}
-                            title={subitem.title}
-                            variant={block.useChevron ? 'chevron' : undefined}
-                            level={2}
-                          >
-                            <Fragment set:html={subitem.content} />
-                          </AccordionItem>
-                        )
-                      ))}
                     </AccordionItem>
                   )
                 ))}
