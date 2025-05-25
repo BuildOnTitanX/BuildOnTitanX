@@ -9,18 +9,34 @@ collections:
   - name: 'homepage'
     label: 'Homepage'
     files:
-      - file: 'src/content/homepage.md' # Adjust if different
-        label: 'Home'
-        name: 'home'
+      - file: 'src/content/pagescms.md'
+        label: 'Modular Page'
+        name: 'pagescms'
         fields:
           - { label: 'Title', name: 'title', widget: 'string' }
           - label: 'Blocks'
             name: 'blocks'
             widget: 'list'
             types:
+              - label: 'Hero'
+                name: 'hero'
+                widget: 'object'
+                fields:
+                  - { label: 'Heading', name: 'heading', widget: 'string' }
+                  - { label: 'Subheading', name: 'subheading', widget: 'string' }
+                  - { label: 'Image', name: 'image', widget: 'image' }
+              
               - label: 'Card'
                 name: 'card'
                 widget: 'object'
                 fields:
                   - { label: 'Title', name: 'title', widget: 'string' }
-                  - { label: 'Description', name: 'description', widget: 'string' }
+                  - { label: 'Description', name: 'description', widget: 'text' }
+                  - { label: 'Image', name: 'image', widget: 'image' }
+              
+              - label: 'Code'
+                name: 'code'
+                widget: 'object'
+                fields:
+                  - { label: 'Language', name: 'language', widget: 'string' }
+                  - { label: 'Code', name: 'code', widget: 'code' }

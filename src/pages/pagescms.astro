@@ -8,16 +8,20 @@ const { frontmatter } = homepage
 ---
 
 <main>
-  {
-    frontmatter.blocks.map((block) => {
+  {frontmatter.blocks?.length > 0 ? (
+    frontmatter.blocks.map((block, index) => {
       switch (block.type) {
         case 'hero':
-          return <HeroBlock {...block} />
+          return <HeroBlock key={`block-${index}`} {...block} />
         case 'card':
-          return <CardBlock {...block} />
+          return <CardBlock key={`block-${index}`} {...block} />
         case 'code':
-          return <CodeBlock language={block.language}>{block.code}</CodeBlock>
+          return <CodeBlock key={`block-${index}`} language={block.language}>{block.code}</CodeBlock>
+        default:
+          return null
       }
     })
-  }
+  ) : (
+    <p>No blocks added yet. Please add content via the CMS.</p>
+  )}
 </main>
