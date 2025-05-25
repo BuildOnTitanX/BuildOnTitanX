@@ -1,33 +1,35 @@
 collections:
-  - name: 'homepage'
-    label: 'Homepage'
+  - name: 'pages'
+    label: 'Pages'
     files:
       - name: 'pagescms'
-        label: 'Homepage'
-        file: 'content/homepage.md'
+        label: 'Modular Page'
+        file: 'src/pages/pagescms.astro'
         fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - label: 'Blocks'
+          - { label: 'Title', name: 'title', widget: 'string', required: true }
+          - label: 'Content Blocks'
             name: 'blocks'
             widget: 'list'
             types:
-              - label: 'Hero'
+              - label: 'Hero Section'
                 name: 'hero'
                 widget: 'object'
                 fields:
-                  - { label: 'Heading', name: 'heading', widget: 'string' }
+                  - { label: 'Heading', name: 'heading', widget: 'string', required: true }
                   - { label: 'Subheading', name: 'subheading', widget: 'string' }
-                  - { label: 'Image', name: 'image', widget: 'image' }
+                  - { label: 'Image', name: 'image', widget: 'image', required: true }
+
               - label: 'Card'
                 name: 'card'
                 widget: 'object'
                 fields:
-                  - { label: 'Title', name: 'title', widget: 'string' }
-                  - { label: 'Description', name: 'description', widget: 'string' }
+                  - { label: 'Title', name: 'title', widget: 'string', required: true }
+                  - { label: 'Description', name: 'description', widget: 'text' }
                   - { label: 'Image', name: 'image', widget: 'image' }
+
               - label: 'Code Block'
                 name: 'code'
                 widget: 'object'
                 fields:
-                  - { label: 'Language', name: 'language', widget: 'string' }
-                  - { label: 'Code', name: 'code', widget: 'code', default_language: 'js' }
+                  - { label: 'Language', name: 'language', widget: 'string', default: 'javascript' }
+                  - { label: 'Code', name: 'code', widget: 'code' }
