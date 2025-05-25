@@ -16,7 +16,7 @@ content:
         type: block
         list: true
         blocks:
-          hero:
+          - name: hero
             label: Hero Section
             fields:
               - name: heading
@@ -30,7 +30,7 @@ content:
                 label: Image
                 type: image
                 required: true
-          card:
+          - name: card
             label: Card
             fields:
               - name: title
@@ -43,7 +43,7 @@ content:
               - name: image
                 label: Image
                 type: image
-          code:
+          - name: code
             label: Code Block
             fields:
               - name: language
