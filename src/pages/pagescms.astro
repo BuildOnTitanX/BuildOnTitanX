@@ -3,10 +3,12 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
 import HeroBlock from '@blocks/HeroBlock.astro'
 import CardBlock from '@blocks/CardBlock.astro'
 import CodeBlock from '@blocks/CodeBlock.astro'
+import PageHeader from '@components/PageHeader.astro'
+import { Accordion, AccordionItem } from 'accessible-astro-components'
 import { frontmatter } from '../content/pagescms.md'
 
 interface Block {
-  _block: 'hero' | 'card' | 'code'
+  _block: 'hero' | 'card' | 'code' | 'pageheader' | 'accordion'
   [key: string]: any
 }
 
@@ -24,6 +26,22 @@ const blocks: Block[] = frontmatter?.blocks || []
             return <CardBlock key={`block-${index}`} {...block} />
           case 'code':
             return <CodeBlock key={`block-${index}`} language={block.language}>{block.code}</CodeBlock>
+          case 'pageheader':
+            return <PageHeader key={`block-${index}`} title={block.title} subtitle={block.subtitle} bgType={block.bgType} />
+          case 'accordion':
+            return (
+              <Accordion key={`block-${index}`}>
+                {block.items.map((item, i) => (
+                  <AccordionItem 
+                    key={`accordion-item-${i}`}
+                    title={item.title}
+                    variant={block.useChevron ? 'chevron' : undefined}
+                  >
+                    {item.content}
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            )
           default:
             return null
         }

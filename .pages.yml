@@ -55,3 +55,40 @@ content:
               - name: code
                 label: Code
                 type: code
+          - name: pageheader
+            label: Page Header
+            fields:
+              - name: title
+                label: Title
+                type: string
+                required: true
+              - name: subtitle
+                label: Subtitle
+                type: text
+              - name: bgType
+                label: Background Type
+                type: string
+                default: default
+                options:
+                  - default
+                  - bordered
+                  - filled
+          - name: accordion
+            label: Accordion
+            fields:
+              - name: items
+                label: Items
+                type: list
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: content
+                    label: Content
+                    type: text
+                    required: true
+              - name: useChevron
+                label: Use Chevron Variant
+                type: boolean
+                default: false
