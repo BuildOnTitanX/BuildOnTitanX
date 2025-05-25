@@ -6,6 +6,10 @@ blocks:
     subheading: subheading
     image: /public/uploads/Scale-logo.jpg
   - _block: card
-    title: card2
+    title: card1
     description: desc
+  - _block: card
+    title: Card2
+    description: bla bla bla
+    image: /uploads/6F6A44A2-769F-42EE-BBD2-A46681F14F31-1024x585.png
 ---
