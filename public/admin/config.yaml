@@ -21,10 +21,11 @@ collections:
               - label: 'Hero'
                 name: 'hero'
                 widget: 'object'
+                required: true
                 fields:
-                  - { label: 'Heading', name: 'heading', widget: 'string' }
+                  - { label: 'Heading', name: 'heading', widget: 'string', required: true }
                   - { label: 'Subheading', name: 'subheading', widget: 'string' }
-                  - { label: 'Image', name: 'image', widget: 'image' }
+                  - { label: 'Image', name: 'image', widget: 'image', required: true }
               
               - label: 'Card'
                 name: 'card'
