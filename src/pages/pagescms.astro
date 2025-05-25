@@ -13,6 +13,12 @@ interface Block {
   [key: string]: any
 }
 
+interface AccordionItem {
+  _block: 'accordion_item'
+  title: string
+  content: string
+}
+
 const blocks: Block[] = frontmatter?.blocks || []
 ---
 
@@ -45,15 +51,18 @@ const blocks: Block[] = frontmatter?.blocks || []
               return (
                 <Accordion key={`block-${index}`} allowMultiple={block.allowMultiple}>
                   {Array.isArray(block.items) &&
-                    block.items.map((item, i) => (
-                      <AccordionItem
-                        key={`accordion-item-${i}`}
-                        title={item.title}
-                        variant={block.useChevron ? 'chevron' : undefined}
-                      >
-                        <Fragment set:html={item.content} />
-                      </AccordionItem>
-                    ))}
+                    block.items.map(
+                      (item, i) =>
+                        item._block === 'accordion_item' && (
+                          <AccordionItem
+                            key={`accordion-item-${i}`}
+                            title={item.title}
+                            variant={block.useChevron ? 'chevron' : undefined}
+                          >
+                            <Fragment set:html={item.content} />
+                          </AccordionItem>
+                        ),
+                    )}
                 </Accordion>
               )
             default:
