@@ -1,35 +1,57 @@
-collections:
-  - name: 'pages'
-    label: 'Pages'
-    files:
-      - name: 'pagescms'
-        label: 'Modular Page'
-        file: 'src/pages/pagescms.astro'
+media: public/uploads
+
+content:
+  - name: pagescms
+    label: Modular Page
+    type: file
+    path: src/pages/pagescms.astro
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: blocks
+        label: Content Blocks
+        type: list
         fields:
-          - { label: 'Title', name: 'title', widget: 'string', required: true }
-          - label: 'Content Blocks'
-            name: 'blocks'
-            widget: 'list'
-            types:
-              - label: 'Hero Section'
-                name: 'hero'
-                widget: 'object'
-                fields:
-                  - { label: 'Heading', name: 'heading', widget: 'string', required: true }
-                  - { label: 'Subheading', name: 'subheading', widget: 'string' }
-                  - { label: 'Image', name: 'image', widget: 'image', required: true }
-
-              - label: 'Card'
-                name: 'card'
-                widget: 'object'
-                fields:
-                  - { label: 'Title', name: 'title', widget: 'string', required: true }
-                  - { label: 'Description', name: 'description', widget: 'text' }
-                  - { label: 'Image', name: 'image', widget: 'image' }
-
-              - label: 'Code Block'
-                name: 'code'
-                widget: 'object'
-                fields:
-                  - { label: 'Language', name: 'language', widget: 'string', default: 'javascript' }
-                  - { label: 'Code', name: 'code', widget: 'code' }
+          - name: hero
+            label: Hero Section
+            type: object
+            fields:
+              - name: heading
+                label: Heading
+                type: string
+                required: true
+              - name: subheading
+                label: Subheading
+                type: string
+              - name: image
+                label: Image
+                type: image
+                required: true
+          - name: card
+            label: Card
+            type: object
+            fields:
+              - name: title
+                label: Title
+                type: string
+                required: true
+              - name: description
+                label: Description
+                type: text
+              - name: image
+                label: Image
+                type: image
+          - name: code
+            label: Code Block
+            type: object
+            fields:
+              - name: language
+                label: Language
+                type: string
+                default: javascript
+              - name: code
+                label: Code
+                type: code
