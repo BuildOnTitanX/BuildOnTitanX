@@ -14,15 +14,27 @@ blocks:
     image: /uploads/6F6A44A2-769F-42EE-BBD2-A46681F14F31-1024x585.png
   - _block: pageheader
     title: Accessible components
-    subtitle: This theme has a lot of extra A11Y components provided by the <a
-      href='https://github.com/incluud/accessible-astro-components'>Accessible
-      Astro Components</a> NPM package to help you build accessible pages
-      faster. To learn more about the components and how to use them, checkout
-      our <a href='https://accessible-astro.incluud.dev/'>documentation
-      website</a>. The theme itself ships with many other components you can
-      find in the components folder.
     bgType: bordered
   - _block: accordion
-    items: unterpunkte...
     useChevron: true
+    allowMultiple: false
+    items:
+      - _block: accordion_item
+        title: Title1
+        content: |-
+          *   test
+              
+          *   test
+              
+          *   test
+        subitems:
+          - _block: accordion_subitem
+            title: subitem1
+            content: |-
+              ### bla
+
+              ## blup
+          - _block: accordion_subitem
+            title: subitem2
+            content: "# what"
 ---
