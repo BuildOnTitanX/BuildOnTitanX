@@ -17,4 +17,20 @@ blocks:
     subtitle:
       content: "# A huge header...."
     bgType: bordered
+  - _block: accordion
+    useChevron: false
+    allowMultiple: false
+    items:
+      - title: Title1
+        content: |-
+          test
+
+          *   bullet list
+              
+          *   bla
+              
+
+          ### heading
+
+          > a quote
 ---
