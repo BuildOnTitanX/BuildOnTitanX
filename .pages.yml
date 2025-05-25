@@ -90,7 +90,7 @@ content:
                 default: false
               - name: items
                 label: Items
-                type: object
+                type: block
                 list: true
                 blocks:
                   - name: accordion_item
