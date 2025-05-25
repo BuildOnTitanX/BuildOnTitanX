@@ -104,19 +104,3 @@ content:
                         label: Content
                         type: rich-text
                         required: true
-                      - name: subitems
-                        label: Subitems
-                        type: block
-                        list: true
-                        blocks:
-                          - name: accordion_subitem
-                            label: Accordion Subitem
-                            fields:
-                              - name: title
-                                label: Title
-                                type: string
-                                required: true
-                              - name: content
-                                label: Content
-                                type: rich-text
-                                required: true
