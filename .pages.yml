@@ -58,21 +58,21 @@ content:
           - name: pageheader
             label: Page Header
             fields:
-              - name: title
+              title:
                 label: Title
                 type: string
                 required: true
-              - name: subtitle
+              subtitle:
                 label: Subtitle
-                type: text
-              - name: bgType
+                type: rich-text
+              bgType:
                 label: Background Type
                 type: string
                 default: default
                 options:
-                  - default
-                  - bordered
-                  - filled
+                  default: Default
+                  bordered: Bordered
+                  filled: Filled
           - name: accordion
             label: Accordion
             fields:
@@ -96,9 +96,9 @@ content:
                         label: Title
                         type: string
                         required: true
-                      - name: content
+                      content:
                         label: Content
-                        type: markdown
+                        type: rich-text
                         required: true
                       - name: subitems
                         label: Subitems
@@ -112,7 +112,7 @@ content:
                                 label: Title
                                 type: string
                                 required: true
-                              - name: content
+                              content:
                                 label: Content
-                                type: markdown
+                                type: rich-text
                                 required: true
