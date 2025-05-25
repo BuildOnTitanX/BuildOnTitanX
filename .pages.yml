@@ -4,7 +4,7 @@ content:
   - name: pagescms
     label: Modular Page
     type: file
-    path: src/pages/pagescms.astro
+    path: src/content/pagescms.md
     format: yaml-frontmatter
     fields:
       - name: title

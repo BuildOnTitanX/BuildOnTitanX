@@ -3,29 +3,28 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
 import HeroBlock from '@blocks/HeroBlock.astro'
 import CardBlock from '@blocks/CardBlock.astro'
 import CodeBlock from '@blocks/CodeBlock.astro'
-
 import homepage from '../content/pagescms.md'
+
 const { frontmatter = { blocks: [] } } = homepage || {}
-console.log('Loaded CMS content:', homepage) // Debug output
 ---
 
 <DefaultLayout title={frontmatter.title}>
   <main class="container mx-auto px-4 py-8">
-  {frontmatter.blocks?.length > 0 ? (
-    frontmatter.blocks.map((block, index) => {
-      switch (block.type) {
-        case 'hero':
-          return <HeroBlock key={`block-${index}`} {...block} />
-        case 'card':
-          return <CardBlock key={`block-${index}`} {...block} />
-        case 'code':
-          return <CodeBlock key={`block-${index}`} language={block.language}>{block.code}</CodeBlock>
-        default:
-          return null
-      }
-    })
-  ) : (
-    <p>No blocks added yet. Please add content via the CMS.</p>
-  )}
+    {frontmatter.blocks?.length > 0 ? (
+      frontmatter.blocks.map((block, index) => {
+        switch (block.type) {
+          case 'hero':
+            return <HeroBlock key={`block-${index}`} {...block} />
+          case 'card':
+            return <CardBlock key={`block-${index}`} {...block} />
+          case 'code':
+            return <CodeBlock key={`block-${index}`} language={block.language}>{block.code}</CodeBlock>
+          default:
+            return null
+        }
+      })
+    ) : (
+      <p class="text-center py-8">No blocks added yet. Please add content via the CMS.</p>
+    )}
   </main>
 </DefaultLayout>
