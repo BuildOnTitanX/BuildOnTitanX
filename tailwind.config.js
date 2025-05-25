@@ -5,7 +5,14 @@ export default {
     './node_modules/accessible-astro-components/**/*.js'
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        white: '#ffffff',
+        gray: {
+          900: '#111827',
+        }
+      }
+    },
   },
   plugins: [],
   darkMode: ['class', '.darkmode'],
