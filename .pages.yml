@@ -13,8 +13,9 @@ content:
         required: true
       - name: blocks
         label: Content Blocks
-        type: list
-        fields:
+        type: block
+        list: true
+        types:
           - name: hero
             label: Hero Section
             type: object
