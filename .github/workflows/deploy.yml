@@ -111,9 +111,27 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            set -e
+            set -euo pipefail
+
             STAGING_DIR="/var/www/buildontitanx.com/staging"
-            mv "$STAGING_DIR/_incoming"/* "$STAGING_DIR/"
-            rm -rf "$STAGING_DIR/_incoming"
-            echo "Reloading nginx"
+            INCOMING_DIR="$STAGING_DIR/_incoming"
+
+            echo "==> Starting deployment..."
+            echo "Staging dir: $STAGING_DIR"
+            echo "Incoming dir: $INCOMING_DIR"
+
+            if [ ! -d "$INCOMING_DIR" ]; then
+              echo "❌ Incoming directory not found: $INCOMING_DIR"
+              exit 1
+            fi
+
+            echo "==> Syncing incoming files into staging directory..."
+            rsync -a --delete "$INCOMING_DIR"/ "$STAGING_DIR"/
+
+            echo "==> Cleaning up incoming directory..."
+            rm -rf "$INCOMING_DIR"
+
+            echo "==> Reloading nginx..."
             sudo systemctl reload nginx
+
+            echo "✅ Deployment complete."
