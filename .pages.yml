@@ -15,10 +15,9 @@ content:
         label: Content Blocks
         type: block
         list: true
-        types:
-          - name: hero
+        blocks:
+          hero:
             label: Hero Section
-            type: object
             fields:
               - name: heading
                 label: Heading
@@ -31,9 +30,8 @@ content:
                 label: Image
                 type: image
                 required: true
-          - name: card
+          card:
             label: Card
-            type: object
             fields:
               - name: title
                 label: Title
@@ -45,9 +43,8 @@ content:
               - name: image
                 label: Image
                 type: image
-          - name: code
+          code:
             label: Code Block
-            type: object
             fields:
               - name: language
                 label: Language
