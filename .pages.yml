@@ -76,28 +76,6 @@ content:
           - name: accordion
             label: Accordion
             fields:
-              - name: items
-                label: Items
-                type: list
-                fields:
-                  - name: title
-                    label: Title
-                    type: string
-                    required: true
-                  - name: content
-                    label: Content
-                    type: markdown
-                    required: true
-                  - name: subitems
-                    label: Subitems
-                    type: list
-                    fields:
-                      - name: title
-                        label: Title
-                        type: string
-                      - name: content
-                        label: Content
-                        type: markdown
               - name: useChevron
                 label: Use Chevron Variant
                 type: boolean
@@ -106,3 +84,35 @@ content:
                 label: Allow Multiple Open
                 type: boolean
                 default: false
+              - name: items
+                label: Items
+                type: block
+                list: true
+                blocks:
+                  - name: accordion_item
+                    label: Accordion Item
+                    fields:
+                      - name: title
+                        label: Title
+                        type: string
+                        required: true
+                      - name: content
+                        label: Content
+                        type: markdown
+                        required: true
+                      - name: subitems
+                        label: Subitems
+                        type: block
+                        list: true
+                        blocks:
+                          - name: accordion_subitem
+                            label: Accordion Subitem
+                            fields:
+                              - name: title
+                                label: Title
+                                type: string
+                                required: true
+                              - name: content
+                                label: Content
+                                type: markdown
+                                required: true
