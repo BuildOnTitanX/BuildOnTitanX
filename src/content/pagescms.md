@@ -17,16 +17,4 @@ blocks:
     subtitle:
       content: "# A huge header...."
     bgType: bordered
-  - _block: accordion
-    useChevron: true
-    allowMultiple: false
-    items:
-      - _block: accordion_item
-        title: Title1
-        content: |-
-          *   test
-              
-          *   test
-              
-          *   test
 ---
