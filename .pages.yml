@@ -86,9 +86,23 @@ content:
                     required: true
                   - name: content
                     label: Content
-                    type: text
+                    type: markdown
                     required: true
+                  - name: subitems
+                    label: Subitems
+                    type: list
+                    fields:
+                      - name: title
+                        label: Title
+                        type: string
+                      - name: content
+                        label: Content
+                        type: markdown
               - name: useChevron
                 label: Use Chevron Variant
+                type: boolean
+                default: false
+              - name: allowMultiple
+                label: Allow Multiple Open
                 type: boolean
                 default: false

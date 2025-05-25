@@ -4,6 +4,7 @@ import HeroBlock from '@blocks/HeroBlock.astro'
 import CardBlock from '@blocks/CardBlock.astro'
 import CodeBlock from '@blocks/CodeBlock.astro'
 import PageHeader from '@components/PageHeader.astro'
+import { Fragment } from 'astro/jsx-runtime'
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 import { frontmatter } from '../content/pagescms.md'
 
@@ -30,14 +31,27 @@ const blocks: Block[] = frontmatter?.blocks || []
             return <PageHeader key={`block-${index}`} title={block.title} subtitle={block.subtitle} bgType={block.bgType} />
           case 'accordion':
             return (
-              <Accordion key={`block-${index}`}>
-                {block.items.map((item, i) => (
+              <Accordion 
+                key={`block-${index}`}
+                allowMultiple={block.allowMultiple}
+              >
+                {Array.isArray(block.items) && block.items.map((item, i) => (
                   <AccordionItem 
                     key={`accordion-item-${i}`}
                     title={item.title}
                     variant={block.useChevron ? 'chevron' : undefined}
                   >
-                    {item.content}
+                    <Fragment set:html={item.content} />
+                    {Array.isArray(item.subitems) && item.subitems.map((subitem, j) => (
+                      <AccordionItem
+                        key={`accordion-subitem-${i}-${j}`}
+                        title={subitem.title}
+                        variant={block.useChevron ? 'chevron' : undefined}
+                        level={2}
+                      >
+                        <Fragment set:html={subitem.content} />
+                      </AccordionItem>
+                    ))}
                   </AccordionItem>
                 ))}
               </Accordion>
