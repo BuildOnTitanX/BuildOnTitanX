@@ -92,12 +92,15 @@ content:
                 label: Items
                 type: object
                 list: true
-                fields:
-                  - name: title
-                    label: Title
-                    type: string
-                    required: true
-                  - name: content
-                    label: Content
-                    type: rich-text
-                    required: true
+                blocks:
+                  - name: accordion_item
+                    label: Accordion Item
+                    fields:
+                      - name: title
+                        label: Title
+                        type: string
+                        required: true
+                      - name: content
+                        label: Content
+                        type: rich-text
+                        required: true
