@@ -18,7 +18,7 @@ blocks:
       content: "# A huge header...."
     bgType: bordered
   - _block: accordion
-    useChevron: false
+    useChevron: true
     allowMultiple: false
     items:
       - title: Title1
@@ -26,9 +26,9 @@ blocks:
           test
 
           *   bullet list
-
+              
           *   bla
-
+              
 
           ### heading
 
