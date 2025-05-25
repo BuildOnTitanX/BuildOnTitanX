@@ -5,6 +5,7 @@ import CardBlock from '@blocks/CardBlock.astro'
 import CodeBlock from '@blocks/CodeBlock.astro'
 import PageHeader from '@components/PageHeader.astro'
 import { Fragment } from 'astro/jsx-runtime'
+import MarkdownIt from 'markdown-it'
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 import { frontmatter } from '../content/pagescms.md'
 
@@ -19,6 +20,7 @@ interface AccordionItem {
   content: string
 }
 
+const md = new MarkdownIt()
 const blocks: Block[] = frontmatter?.blocks || []
 ---
 
@@ -59,7 +61,7 @@ const blocks: Block[] = frontmatter?.blocks || []
                             title={item.title}
                             variant={block.useChevron ? 'chevron' : undefined}
                           >
-                            <Fragment set:html={item.content} />
+                            <Fragment set:html={md.render(item.content)} />
                           </AccordionItem>
                         ),
                     )}
