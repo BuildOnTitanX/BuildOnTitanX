@@ -14,6 +14,8 @@ blocks:
     image: /uploads/6F6A44A2-769F-42EE-BBD2-A46681F14F31-1024x585.png
   - _block: pageheader
     title: Accessible components
+    subtitle:
+      content: "# A huge header...."
     bgType: bordered
   - _block: accordion
     useChevron: true
@@ -27,14 +29,4 @@ blocks:
           *   test
               
           *   test
-        subitems:
-          - _block: accordion_subitem
-            title: subitem1
-            content: |-
-              ### bla
-
-              ## blup
-          - _block: accordion_subitem
-            title: subitem2
-            content: "# what"
 ---
