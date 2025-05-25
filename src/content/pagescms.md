@@ -18,14 +18,21 @@ blocks:
       content: "# A huge header...."
     bgType: bordered
   - _block: accordion
-    useChevron: true
+    useChevron: false
     allowMultiple: false
     items:
       - title: Title1
         content: |-
-          *   test
-              
-          *   test
-              
-          *   test
+          test
+
+          *   bullet list
+
+          *   bla
+
+
+          ### heading
+
+          > a quote
+      - title: "Item2 "
+        content: yeah!!!
 ---
