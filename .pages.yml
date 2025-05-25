@@ -90,17 +90,14 @@ content:
                 default: false
               - name: items
                 label: Items
-                type: block
+                type: object
                 list: true
-                blocks:
-                  - name: accordion_item
-                    label: Accordion Item
-                    fields:
-                      - name: title
-                        label: Title
-                        type: string
-                        required: true
-                      - name: content
-                        label: Content
-                        type: rich-text
-                        required: true
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: content
+                    label: Content
+                    type: rich-text
+                    required: true
