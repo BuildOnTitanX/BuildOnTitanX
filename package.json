@@ -7,9 +7,10 @@
   "homepage": "https://accessible-astro.netlify.app/",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
+    "start": "astro dev", 
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "cms": "pages-cms preview --config pages-cms.config.js"
   },
   "keywords": [
     "astro",
@@ -55,6 +56,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.4",
-    "accessible-astro-components": "^4.1.1"
+    "accessible-astro-components": "^4.1.1",
+    "pages-cms": "github:pages-cms/pages-cms"
   }
 }
