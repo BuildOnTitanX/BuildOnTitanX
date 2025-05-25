@@ -25,6 +25,7 @@ collections:
                 name: "hero"
                 widget: "object"
                 fields:
+                  - { label: "Block Type", name: "_block", widget: "hidden", default: "hero" }
                   - { label: "Heading", name: "heading", widget: "string", required: true }
                   - { label: "Subheading", name: "subheading", widget: "string" }
                   - { label: "Image", name: "image", widget: "image", required: true }

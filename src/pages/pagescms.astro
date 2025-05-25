@@ -12,7 +12,7 @@ const { frontmatter = { blocks: [] } } = homepage || {}
   <main class="container mx-auto px-4 py-8">
     {frontmatter.blocks?.length > 0 ? (
       frontmatter.blocks.map((block, index) => {
-        switch (block.type) {
+        switch (block._block) {
           case 'hero':
             return <HeroBlock key={`block-${index}`} {...block} />
           case 'card':
