@@ -3,15 +3,20 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
 import HeroBlock from '@blocks/HeroBlock.astro'
 import CardBlock from '@blocks/CardBlock.astro'
 import CodeBlock from '@blocks/CodeBlock.astro'
-import homepage from '../content/pagescms.md'
+import { frontmatter } from '../content/pagescms.md'
 
-const { frontmatter = { blocks: [] } } = homepage || {}
+interface Block {
+  _block: 'hero' | 'card' | 'code'
+  [key: string]: any
+}
+
+const blocks: Block[] = frontmatter?.blocks || []
 ---
 
-<DefaultLayout title={frontmatter.title}>
+<DefaultLayout title={frontmatter?.title || 'Modular Page'}>
   <main class="container mx-auto px-4 py-8">
-    {frontmatter.blocks?.length > 0 ? (
-      frontmatter.blocks.map((block, index) => {
+    {blocks.length > 0 ? (
+      blocks.map((block, index) => {
         switch (block._block) {
           case 'hero':
             return <HeroBlock key={`block-${index}`} {...block} />
