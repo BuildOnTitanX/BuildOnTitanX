@@ -35,4 +35,9 @@ blocks:
           > a quote
       - title: "Item2 "
         content: yeah!!!
+      - title: test3
+        content: |-
+          *   hallo
+              
+          *   hallo2
 ---
