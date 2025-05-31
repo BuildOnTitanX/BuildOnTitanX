@@ -1,0 +1,99 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import { Card, Pagination } from 'accessible-astro-components'
+import { getCollection } from 'astro:content'
+import type { GetStaticPaths, Page } from 'astro'
+import type { CollectionEntry } from 'astro:content'
+
+// Import images directly for optimization
+import entryImage1 from '@assets/images/posts/post-image-1.png'
+import entryImage2 from '@assets/images/posts/post-image-2.png'
+import entryImage3 from '@assets/images/posts/post-image-3.png'
+import entryImage4 from '@assets/images/posts/post-image-4.png'
+import entryImage5 from '@assets/images/posts/post-image-5.png'
+import entryImage6 from '@assets/images/posts/post-image-6.png'
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const entries = await getCollection('entries')
+
+  const entryImages = [entryImage1, entryImage2, entryImage3, entryImage4, entryImage5, entryImage6]
+
+  const entriesWithImages = entries.map((entry, index) => {
+    return {
+      ...entry,
+      featuredImage: entryImages[index % entryImages.length],
+    }
+  })
+
+  return paginate(entriesWithImages, { pageSize: 6 })
+}) satisfies GetStaticPaths
+
+interface Props {
+  page: Page<CollectionEntry<'entries'> & { featuredImage: any }>
+}
+
+const { page } = Astro.props
+
+// Prepare pagination props
+const currentPage = page.currentPage
+const totalPages = Math.ceil(page.total / page.size)
+---
+
+<DefaultLayout
+  title="Entries"
+  description="A collection of entries showcasing various topics and content."
+>
+  <PageHeader
+    title="Entries"
+    subtitle='A collection of entries showcasing various topics and content. Learn more about <a href="https://docs.astro.build/en/guides/content-collections/">Astro Content Collections</a> in the official documentation.'
+    bgType="bordered"
+  />
+  <section class="my-12">
+    <div class="container">
+      <p class="text-sm"><em>Entry {page.start + 1} through {page.end + 1} of {page.total} total entries</em></p>
+      <ul class="my-3 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {
+          page.data.map((entry) => (
+            <li>
+              <Card
+                imageComponent={entry.featuredImage}
+                url={'/entries/' + entry.id}
+                title={entry.data.title}
+                footer={'Author: ' + entry.data.author}
+              >
+                {entry.data.description}
+              </Card>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-12 grid place-content-center">
+        <Pagination
+          firstPage={page.url.prev ? '/entries' : null}
+          previousPage={page.url.prev ? page.url.prev : null}
+          nextPage={page.url.next ? page.url.next : null}
+          lastPage={page.url.next ? `/entries/${Math.ceil(page.total / page.size)}` : null}
+          currentPage={`${page.currentPage}`}
+          totalPages={`${Math.ceil(page.total / page.size)}`}
+          ariaLabel="Entries pagination"
+        />
+      </div>
+    </div>
+  </section>
+</DefaultLayout>
+
+<style lang="scss" is:global>
+  @use '../../assets/scss/base/mixins' as *;
+
+  .card {
+    h3 {
+      margin-block-end: var(--space-xs);
+      line-height: 0.75;
+    }
+
+    a {
+      @include text-decoration(transparent, var(--foreground-color), 4px, 2px);
+    }
+  }
+</style>
