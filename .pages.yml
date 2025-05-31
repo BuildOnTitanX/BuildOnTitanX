@@ -69,7 +69,7 @@ content:
                 type: string
                 default: javascript
               - name: code
-                label: entry?.data?.language || javascript
+                label: "{language}"
                 type: code
                 options:
                   lintFn: () => []
