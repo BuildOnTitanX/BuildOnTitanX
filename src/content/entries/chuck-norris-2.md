@@ -16,7 +16,7 @@ blocks:
     bgType: "filled"
   - _block: code
     language: "javascript"
-    rich-text: |
+    code: |
       // Chuck Norris's version of Hello World
       function helloWorld() {
         console.log("Chuck Norris doesn't need functions");
