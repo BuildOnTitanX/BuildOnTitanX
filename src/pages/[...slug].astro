@@ -14,15 +14,15 @@ const md = new MarkdownIt()
 export async function getStaticPaths() {
   const pages = await getCollection('pages')
   return pages.map((page) => ({
-    params: { slug: page.slug },
+    params: { slug: page.id },
     props: { page },
   }))
 }
 
 const { slug } = Astro.params
-const fullSlug = Array.isArray(slug) ? slug.join('/') : slug
-
-const entry = await getEntry('pages', fullSlug)
+const entry = await getCollection('pages').then(pages => 
+  pages.find(p => p.id === slug)
+)
 console.log('Looking for entry:', fullSlug)
 console.log('Found entry:', entry)
 
