@@ -72,7 +72,7 @@ content:
                 label: Code
                 type: code
                 options:
-                  lintFn: () => null
+                  lintFn: () => []
           - name: pageheader
             label: Page Header
             fields:
