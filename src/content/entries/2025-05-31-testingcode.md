@@ -24,7 +24,7 @@ blocks:
 
 
   - _block: code
-    language: python
+    language: vyper
     code: >
       from boa.compile import compile_vyper
 
