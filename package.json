@@ -10,7 +10,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "cms": "pages-cms preview --config pages-cms.config.js"
+    "cms": "pages-cms preview --config pages-cms.config.js",
+    "pagescms": "node --watch node_modules/pages-cms/dev.js"
   },
   "keywords": [
     "astro",
