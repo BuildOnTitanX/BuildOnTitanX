@@ -69,12 +69,12 @@ content:
                 type: string
                 default: javascript
               - name: code
-                label: "{language}"
+                label: code
                 type: code
                 options:
                   lintFn: () => []
-                  language: python
-                  format: python
+                  language: javascript
+                  format: javascript
           - name: pageheader
             label: Page Header
             fields:
