@@ -3,16 +3,23 @@ media:
   output: /uploads
 
 content:
-  - name: pagescms
-    label: Modular Page
-    type: file
-    path: src/content/pagescms.md
+  - name: pages
+    label: Modular Pages
+    type: collection
+    path: src/content/pages
     format: yaml-frontmatter
     fields:
       - name: title
         label: Title
         type: string
         required: true
+      - name: published
+        label: Published
+        type: boolean
+        default: true
+      - name: description
+        label: Description
+        type: string
       - name: blocks
         label: Content Blocks
         type: block
