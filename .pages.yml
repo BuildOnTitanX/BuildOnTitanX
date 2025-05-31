@@ -73,6 +73,7 @@ content:
                 type: code
                 options:
                   lintFn: () => []
+                  language: markdown
           - name: pageheader
             label: Page Header
             fields:
