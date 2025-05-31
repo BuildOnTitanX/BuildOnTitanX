@@ -70,7 +70,9 @@ content:
                 default: javascript
               - name: code
                 label: Code
-                type: rich-text
+                type: code
+                options:
+                  lintFn: () => null
           - name: pageheader
             label: Page Header
             fields:
