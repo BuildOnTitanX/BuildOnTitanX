@@ -3,6 +3,121 @@ media:
   output: /uploads
 
 content:
+  - name: entries
+    label: Entries
+    type: collection
+    path: src/content/entries
+    format: yaml-frontmatter
+    fields:
+      - name: id
+        label: ID
+        type: string
+        required: true
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: published
+        label: Published
+        type: boolean
+        default: true
+      - name: description
+        label: Description
+        type: string
+        required: true
+      - name: author
+        label: Author
+        type: string
+        required: false
+      - name: blocks
+        label: Content Blocks
+        type: block
+        list: true
+        blocks:
+          - name: hero
+            label: Hero Section
+            fields:
+              - name: heading
+                label: Heading
+                type: string
+                required: true
+              - name: subheading
+                label: Subheading
+                type: string
+              - name: image
+                label: Image
+                type: image
+                required: true
+          - name: card
+            label: Card
+            fields:
+              - name: title
+                label: Title
+                type: string
+                required: true
+              - name: description
+                label: Description
+                type: text
+              - name: image
+                label: Image
+                type: image
+          - name: code
+            label: Code Block
+            fields:
+              - name: language
+                label: Language
+                type: string
+                default: javascript
+              - name: code
+                label: Code
+                type: code
+          - name: pageheader
+            label: Page Header
+            fields:
+              - name: title
+                label: Title
+                type: string
+                required: true
+              - name: subtitle
+                label: Subtitle
+                type: object
+                fields:
+                  - name: content
+                    label: Content
+                    type: rich-text
+              - name: bgType
+                label: Background Type
+                type: string
+                default: default
+                options:
+                  default: Default
+                  bordered: Bordered
+                  filled: Filled
+          - name: accordion
+            label: Accordion
+            fields:
+              - name: useChevron
+                label: Use Chevron Variant
+                type: boolean
+                default: false
+              - name: allowMultiple
+                label: Allow Multiple Open
+                type: boolean
+                default: false
+              - name: items
+                label: Items
+                type: object
+                list: true
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: content
+                    label: Content
+                    type: rich-text
+                    required: true
+
   - name: pages
     label: Modular Pages
     type: collection
