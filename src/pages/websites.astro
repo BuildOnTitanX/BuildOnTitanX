@@ -6,17 +6,9 @@ import { getCollection } from 'astro:content'
 import type { GetStaticPaths, Page } from 'astro'
 import type { CollectionEntry } from 'astro:content'
 
-try {
-  const allPages = await getCollection('pages')
-  console.log('Pages collection content:', allPages)
-  if (!allPages || allPages.length === 0) {
-    throw new Error('No pages found in collection')
-  }
-  const publishedPages = allPages.filter((page) => page.data.published !== false)
-} catch (error) {
-  console.error('Error loading pages:', error)
-  throw error
-}
+const allPages = await getCollection('pages')
+console.log('Pages collection content:', allPages)
+const publishedPages = allPages.filter((page) => page.data.published !== false)
 
 const currentPage = 1
 const totalPages = 1
