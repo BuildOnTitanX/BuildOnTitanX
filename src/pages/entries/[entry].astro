@@ -51,7 +51,7 @@ const author = {
               return (
                 <CodeBlock
                   key={`block-${index}`}
-                  code={block.code}
+                  code={typeof block.code === 'string' ? block.code : String(block.code || '')}
                   language={block.language?.toLowerCase() || 'javascript'}
                 />
               )
