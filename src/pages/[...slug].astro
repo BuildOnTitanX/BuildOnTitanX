@@ -12,11 +12,19 @@ import MarkdownIt from 'markdown-it'
 const md = new MarkdownIt()
 
 export async function getStaticPaths() {
-  const pages = await getCollection('pages')
-  return pages.map((page) => ({
-    params: { slug: page.slug.split('/') },
-    props: { page },
-  }))
+  try {
+    const pages = await getCollection('pages')
+    if (!pages || pages.length === 0) {
+      throw new Error('No pages found in collection')
+    }
+    return pages.map((page) => ({
+      params: { slug: page.slug.split('/') },
+      props: { page },
+    }))
+  } catch (error) {
+    console.error('Error in getStaticPaths:', error)
+    throw error
+  }
 }
 
 const { slug } = Astro.params

@@ -54,4 +54,7 @@ const pagesCollection = defineCollection({
 
 export const collections = {
   pages: pagesCollection,
-}
+} as const
+
+// Validate collections
+console.log('Registered collections:', Object.keys(collections))
