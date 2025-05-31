@@ -10,6 +10,13 @@ import path from 'path'
 export default defineConfig({
   compressHTML: true,
   site: 'https://accessible-astro-starter.incluud.dev',
+  markdown: {
+    syntaxHighlight: 'shiki',
+    shikiConfig: {
+      theme: 'github-dark',
+      wrap: true
+    }
+  },
   integrations: [
     mdx(),
     icon(),
