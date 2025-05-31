@@ -2,7 +2,7 @@ import { getSingletonHighlighter } from 'shiki'
 
 const highlighterPromise = getSingletonHighlighter({
   themes: ['github-dark', 'light-plus'],
-  langs: ['javascript', 'typescript', 'bash', 'json', 'markdown'],
+  langs: ['javascript', 'typescript', 'bash', 'json', 'markdown', 'python', 'vyper', 'solidity', 'rust', 'mdx'],
 })
 
 export async function highlight(code: string, lang: string = 'javascript'): Promise<string> {
