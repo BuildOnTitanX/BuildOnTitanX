@@ -1,10 +1,7 @@
 ---
-import { Code } from 'astro:components'
 const { language = 'javascript', children } = Astro.props
 ---
 
-<div class="my-8">
-  <Code lang={language} wrap>
-    {children}
-  </Code>
+<div class="my-8 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto">
+  <pre><code class={`language-${language}`}>{children}</code></pre>
 </div>

@@ -55,7 +55,7 @@ const author = {
             case 'code':
               return (
                 <CodeBlock key={`block-${index}`} language={block.language}>
-                  {block.code.trim()}
+                  {String(block.code).trim()}
                 </CodeBlock>
               )
             case 'pageheader':
