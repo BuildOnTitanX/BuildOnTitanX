@@ -20,6 +20,10 @@ export async function getStaticPaths() {
       console.warn('No pages found in collection, but files exist:', 
         await import('fs').then(fs => fs.readdirSync('src/content/pages')))
     }
+  } catch (error) {
+    console.error('Error in getStaticPaths:', error)
+    return []
+  }
   return pages.map((page) => ({
     params: { slug: page.slug.split('/') },
     props: { page },
