@@ -57,6 +57,7 @@ export const collections = {
 } as const
 
 console.log('Content directory exists:', await import('fs').then(fs => fs.existsSync('src/content/pages')))
+console.log('Content files:', await import('fs').then(fs => fs.readdirSync('src/content/pages')))
 
 // Validate collections
 console.log('Registered collections:', Object.keys(collections))
