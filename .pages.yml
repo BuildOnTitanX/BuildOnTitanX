@@ -176,7 +176,7 @@ content:
                 default: javascript
               - name: code
                 label: Code
-                type: code
+                type: textarea
           - name: pageheader
             label: Page Header
             fields:
