@@ -12,4 +12,10 @@ blocks:
         console.log("Chuck Norris doesn't need functions");
         return "The world says hello to Chuck";
       }
+  - _block: code
+    language: javascript
+    code: |-
+      for (dfdf) {
+      ddfdf
+      }
 ---
