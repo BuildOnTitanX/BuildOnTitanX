@@ -2,14 +2,20 @@
 import { Code } from 'astro:components'
 const { language = 'javascript', children } = Astro.props
 
-// Ensure code is properly formatted and handle undefined
+// Ensure code is properly formatted
 const codeContent = children ? String(children).trim() : ''
 ---
 
 <div class="my-8">
-  {codeContent && (
-    <Code lang={language} wrap>
-      {codeContent}
-    </Code>
-  )}
+  <Code lang={language} wrap>
+    {codeContent}
+  </Code>
 </div>
+
+<style is:global>
+  .astro-code {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: var(--code-bg) !important;
+  }
+</style>

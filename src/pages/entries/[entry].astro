@@ -58,7 +58,7 @@ const author = {
                   key={`block-${index}`} 
                   language={block.language?.toLowerCase() || 'javascript'}
                 >
-                  {block.code}
+                  {String(block.code).trim()}
                 </CodeBlock>
               )
             case 'pageheader':
