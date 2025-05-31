@@ -1,14 +1,15 @@
 ---
-title: test
+id: test-entry
+title: Test Entry
 published: true
-description: monet
+description: This is a test entry demonstrating the block system
 blocks:
   - _block: accordion
     useChevron: false
     allowMultiple: false
     items:
-      - title: item1
-        content: content1
-      - title: item2
-        content: content2
+      - title: First Item
+        content: Content for the first accordion item
+      - title: Second Item
+        content: Content for the second accordion item
 ---

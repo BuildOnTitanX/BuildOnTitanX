@@ -19,8 +19,9 @@ const entries = defineCollection({
   schema: z.object({
     id: z.string(),
     published: z.boolean().default(true),
-    description: z.string().optional(),
+    description: z.string(),
     title: z.string(),
+    author: z.string().optional(),
     blocks: z
       .array(
         z.discriminatedUnion('_block', [
