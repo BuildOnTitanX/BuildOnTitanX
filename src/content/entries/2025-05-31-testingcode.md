@@ -13,7 +13,7 @@ blocks:
         return "The world says hello to Chuck";
       }
   - _block: code
-    language: markdown
+    language: javascript
     code: |+
       # Documentation
 
