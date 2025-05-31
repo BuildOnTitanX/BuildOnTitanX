@@ -73,7 +73,7 @@ content:
                 type: code
                 options:
                   lintFn: () => []
-                  language: javascript
+                  language: python
                   format: python
           - name: pageheader
             label: Page Header
