@@ -6,16 +6,7 @@ import { getCollection } from 'astro:content'
 import type { GetStaticPaths, Page } from 'astro'
 import type { CollectionEntry } from 'astro:content'
 
-let allPages = []
-try {
-  console.log('Before getCollection...')
-  allPages = await getCollection('pages')
-  console.log('Pages collection content:', allPages)
-  console.log('Raw files:', await import('fs').then(fs => fs.readdirSync('src/content/pages')))
-} catch (error) {
-  console.error('Error getting collection:', error)
-  throw error
-}
+const allPages = await getCollection('pages')
 const publishedPages = allPages.filter((page) => page.data.published !== false)
 
 const currentPage = 1
