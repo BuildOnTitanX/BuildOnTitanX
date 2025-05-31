@@ -13,9 +13,11 @@ blocks:
         return "The world says hello to Chuck";
       }
   - _block: code
-    language: javascript
-    code: |-
-      for (dfdf) {
-      ddfdf
-      }
+    language: markdown
+    code: |+
+      # Documentation
+
+      Go to [pagescms.org/docs](https://pagescms.org/docs).
+
+      ## Community chat
 ---
