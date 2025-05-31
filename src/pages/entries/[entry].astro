@@ -54,8 +54,8 @@ const author = {
               return <CardBlock key={`block-${index}`} {...block} />
             case 'code':
               return (
-                <CodeBlock key={`block-${index}`} language={block.language}>
-                  {String(block.code).trim()}
+                <CodeBlock key={`block-${index}`} language={block.language.toLowerCase()}>
+                  {block.code}
                 </CodeBlock>
               )
             case 'pageheader':

@@ -14,6 +14,7 @@ export default defineConfig({
     syntaxHighlight: 'shiki',
     shikiConfig: {
       theme: 'github-dark',
+      langs: ['javascript', 'typescript', 'html', 'css', 'json'],
       wrap: true
     }
   },
