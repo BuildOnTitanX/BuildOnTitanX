@@ -2,6 +2,7 @@ import { z, defineCollection } from 'astro:content'
 
 // Define your "pages" collection schema, adjust fields as needed
 const pagesCollection = defineCollection({
+  type: 'content',
   schema: z.object({
     title: z.string(),
     blocks: z

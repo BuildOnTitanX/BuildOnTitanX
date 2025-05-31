@@ -14,7 +14,8 @@ const md = new MarkdownIt()
 export async function getStaticPaths() {
   const pages = await getCollection('pages')
   return pages.map((page) => ({
-    params: { slug: page.id.split('/') },
+    params: { slug: page.slug.split('/') },
+    props: { page },
   }))
 }
 
