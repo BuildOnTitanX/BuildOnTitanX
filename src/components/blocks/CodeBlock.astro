@@ -1,10 +1,32 @@
 ---
-const { language, children } = Astro.props
+const { language = 'javascript', children } = Astro.props
 ---
 
-<section class="bg-gray-100 px-6 py-12">
-  <h2 class="mb-4 text-center text-2xl font-semibold">Example Code</h2>
-  <div class="mx-auto max-w-3xl">
-    <div>{children}</div>
+<section class="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden my-8">
+  <div class="px-4 py-2 bg-gray-200 dark:bg-gray-700 flex justify-between items-center">
+    <span class="text-sm font-mono text-gray-600 dark:text-gray-300">
+      {language}
+    </span>
+    <button 
+      class="copy-btn text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100"
+      onclick="navigator.clipboard.writeText(this.parentElement.nextElementSibling.textContent.trim())"
+    >
+      Copy
+    </button>
   </div>
+  <pre class="p-4 overflow-x-auto"><code class={`language-${language}`}>{children}</code></pre>
 </section>
+
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const originalText = this.textContent;
+        this.textContent = 'Copied!';
+        setTimeout(() => {
+          this.textContent = originalText;
+        }, 2000);
+      });
+    });
+  });
+</script>
