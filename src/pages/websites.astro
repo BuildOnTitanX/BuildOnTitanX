@@ -8,6 +8,7 @@ import type { CollectionEntry } from 'astro:content'
 
 try {
   const allPages = await getCollection('pages')
+  console.log('Pages collection content:', allPages)
   if (!allPages || allPages.length === 0) {
     throw new Error('No pages found in collection')
   }

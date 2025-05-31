@@ -53,7 +53,7 @@ const pagesCollection = defineCollection({
 })
 
 export const collections = {
-  pages: pagesCollection,
+  'pages': pagesCollection,
 } as const
 
 // Validate collections

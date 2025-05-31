@@ -14,6 +14,7 @@ const md = new MarkdownIt()
 export async function getStaticPaths() {
   try {
     const pages = await getCollection('pages')
+    console.log('Found pages:', pages.map(p => p.id))
     if (!pages || pages.length === 0) {
       throw new Error('No pages found in collection')
     }
