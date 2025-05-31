@@ -6,20 +6,11 @@ import { getCollection } from 'astro:content'
 import type { GetStaticPaths, Page } from 'astro'
 import type { CollectionEntry } from 'astro:content'
 
-export const getStaticPaths = (async ({ paginate }) => {
-  const allPages = await getCollection('pages')
-  const publishedPages = allPages.filter((page) => page.data.published !== false)
+const allPages = await getCollection('pages')
+const publishedPages = allPages.filter((page) => page.data.published !== false)
 
-  return paginate(publishedPages, { pageSize: 6 })
-}) satisfies GetStaticPaths
-
-interface Props {
-  page: Page<CollectionEntry<'pages'>>
-}
-
-const { page } = Astro.props
-const currentPage = page.currentPage
-const totalPages = Math.ceil(page.total / page.size)
+const currentPage = 1
+const totalPages = 1
 ---
 
 <DefaultLayout title="All Pages">
@@ -37,9 +28,9 @@ const totalPages = Math.ceil(page.total / page.size)
 
       <ul class="my-3 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {
-          page.data.map((entry) => (
+          publishedPages.map((entry) => (
             <li>
-              <Card url={`/${entry.slug}`} title={entry.data.title}>
+              <Card url={`/${entry.id}`} title={entry.data.title}>
                 {entry.data.description ?? 'No description available.'}
               </Card>
             </li>
@@ -47,17 +38,19 @@ const totalPages = Math.ceil(page.total / page.size)
         }
       </ul>
 
-      <div class="mt-12 grid place-content-center">
-        <Pagination
-          firstPage={page.url.prev ? '/pages' : null}
-          previousPage={page.url.prev}
-          nextPage={page.url.next}
-          lastPage={page.url.next ? `/pages/${totalPages}` : null}
-          currentPage={String(currentPage)}
-          totalPages={String(totalPages)}
-          ariaLabel="Page navigation"
-        />
-      </div>
+      {totalPages > 1 && (
+        <div class="mt-12 grid place-content-center">
+          <Pagination
+            firstPage="/websites"
+            previousPage={null}
+            nextPage={null}
+            lastPage={`/websites/${totalPages}`}
+            currentPage={String(currentPage)}
+            totalPages={String(totalPages)}
+            ariaLabel="Page navigation"
+          />
+        </div>
+      )}
     </div>
   </section>
 </DefaultLayout>
