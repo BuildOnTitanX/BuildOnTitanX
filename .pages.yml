@@ -74,6 +74,7 @@ content:
                 options:
                   lintFn: () => []
                   language: javascript
+                  format: javascript
           - name: pageheader
             label: Page Header
             fields:
