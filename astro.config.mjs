@@ -15,7 +15,14 @@ export default defineConfig({
     shikiConfig: {
       theme: 'github-dark',
       langs: ['javascript', 'typescript', 'html', 'css', 'json'],
-      wrap: true
+      wrap: true,
+      transformers: [
+        {
+          pre(node) {
+            this.addClassToHast(node, 'astro-code')
+          }
+        }
+      ]
     }
   },
   integrations: [
