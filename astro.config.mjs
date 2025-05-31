@@ -5,7 +5,6 @@ import icon from 'astro-icon'
 import tailwindcss from '@tailwindcss/vite'
 import { fileURLToPath } from 'url'
 import path from 'path'
-import shiki from '@astrojs/shiki'
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,11 +13,7 @@ export default defineConfig({
   integrations: [
     mdx(),
     icon(),
-    compress(),
-    shiki({
-      theme: 'github-dark',
-      wrap: true
-    })
+    compress()
   ],
   vite: {
     css: {
