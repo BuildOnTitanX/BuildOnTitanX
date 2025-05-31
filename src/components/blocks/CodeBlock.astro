@@ -1,32 +1,31 @@
 ---
-import { Code } from 'astro:components'
-const { language = 'javascript', children } = Astro.props
+import { highlight } from '../../utils/highlight.ts'
 
-// Ensure code is properly formatted
-const codeContent = children ? String(children).trim() : ''
+const { code = '', language = 'javascript' } = Astro.props
+const html = await highlight(code, language)
+// const codeContent = typeof code === 'string' ? code.trim() : String(code || '').trim()
+// const languageContent = typeof language === 'string' ? language.trim().toLowerCase() : 'javascript'
 ---
 
-<div class="my-8">
-  <Code lang={language} wrap>
-    {codeContent}
-  </Code>
-</div>
+<div class="astro-code" set:html={html} />
 
 <style is:global>
   .astro-code {
-    padding: 1rem;
     border-radius: 0.5rem;
     background: var(--code-bg) !important;
+    padding: 1rem;
+    overflow-x: auto;
     color: var(--code-text) !important;
+    line-height: 1.5;
+    font-family: monospace;
   }
-  
-  /* Ensure proper contrast in both themes */
+
   :root {
     --code-bg: #f6f8fa;
     --code-text: #24292e;
   }
-  
-  [data-theme="dark"] {
+
+  .darkmode {
     --code-bg: #161b22;
     --code-text: #f0f6fc;
   }

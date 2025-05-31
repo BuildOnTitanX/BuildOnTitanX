@@ -61,8 +61,10 @@
     "tailwindcss": "^4.1.7"
   },
   "dependencies": {
+    "@shikijs/transformers": "^3.4.2",
     "@tailwindcss/vite": "^4.1.4",
     "accessible-astro-components": "^4.1.1",
-    "pages-cms": "github:pages-cms/pages-cms"
+    "pages-cms": "github:pages-cms/pages-cms",
+    "shiki": "^3.4.2"
   }
 }

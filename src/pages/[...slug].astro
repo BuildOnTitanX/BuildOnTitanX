@@ -20,9 +20,7 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params
-const entry = await getCollection('pages').then(pages => 
-  pages.find(p => p.id === slug)
-)
+const entry = await getCollection('pages').then((pages) => pages.find((p) => p.id === slug))
 console.log('Looking for entry:', fullSlug)
 console.log('Found entry:', entry)
 
@@ -45,11 +43,7 @@ const blocks = frontmatter.blocks ?? []
             case 'card':
               return <CardBlock key={`block-${index}`} {...block} />
             case 'code':
-              return (
-                <CodeBlock key={`block-${index}`} language={block.language}>
-                  {block.code}
-                </CodeBlock>
-              )
+              return <CodeBlock key={`block-${index}`} code={block.code} language={block.language} />
             case 'pageheader':
               return (
                 <PageHeader

@@ -17,7 +17,7 @@ export async function getStaticPaths() {
   const entries = await getCollection('entries')
   return entries.map((entry) => ({
     params: { entry: entry.id },
-    props: { entry }
+    props: { entry },
   }))
 }
 
@@ -36,13 +36,8 @@ const author = {
 ---
 
 <DefaultLayout title={entry.data.title} description={entry.data.description}>
-  <PageHeader
-    title={entry.data.title}
-    subtitle={entry.data.description}
-    author={author}
-    bgType="bordered"
-  />
-  
+  <PageHeader title={entry.data.title} subtitle={entry.data.description} author={author} bgType="bordered" />
+
   <main class="container mx-auto px-4 py-8">
     {
       blocks.length > 0 ? (
@@ -54,12 +49,11 @@ const author = {
               return <CardBlock key={`block-${index}`} {...block} />
             case 'code':
               return (
-                <CodeBlock 
-                  key={`block-${index}`} 
+                <CodeBlock
+                  key={`block-${index}`}
+                  code={block.code}
                   language={block.language?.toLowerCase() || 'javascript'}
-                >
-                  {String(block.code).trim()}
-                </CodeBlock>
+                />
               )
             case 'pageheader':
               return (
