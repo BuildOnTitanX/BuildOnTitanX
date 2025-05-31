@@ -30,7 +30,7 @@ const totalPages = 1
         {
           publishedPages.map((entry) => (
             <li>
-              <Card url={`/${entry.id}`} title={entry.data.title}>
+              <Card url={`/${entry.slug}`} title={entry.data.title}>
                 {entry.data.description ?? 'No description available.'}
               </Card>
             </li>

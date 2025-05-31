@@ -23,6 +23,8 @@ const { slug } = Astro.params
 const fullSlug = Array.isArray(slug) ? slug.join('/') : slug
 
 const entry = await getEntry('pages', fullSlug)
+console.log('Looking for entry:', fullSlug)
+console.log('Found entry:', entry)
 
 if (!entry) {
   throw new Error(`Page not found for slug: ${fullSlug}`)
