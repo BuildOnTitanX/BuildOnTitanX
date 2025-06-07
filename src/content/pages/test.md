@@ -10,5 +10,5 @@ blocks:
       - title: item1
         content: content1
       - title: item2
-        content: content2, two, two
+        content: content2, two.
 ---
