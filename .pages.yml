@@ -7,6 +7,7 @@ content:
     label: Entries
     type: collection
     path: src/content/entries
+    filename: '{year}-{month}-{day}-{fields.title}.mdx'
     format: yaml-frontmatter
     fields:
       - name: id
@@ -121,6 +122,11 @@ content:
                     label: Content
                     type: rich-text
                     required: true
+          - name: blocks
+            label: Blocks
+            type: list
+            types:
+            - field: callout
 
   - name: pages
     label: Modular Pages
