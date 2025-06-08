@@ -101,6 +101,9 @@ content:
           - name: accordion
             label: Accordion
             fields:
+              - name: callout
+                label: Callout
+                type: callout
               - name: useChevron
                 label: Use Chevron Variant
                 type: boolean
@@ -122,11 +125,7 @@ content:
                     label: Content
                     type: rich-text
                     required: true
-          - name: blocks
-            label: Blocks
-            type: list
-            types:
-            - field: callout
+
 
   - name: pages
     label: Modular Pages
