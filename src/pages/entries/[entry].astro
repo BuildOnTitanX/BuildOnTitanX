@@ -1,0 +1,106 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import HeroBlock from '@blocks/HeroBlock.astro'
+import CardBlock from '@blocks/CardBlock.astro'
+import CodeBlock from '@blocks/CodeBlock.astro'
+import PageHeader from '@components/PageHeader.astro'
+import SocialShares from '@components/SocialShares.astro'
+import { getCollection } from 'astro:content'
+import { Fragment } from 'astro/jsx-runtime'
+import MarkdownIt from 'markdown-it'
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import type { CollectionEntry } from 'astro:content'
+
+const md = new MarkdownIt()
+
+export async function getStaticPaths() {
+  const entries = await getCollection('entries')
+  return entries.map((entry) => ({
+    params: { entry: entry.id },
+    props: { entry },
+  }))
+}
+
+interface Props {
+  entry: CollectionEntry<'entries'>
+}
+
+const { entry } = Astro.props
+const blocks = entry.data.blocks || []
+
+const author = {
+  name: entry.data.author || 'Unknown Author',
+  image: '/posts/post-image-1.png',
+  bio: 'Entry Author',
+}
+---
+
+<DefaultLayout title={entry.data.title} description={entry.data.description}>
+  <PageHeader title={entry.data.title} subtitle={entry.data.description} author={author} bgType="bordered" />
+
+  <main class="container mx-auto px-4 py-8">
+    {
+      blocks.length > 0 ? (
+        blocks.map((block, index) => {
+          switch (block._block) {
+            case 'hero':
+              return <HeroBlock key={`block-${index}`} {...block} />
+            case 'card':
+              return <CardBlock key={`block-${index}`} {...block} />
+            case 'code':
+              return (
+                <CodeBlock
+                  key={`block-${index}`}
+                  code={typeof block.code === 'string' ? block.code : String(block.code || '')}
+                  language={block.language?.toLowerCase() || 'javascript'}
+                />
+              )
+            case 'pageheader':
+              return (
+                <PageHeader
+                  key={`block-${index}`}
+                  title={block.title}
+                  subtitle={md.render(block.subtitle?.content)}
+                  bgType={block.bgType}
+                />
+              )
+            case 'accordion':
+              return (
+                <Accordion key={`block-${index}`} allowMultiple={block.allowMultiple}>
+                  {Array.isArray(block.items) &&
+                    block.items.map((item, i) => (
+                      <AccordionItem
+                        key={`accordion-item-${i}`}
+                        title={item.title}
+                        variant={block.useChevron ? 'chevron' : undefined}
+                      >
+                        <Fragment set:html={md.render(item.content)} />
+                      </AccordionItem>
+                    ))}
+                </Accordion>
+              )
+            default:
+              return null
+          }
+        })
+      ) : (
+        <p class="py-8 text-center">No blocks added to this entry yet.</p>
+      )
+    }
+  </main>
+
+  <section class="my-12">
+    <div class="narrow space-content container">
+      <h2>Share this entry</h2>
+      <p>Like this entry? Share it with your network!</p>
+      <SocialShares />
+    </div>
+  </section>
+</DefaultLayout>
+
+<style lang="scss" is:global>
+  .narrow {
+    margin-inline: auto;
+    max-width: 65ch;
+  }
+</style>

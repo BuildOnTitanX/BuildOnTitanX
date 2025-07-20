@@ -1,0 +1,46 @@
+backend:
+  name: git-gateway
+  branch: main # oder Ihren tatsächlichen Branch-Namen
+  commit_messages:
+    create: "Create {{collection}} “{{slug}}”"
+    update: "Update {{collection}} “{{slug}}”"
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/content/pagescms.md"
+        label: "Modular Page"
+        name: "pagescms"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - label: "Content Blocks"
+            name: "blocks"
+            widget: "list"
+            types:
+              - label: "Hero Section"
+                name: "hero"
+                widget: "object"
+                fields:
+                  - { label: "Block Type", name: "_block", widget: "hidden", default: "hero" }
+                  - { label: "Heading", name: "heading", widget: "string", required: true }
+                  - { label: "Subheading", name: "subheading", widget: "string" }
+                  - { label: "Image", name: "image", widget: "image", required: true }
+
+              - label: "Card"
+                name: "card"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string", required: true }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Image", name: "image", widget: "image" }
+
+              - label: "Code Block"
+                name: "code"
+                widget: "object"
+                fields:
+                  - { label: "Language", name: "language", widget: "string", default: "javascript" }
+                  - { label: "Code Content", name: "code", widget: "code" }

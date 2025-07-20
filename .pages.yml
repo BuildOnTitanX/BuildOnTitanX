@@ -1,0 +1,239 @@
+media:
+  input: public/uploads
+  output: /uploads
+
+content:
+  - name: entries
+    label: Entries
+    type: collection
+    path: src/content/entries
+    #filename: '{year}-{month}-{day}-{fields.title}.mdx'
+    format: yaml-frontmatter
+    fields:
+      - name: id
+        label: ID
+        type: string
+        required: true
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: published
+        label: Published
+        type: boolean
+        default: true
+      - name: description
+        label: Description
+        type: string
+        required: true
+      - name: author
+        label: Author
+        type: string
+        required: false
+      - name: blocks
+        label: Content Blocks
+        type: block
+        list: true
+        blocks:
+          - name: hero
+            label: Hero Section
+            fields:
+              - name: heading
+                label: Heading
+                type: string
+                required: true
+              - name: subheading
+                label: Subheading
+                type: string
+              - name: image
+                label: Image
+                type: image
+                required: true
+          - name: card
+            label: Card
+            fields:
+              - name: title
+                label: Title
+                type: string
+                required: true
+              - name: description
+                label: Description
+                type: text
+              - name: image
+                label: Image
+                type: image
+          - name: code
+            label: Code Block
+            fields:
+              - name: language
+                label: Language
+                type: string
+                default: javascript
+              - name: code
+                label: code
+                type: code
+                options:
+                  lintFn: () => []
+                  language: javascript
+                  format: javascript
+          - name: pageheader
+            label: Page Header
+            fields:
+              - name: title
+                label: Title
+                type: string
+                required: true
+              - name: subtitle
+                label: Subtitle
+                type: object
+                fields:
+                  - name: content
+                    label: Content
+                    type: rich-text
+              - name: bgType
+                label: Background Type
+                type: string
+                default: default
+                options:
+                  default: Default
+                  bordered: Bordered
+                  filled: Filled
+          - name: accordion
+            label: Accordion
+            fields:
+              - name: callout
+                label: Callout
+                type: callout
+              - name: useChevron
+                label: Use Chevron Variant
+                type: boolean
+                default: false
+              - name: allowMultiple
+                label: Allow Multiple Open
+                type: boolean
+                default: false
+              - name: items
+                label: Items
+                type: object
+                list: true
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: content
+                    label: Content
+                    type: rich-text
+                    required: true
+
+
+  - name: pages
+    label: Modular Pages
+    type: collection
+    path: src/content/pages
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: published
+        label: Published
+        type: boolean
+        default: true
+      - name: description
+        label: Description
+        type: string
+      - name: blocks
+        label: Content Blocks
+        type: block
+        list: true
+        blocks:
+          - name: hero
+            label: Hero Section
+            fields:
+              - name: heading
+                label: Heading
+                type: string
+                required: true
+              - name: subheading
+                label: Subheading
+                type: string
+              - name: image
+                label: Image
+                type: image
+                required: true
+          - name: card
+            label: Card
+            fields:
+              - name: title
+                label: Title
+                type: string
+                required: true
+              - name: description
+                label: Description
+                type: text
+              - name: image
+                label: Image
+                type: image
+          - name: code
+            label: Code Block
+            fields:
+              - name: language
+                label: Language
+                type: string
+                default: javascript
+              - name: code
+                label: Code
+                type: code
+                default: |
+                  // Default code snippet
+                  function helloWorld() {
+                    return "Hello from PagesCMS";
+                  }
+          - name: pageheader
+            label: Page Header
+            fields:
+              - name: title
+                label: Title
+                type: string
+                required: true
+              - name: subtitle
+                label: Subtitle
+                type: object
+                fields:
+                  - name: content
+                    label: Content
+                    type: rich-text
+              - name: bgType
+                label: Background Type
+                type: string
+                default: default
+                options:
+                  default: Default
+                  bordered: Bordered
+                  filled: Filled
+          - name: accordion
+            label: Accordion
+            fields:
+              - name: useChevron
+                label: Use Chevron Variant
+                type: boolean
+                default: false
+              - name: allowMultiple
+                label: Allow Multiple Open
+                type: boolean
+                default: false
+              - name: items
+                label: Items
+                type: object
+                list: true
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: content
+                    label: Content
+                    type: rich-text
+                    required: true

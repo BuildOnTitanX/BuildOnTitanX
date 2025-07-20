@@ -1,0 +1,11 @@
+---
+const { title, description, image } = Astro.props
+---
+
+<section class="px-6 py-12 text-center">
+  <div class="mx-auto max-w-xl rounded-2xl p-6 shadow">
+    <img src={image} alt={title} class="mb-4 w-full rounded-lg" />
+    <h2 class="mb-2 text-2xl font-semibold">{title}</h2>
+    <p class="text-gray-200">{description}</p>
+  </div>
+</section>

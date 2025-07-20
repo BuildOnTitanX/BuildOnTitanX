@@ -1,0 +1,142 @@
+name: Build and Deploy Astro Site
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    outputs:
+      output_dir: ${{ steps.set-vars.outputs.output_dir }}
+      server_path: ${{ steps.set-vars.outputs.server_path }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Astro site
+        run: npm run build
+
+      - name: Set environment-specific variables
+        id: set-vars
+        run: |
+          if [[ "${GITHUB_REF##*/}" == "main" ]]; then
+            echo "output_dir=dist" >> "$GITHUB_OUTPUT"
+            echo "server_path=/var/www/buildontitanx.com" >> "$GITHUB_OUTPUT"
+          else
+            echo "output_dir=dist" >> "$GITHUB_OUTPUT"
+            echo "server_path=/var/www/buildontitanx.com/staging" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload build output
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-dist
+          path: ${{ steps.set-vars.outputs.output_dir }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download build output
+        uses: actions/download-artifact@v4
+        with:
+          name: site-dist
+          path: ./dist
+
+      - name: Re-create SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github_deploy_key
+          chmod 600 ~/.ssh/github_deploy_key
+
+      - name: Debug build output path
+        run: |
+          echo "Output dir: ./dist"
+          ls -lah ./dist || echo "Directory not found"
+
+      - name: Rsync to server
+        run: |
+          rsync -avz --delete -e "ssh -i ~/.ssh/github_deploy_key -o StrictHostKeyChecking=no" \
+            ./dist/ \
+            ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:${{ needs.build.outputs.server_path }}/_incoming
+
+      - name: Finalize deployment for production (main)
+        if: github.ref == 'refs/heads/main'
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            set -e
+            DEPLOY_BASE="/var/www/buildontitanx.com"
+            RELEASES_DIR="$DEPLOY_BASE/releases"
+            TIMESTAMP=$(date +"%Y-%m-%d_%H%M%S")
+            NEW_RELEASE="$RELEASES_DIR/$TIMESTAMP"
+
+            echo "Creating new release at $NEW_RELEASE"
+            mkdir -p "$NEW_RELEASE"
+            mv "$DEPLOY_BASE/_incoming"/* "$NEW_RELEASE"
+            rm -rf "$DEPLOY_BASE/_incoming"
+
+            echo "Updating current symlink"
+            ln -sfn "$NEW_RELEASE" "$DEPLOY_BASE/current"
+
+            echo "Cleaning up old releases (keep last 3)"
+            cd "$RELEASES_DIR"
+            ls -1dt */ | tail -n +4 | xargs -r rm -rf
+
+            echo "Reloading nginx"
+            sudo systemctl reload nginx
+
+      - name: Finalize deployment for staging (develop)
+        if: github.ref == 'refs/heads/develop'
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            set -euo pipefail
+
+            STAGING_DIR="/var/www/buildontitanx.com/staging"
+            INCOMING_DIR="$STAGING_DIR/_incoming"
+
+            echo "==> Preparing deployment..."
+
+            # Ensure incoming exists
+            if [ ! -d "$INCOMING_DIR" ]; then
+              echo "❌ Incoming folder not found: $INCOMING_DIR"
+              exit 1
+            fi
+
+            # Remove all contents from staging (but keep the directory itself)
+            echo "==> Cleaning staging directory..."
+            find "$STAGING_DIR" -mindepth 1 -maxdepth 1 ! -name '_incoming' -exec rm -rf {} +
+
+            # Move files from incoming to staging
+            echo "==> Moving new files into place..."
+            mv "$INCOMING_DIR"/* "$STAGING_DIR"/
+
+            # Remove the empty _incoming directory
+            rm -rf "$INCOMING_DIR"
+
+            # Reload nginx
+            echo "==> Reloading nginx..."
+            sudo systemctl reload nginx
+
+            echo "✅ Deployment complete."

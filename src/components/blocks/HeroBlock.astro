@@ -1,0 +1,9 @@
+---
+const { heading, subheading, image } = Astro.props
+---
+
+<section class="px-6 py-12 text-center">
+  <img src={image} alt={heading} class="mx-auto mb-6 max-w-xl rounded-lg shadow-md" />
+  <h1 class="mb-2 text-4xl font-bold">{heading}</h1>
+  <p class="text-xl text-gray-700">{subheading}</p>
+</section>

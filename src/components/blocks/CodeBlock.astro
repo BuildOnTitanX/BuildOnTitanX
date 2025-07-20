@@ -1,0 +1,32 @@
+---
+import { highlight } from '../../utils/highlight.ts'
+
+const { code = '', language = 'javascript' } = Astro.props
+const html = await highlight(code, language)
+// const codeContent = typeof code === 'string' ? code.trim() : String(code || '').trim()
+// const languageContent = typeof language === 'string' ? language.trim().toLowerCase() : 'javascript'
+---
+
+<div class="astro-code" set:html={html} />
+
+<style is:global>
+  .astro-code {
+    border-radius: 0.5rem;
+    background: var(--code-bg) !important;
+    padding: 1rem;
+    overflow-x: auto;
+    color: var(--code-text) !important;
+    line-height: 1.5;
+    font-family: monospace;
+  }
+
+  :root {
+    --code-bg: #f6f8fa;
+    --code-text: #24292e;
+  }
+
+  .darkmode {
+    --code-bg: #161b22;
+    --code-text: #f0f6fc;
+  }
+</style>

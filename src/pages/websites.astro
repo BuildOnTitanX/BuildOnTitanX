@@ -1,0 +1,56 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import { Card, Pagination } from 'accessible-astro-components'
+import { getCollection } from 'astro:content'
+import type { GetStaticPaths, Page } from 'astro'
+import type { CollectionEntry } from 'astro:content'
+
+const allPages = await getCollection('pages')
+const publishedPages = allPages.filter((page) => page.data.published !== false)
+
+const currentPage = 1
+const totalPages = 1
+---
+
+<DefaultLayout title="All Pages">
+  <PageHeader
+    title="Block Pages"
+    subtitle="Pages created with modular content blocks via PagesCMS."
+    bgType="bordered"
+  />
+
+  <section class="my-12">
+    <div class="container">
+      <p class="text-sm italic">
+        Page {currentPage} of {totalPages}
+      </p>
+
+      <ul class="my-3 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {
+          publishedPages.map((entry) => (
+            <li>
+              <Card url={`/${entry.id}`} title={entry.data.title}>
+                {entry.data.description ?? 'No description available.'}
+              </Card>
+            </li>
+          ))
+        }
+      </ul>
+
+      {totalPages > 1 && (
+        <div class="mt-12 grid place-content-center">
+          <Pagination
+            firstPage="/websites"
+            previousPage={null}
+            nextPage={null}
+            lastPage={`/websites/${totalPages}`}
+            currentPage={String(currentPage)}
+            totalPages={String(totalPages)}
+            ariaLabel="Page navigation"
+          />
+        </div>
+      )}
+    </div>
+  </section>
+</DefaultLayout>

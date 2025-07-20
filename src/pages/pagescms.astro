@@ -1,0 +1,75 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import HeroBlock from '@blocks/HeroBlock.astro'
+import CardBlock from '@blocks/CardBlock.astro'
+import CodeBlock from '@blocks/CodeBlock.astro'
+import PageHeader from '@components/PageHeader.astro'
+import { Fragment } from 'astro/jsx-runtime'
+import MarkdownIt from 'markdown-it'
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { frontmatter } from '../content/pagescms.md'
+
+interface Block {
+  _block: 'hero' | 'card' | 'code' | 'pageheader' | 'accordion'
+  [key: string]: any
+}
+
+interface AccordionItemType {
+  title: string
+  content: string
+}
+
+const md = new MarkdownIt()
+const blocks: Block[] = frontmatter?.blocks || []
+---
+
+<DefaultLayout title={frontmatter?.title || 'Modular Page'}>
+  <main class="container mx-auto px-4 py-8">
+    {
+      blocks.length > 0 ? (
+        blocks.map((block, index) => {
+          switch (block._block) {
+            case 'hero':
+              return <HeroBlock key={`block-${index}`} {...block} />
+            case 'card':
+              return <CardBlock key={`block-${index}`} {...block} />
+            case 'code':
+              return (
+                <CodeBlock key={`block-${index}`} language={block.language}>
+                  {String(block.code).trim()}
+                </CodeBlock>
+              )
+            case 'pageheader':
+              return (
+                <PageHeader
+                  key={`block-${index}`}
+                  title={block.title}
+                  subtitle={md.render(block.subtitle?.content)}
+                  bgType={block.bgType}
+                />
+              )
+            case 'accordion':
+              return (
+                <Accordion key={`block-${index}`} allowMultiple={block.allowMultiple}>
+                  {Array.isArray(block.items) &&
+                    block.items.map((item, i) => (
+                      <AccordionItem
+                        key={`accordion-item-${i}`}
+                        title={item.title}
+                        variant={block.useChevron ? 'chevron' : undefined}
+                      >
+                        <Fragment set:html={md.render(item.content)} />
+                      </AccordionItem>
+                    ))}
+                </Accordion>
+              )
+            default:
+              return null
+          }
+        })
+      ) : (
+        <p class="py-8 text-center">No blocks added yet. Please add content via the CMS.</p>
+      )
+    }
+  </main>
+</DefaultLayout>

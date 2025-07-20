@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" width="192" height="32" viewBox="0 0 192 32">
+  <rect width="191" height="31" x=".5" y=".5" fill="#1A1B1E" rx="3.5" />
+  <rect width="191" height="31" x=".5" y=".5" fill="url(#a)" fill-opacity=".5" rx="3.5" />
+  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">
+    BuildOnTitanX
+  </text>
+  <defs>
+    <linearGradient id="a" x1="0" x2="142.24" y1="32" y2="-69.64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1cff00" />
+      <stop offset="1" stop-color="#1cff00" />
+    </linearGradient>
+    <linearGradient id="b" x1="0" x2="142.24" y1="32" y2="-69.64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1cff00" />
+      <stop offset="1" stop-color="#1cff00" />
+    </linearGradient>
+  </defs>
+</svg>
