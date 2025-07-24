@@ -267,10 +267,7 @@ import Logo from './Logo.astro'
       }
 
       .desktop-menu {
-        position: absolute;
-        visibility: hidden;
-        z-index: -99;
-        inset-inline-start: 0;
+        display: none;
       }
 
       .responsive-toggle {
@@ -303,8 +300,8 @@ import Logo from './Logo.astro'
         button[aria-expanded='true'],
         .has-dropdown > button:hover,
         .has-dropdown > button:focus-visible {
+          color: var(--brand-secondary);
           text-decoration: underline;
-          text-decoration-style: wavy;
           text-decoration-thickness: 1px;
           text-underline-offset: 7px;
         }

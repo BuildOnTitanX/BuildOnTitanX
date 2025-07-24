@@ -71,7 +71,6 @@ const { class: className } = Astro.props
 
   .responsive-toggle {
     display: none;
-    margin-block-start: 6px;
     border: none;
     background: transparent;
     padding: 0;
@@ -86,15 +85,6 @@ const { class: className } = Astro.props
 
       path {
         transition: fill var(--animation-speed-fast) var(--cubic-bezier);
-      }
-    }
-
-    &:where(:hover, :focus-visible) {
-      span {
-        text-decoration: underline;
-        text-decoration-style: wavy;
-        text-decoration-thickness: 1px;
-        text-underline-offset: 7px;
       }
     }
   }

@@ -3,8 +3,8 @@
   interpolate-size: allow-keywords;
 
   // brand colors (change these to your own brand colors)
-  --brand-primary: #d648ff;
-  --brand-secondary: #00d1b7;
+  --brand-primary: rgb(0, 82, 255);
+  --brand-secondary: #1cff00;
   --brand-neutral: #b9bec4;
 
   // pallet brand
@@ -32,22 +32,27 @@
 
   // color scheme
   --foreground-color: light-dark(var(--color-neutral-800), var(--color-neutral-100));
-  --background-color: light-dark(var(--color-neutral-100), var(--color-neutral-900));
+  /* --background-color: light-dark(var(--color-neutral-100), var(--color-neutral-900)); */
+  --background-color: light-dark(var(--color-neutral-100), #020203);
   --icon-color: light-dark(var(--color-neutral-800), var(--color-neutral-100));
   --link-color: light-dark(var(--color-primary-400), var(--color-secondary-100));
   --link-hover-color: light-dark(var(--color-primary-300), var(--color-secondary-200));
-  --border-color: light-dark(var(--color-neutral-900), var(--color-neutral-100));
+  /* --border-color: light-dark(var(--color-neutral-900), var(--color-neutral-100)); */
+  --border-color: light-dark(var(--color-neutral-900), #1cff00);
   --border-color-subtle: light-dark(var(--color-neutral-300), var(--color-neutral-800));
   --text-decoration-color: light-dark(var(--color-neutral-700), var(--color-neutral-100));
   --text-decoration-color-hover: light-dark(var(--color-neutral-100), var(--color-neutral-200));
+  --bgGutter: #040b14;
+  --bgGutterSize: 20px;
 
   // theme settings
   --radius-small: 3px;
   --radius-large: 6px;
   --gap-default: 2rem;
   --font-measure: 70ch;
-  --font-family-default: 'Atkinson Hyperlegible', sans-serif;
-  --font-family-special: 'Atkinson Hyperlegible', sans-serif;
+  --font-family-default: 'Satoshi', sans-serif;
+  --font-family-special: 'Satoshi', sans-serif;
+  --font-family-thin: 'Roboto', sans-serif;
 
   // font families
   --font-heading: var(--font-family-special);

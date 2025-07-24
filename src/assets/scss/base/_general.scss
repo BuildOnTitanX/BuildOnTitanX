@@ -4,9 +4,14 @@
   navigation: auto;
 }
 
+/* html {
+  font-size: 62.5%;
+} */
+
 body {
   font-weight: 400;
   font-size: 1.15rem;
+  /* font-size: 1.8rem; */
   line-height: 1.5;
   font-family: var(--font-body);
   font-synthesis: none;
@@ -15,8 +20,29 @@ body {
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+
   background-color: var(--background-color);
   color: var(--foreground-color);
+}
+
+.darkmode {
+  body {
+    background-image:
+      repeating-linear-gradient(
+        to right,
+        var(--bgGutter),
+        var(--bgGutter) 1px,
+        transparent 1px,
+        transparent var(--bgGutterSize)
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        var(--bgGutter),
+        var(--bgGutter) 1px,
+        transparent 1px,
+        transparent var(--bgGutterSize)
+      );
+  }
 }
 
 a {
@@ -58,4 +84,15 @@ footer a {
 *:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
+}
+
+.text-gradient {
+  background: linear-gradient(
+    315deg,
+    light-dark(var(--color-primary-300), var(--color-secondary-100)) 25%,
+    light-dark(black, var(--color-primary-200))
+  );
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
