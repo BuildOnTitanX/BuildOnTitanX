@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   release:
     name: Create GitHub Release
@@ -17,26 +20,22 @@ jobs:
       - name: Extract version and changelog notes
         id: changelog
         run: |
-          # Get the latest version from CHANGELOG.md (assuming ## [1.2.3] format)
           VERSION=$(grep -m1 '^## \[[0-9]' CHANGELOG.md | sed -E 's/^## \[([0-9]+\.[0-9]+\.[0-9]+)\].*/\1/')
-          
+
           if [ -z "$VERSION" ]; then
             echo "❌ No version found in CHANGELOG.md"
             exit 1
           fi
 
-          # Extract the notes for the version
-          NOTES=$(awk "/## \\[$VERSION\\]/,/## \\[/" CHANGELOG.md | sed '1d;$d')
+          NOTES=$(awk "/## \\[$VERSION\\]/ {flag=1; next} /^## \\[/ {flag=0} flag" CHANGELOG.md)
 
           echo "VERSION=$VERSION" >> "$GITHUB_ENV"
-          echo "RELEASE_NOTES<<EOF" >> "$GITHUB_ENV"
-          echo "$NOTES" >> "$GITHUB_ENV"
-          echo "EOF" >> "$GITHUB_ENV"
+          echo "$NOTES" > release_notes.md
 
       - name: Create Git tag with date fallback
         env:
           VERSION: ${{ env.VERSION }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
@@ -49,8 +48,10 @@ jobs:
             TAG="${TAG}-${DATE_SUFFIX}"
           fi
 
+          # Use PAT for push
+          git remote set-url origin https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}
           git tag "$TAG"
-          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }} "$TAG"
+          git push origin "$TAG"
 
           echo "TAG=$TAG" >> "$GITHUB_ENV"
 
@@ -59,6 +60,6 @@ jobs:
         with:
           tag_name: ${{ env.TAG }}
           name: ${{ env.TAG }}
-          body: ${{ env.RELEASE_NOTES }}
+          body_path: release_notes.md
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
