@@ -30,3 +30,21 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Show environment
+        run: |
+          echo "PATH: $PATH"
+          echo "whoami: $(whoami)"
+          echo "node version: $(node -v)"
+          echo "npm version: $(npm -v)"
+
+      - name: Check if pnpm is installed
+        run: |
+          echo "Trying to find pnpm..."
+          which pnpm || echo "pnpm NOT FOUND"
+          pnpm --version || echo "pnpm --version failed"
+
+      - name: Try installing again
+        run: |
+          npm install -g pnpm
+          pnpm --version
