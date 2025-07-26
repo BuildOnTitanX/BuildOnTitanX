@@ -24,10 +24,10 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Build Astro site
-        run: npm run build
+        run: pnpm run build
 
       - name: Set environment-specific variables
         id: set-vars
