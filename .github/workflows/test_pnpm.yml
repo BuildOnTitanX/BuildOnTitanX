@@ -1,4 +1,4 @@
-name: Test pnpm install
+name: Reproduce and Fix pnpm
 
 on:
   push:
@@ -20,13 +20,13 @@ jobs:
           node-version: '20'
           cache: 'pnpm'
 
-      - name: Setup pnpm
+      - name: Install pnpm
         uses: pnpm/action-setup@v3
         with:
           version: 9
 
-      - name: Show pnpm version
-        run: pnpm --version
+      - name: Verify pnpm install
+        run: which pnpm && pnpm --version
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
