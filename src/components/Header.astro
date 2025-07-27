@@ -66,8 +66,12 @@ import { Icon } from 'astro-icon/components'
     </li> -->
     <li class="menu-item type-icon animate-rotate">
       <DarkMode>
-        <Icon name="lucide:moon" slot="light" />
-        <Icon name="lucide:sun" slot="dark" />
+        <span slot="light">
+          <Icon name="lucide:moon" />
+        </span>
+        <span slot="dark">
+          <Icon name="lucide:sun" />
+        </span>
       </DarkMode>
     </li>
   </Navigation>

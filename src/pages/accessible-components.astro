@@ -155,7 +155,9 @@ import {
           </Breadcrumbs>
           <Breadcrumbs>
             <BreadcrumbsItem href="/" label="Home" hasIcon>
-              <Icon name="lucide:home" slot="icon" />
+              <span slot="icon">
+                <Icon name="lucide:home" />
+              </span>
             </BreadcrumbsItem>
             <BreadcrumbsItem href="/docs" label="Documentation" />
             <BreadcrumbsItem label="Breadcrumbs" currentPage={true} />
@@ -175,7 +177,9 @@ import {
           </Breadcrumbs>
           <Breadcrumbs>
             <BreadcrumbsItem href="/" label="Home" hasIcon>
-              <Icon name="lucide:home" slot="icon" />
+              <span slot="icon">
+                <Icon name="lucide:home" />
+              </span>
               <span slot="separator" class="separator" aria-hidden="true">
                 <Icon name="lucide:chevron-right" />
               </span>
@@ -209,8 +213,12 @@ import {
           <div class="flex gap-2">
             <DarkMode />
             <DarkMode>
-              <Icon name="lucide:sun" slot="light" />
-              <Icon name="lucide:moon" slot="dark" />
+              <span slot="light">
+                <Icon name="lucide:sun" />
+              </span>
+              <span slot="dark">
+                <Icon name="lucide:moon" />
+              </span>
             </DarkMode>
           </div>
         </div>
