@@ -298,6 +298,7 @@ import Logo from './Logo.astro'
         a:focus-visible,
         .is-active,
         button[aria-expanded='true'],
+        button.darkmode-toggle:hover,
         .has-dropdown > button:hover,
         .has-dropdown > button:focus-visible {
           color: light-dark(var(--brand-primary), var(--brand-secondary));
@@ -310,6 +311,7 @@ import Logo from './Logo.astro'
           font-weight: bold;
         }
 
+        /* this is broken and always gets triggered as active, dont use for now.. */
         .highlight a {
           display: inline-flex;
           align-items: center;
