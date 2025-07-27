@@ -16,27 +16,29 @@ const {
 ---
 
 <div class="card">
-  <div class="card__image">
-    <img src={img} alt="" />
-  </div>
-  <div class="card__content">
-    <div class="card__background"></div>
-    <div class="card__text">
-      <h3>
-        <a href={url}>{title}</a>
-      </h3>
-      <div class="flex grow flex-col justify-between">
-        <div class="text-ellipsis-4">
-          <p>
-            <slot>Default description.</slot>
-          </p>
+  <a href={url}>
+    <div class="card__image">
+      <img src={img} alt="" />
+    </div>
+    <div class="card__content">
+      <div class="card__background"></div>
+      <div class="card__text">
+        <h3>
+          {title}
+        </h3>
+        <div class="flex grow flex-col justify-between">
+          <div class="text-ellipsis-4">
+            <p>
+              <slot>Default description.</slot>
+            </p>
+          </div>
+          <small class="card__footer">
+            {footer}
+          </small>
         </div>
-        <small class="card__footer">
-          {footer}
-        </small>
       </div>
     </div>
-  </div>
+  </a>
 
   <style lang="scss" is:global>
     @use '../assets/scss/base/utility' as *;
@@ -59,8 +61,12 @@ const {
     .card:focus-within {
       box-shadow: 0 0 0 0.1rem var(--link-hover-color);
     }
-    .card:hover a,
-    .card:focus a {
+    .card a {
+      text-decoration: none;
+    }
+
+    .card:hover a h3,
+    .card:focus a h3 {
       color: var(--link-hover-color) !important;
     }
 
