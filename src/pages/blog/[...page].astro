@@ -1,7 +1,8 @@
 ---
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 import PageHeader from '@components/PageHeader.astro'
-import { Card, Pagination } from 'accessible-astro-components'
+import Card from '../../components/Card.astro'
+import { Pagination } from 'accessible-astro-components'
 import type { PaginateFunction, Page } from 'astro'
 
 // Import images directly for optimization
@@ -96,18 +97,3 @@ const { page } = Astro.props as Props
     </div>
   </section>
 </DefaultLayout>
-
-<style lang="scss" is:global>
-  @use '../../assets/scss/base/mixins' as *;
-
-  .card {
-    h3 {
-      margin-block-end: var(--space-xs);
-      line-height: 0.75;
-    }
-
-    a {
-      @include text-decoration(transparent, var(--foreground-color), 4px, 2px);
-    }
-  }
-</style>

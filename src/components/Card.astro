@@ -1,0 +1,133 @@
+---
+interface Props {
+  url?: string
+  img?: string
+  title?: string
+  footer: string
+  children?: string | HTMLElement | HTMLElement[]
+}
+
+const {
+  url = '#',
+  img = 'https://fakeimg.deblan.org/600x400/590359/fff',
+  title = 'Default title',
+  footer = 'Your name',
+} = Astro.props
+---
+
+<div class="card">
+  <div class="card__image">
+    <img src={img} alt="" />
+  </div>
+  <div class="card__content">
+    <div class="card__background"></div>
+    <div class="card__text">
+      <h3>
+        <a href={url}>{title}</a>
+      </h3>
+      <div class="flex grow flex-col justify-between">
+        <div class="text-ellipsis-4">
+          <p>
+            <slot>Default description.</slot>
+          </p>
+        </div>
+        <small class="card__footer">
+          {footer}
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <style lang="scss" is:global>
+    @use '../assets/scss/base/utility' as *;
+    @use '../assets/scss/base/breakpoint' as *;
+
+    .card {
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      justify-content: end;
+      transition: box-shadow 0.15s ease-in-out;
+      cursor: pointer;
+      border-radius: 1.5rem;
+      max-width: 60ch;
+      min-height: 500px;
+      overflow: hidden;
+    }
+
+    .card:hover,
+    .card:focus-within {
+      box-shadow: 0 0 0 0.1rem var(--link-hover-color);
+    }
+    .card:hover a,
+    .card:focus a {
+      color: var(--link-hover-color) !important;
+    }
+
+    .card__image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card__background {
+      position: absolute;
+      opacity: 0.8;
+      inset: 0;
+      background-color: black;
+      width: 100%;
+      height: 100%;
+    }
+
+    .card__content {
+      display: flex;
+      position: relative;
+      padding: 1.5rem;
+      min-height: 200px;
+
+      @include breakpoint(m) {
+        min-height: 300px;
+      }
+    }
+
+    .card__text {
+      display: flex;
+      position: relative;
+      flex-grow: 1;
+      flex-direction: column;
+      z-index: 11;
+      overflow-x: auto;
+      color: white;
+    }
+
+    .card__content a {
+      color: white;
+      text-decoration: none !important;
+    }
+
+    .card__content h3,
+    .card__content p {
+      color: white;
+    }
+
+    .card__content h3 {
+      margin-bottom: var(--space-xs);
+      width: 100%;
+      font-weight: 200;
+      font-size: var(--font-size-3);
+      line-height: 1.1;
+      font-family: 'Roboto';
+    }
+
+    .card__footer {
+      margin-top: var(--space-xs);
+    }
+  </style>
+</div>

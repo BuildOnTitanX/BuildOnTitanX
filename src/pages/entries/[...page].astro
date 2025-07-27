@@ -1,7 +1,9 @@
 ---
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 import PageHeader from '@components/PageHeader.astro'
-import { Card, Pagination } from 'accessible-astro-components'
+// import { Card, Pagination } from 'accessible-astro-components'
+import Card from '../../components/Card.astro'
+import { Pagination } from 'accessible-astro-components'
 import { getCollection } from 'astro:content'
 import type { GetStaticPaths, Page } from 'astro'
 import type { CollectionEntry } from 'astro:content'
@@ -40,10 +42,7 @@ const currentPage = page.currentPage
 const totalPages = Math.ceil(page.total / page.size)
 ---
 
-<DefaultLayout
-  title="Entries"
-  description="A collection of entries showcasing various topics and content."
->
+<DefaultLayout title="Entries" description="A collection of entries showcasing various topics and content.">
   <PageHeader
     title="Entries"
     subtitle='A collection of entries showcasing various topics and content. Learn more about <a href="https://docs.astro.build/en/guides/content-collections/">Astro Content Collections</a> in the official documentation.'
@@ -82,18 +81,3 @@ const totalPages = Math.ceil(page.total / page.size)
     </div>
   </section>
 </DefaultLayout>
-
-<style lang="scss" is:global>
-  @use '../../assets/scss/base/mixins' as *;
-
-  .card {
-    h3 {
-      margin-block-end: var(--space-xs);
-      line-height: 0.75;
-    }
-
-    a {
-      @include text-decoration(transparent, var(--foreground-color), 4px, 2px);
-    }
-  }
-</style>
