@@ -10,14 +10,17 @@ $breakpoints: (
 
 @mixin breakpoint($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
+    $value: map-get($breakpoints, $breakpoint);
+    @debug "✅ breakpoint('#{$breakpoint}') -> min-width: #{$value}";
+    @media (min-width: $value) {
       @content;
     }
-  } @else if (type_of($breakpoint) == number) {
-    @media (min-width: #{$breakpoint}px) {
+  } @else if type-of($breakpoint) == 'number' or type-of($breakpoint) == 'string' {
+    @debug "✅ breakpoint(raw '#{$breakpoint}')";
+    @media (min-width: #{$breakpoint}) {
       @content;
     }
   } @else {
-    @error "Not a correct value";
+    @error "🚫 Invalid breakpoint: `#{$breakpoint}`. Must be a key in \$breakpoints or a valid unit.";
   }
 }
