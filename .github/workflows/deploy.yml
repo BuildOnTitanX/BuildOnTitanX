@@ -34,6 +34,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+        env:
+          PNPM_FETCH_RETRIES: 4
+          PNPM_FETCH_RETRIES_MAINTAIN_EXISTING_TARBALLS: true
 
       - name: Build Astro site
         run: pnpm run build
