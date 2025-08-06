@@ -152,39 +152,39 @@ $gap-map: (
 $font-map: (
   -2: (
       font-size: var(--font-size--2),
-      line-height: var(--font-size--2),
+      line-height: var(--font-size--1),
     ),
   -1: (
       font-size: var(--font-size--1),
-      line-height: var(--font-size--1),
+      line-height: var(--font-size-0),
     ),
   0: (
     font-size: var(--font-size-0),
-    line-height: var(--font-size-0),
+    line-height: var(--font-size-1),
   ),
   1: (
     font-size: var(--font-size-1),
-    line-height: var(--font-size-1),
+    line-height: var(--font-size-2),
   ),
   2: (
     font-size: var(--font-size-2),
-    line-height: var(--font-size-2),
+    line-height: var(--font-size-3),
   ),
   3: (
     font-size: var(--font-size-3),
-    line-height: var(--font-size-3),
+    line-height: var(--font-size-4),
   ),
   4: (
     font-size: var(--font-size-4),
-    line-height: var(--font-size-4),
+    line-height: var(--font-size-5),
   ),
   5: (
     font-size: var(--font-size-5),
-    line-height: var(--font-size-5),
+    line-height: var(--font-size-6),
   ),
   6: (
     font-size: var(--font-size-6),
-    line-height: var(--font-size-6),
+    line-height: var(--font-size-7),
   )
 );
 

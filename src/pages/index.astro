@@ -10,118 +10,157 @@ import { Accordion, AccordionItem, Avatar, AvatarGroup } from 'accessible-astro-
 
 <DefaultLayout title="Home">
   <Hero />
+
+  <section class="my-32 md:my-64">
+    <div class="space-content container">
+      <h2 class="font-6">A New Standard for Decentralized Finance</h2>
+      <div class="text-2xl">
+        <p>
+          Welcome to TitanX, a hyper-deflationary DeFi 3.0 ecosystem built from the ground up with no insiders, no
+          pre-sales, and no compromises. 100% fair launch. 100% community-owned. Designed for long-term value, not hype.
+        </p>
+        <p>
+          TitanX was born from a simple belief: DeFi should belong to the many, not the few. No venture capital. No
+          privileged insiders. Just code, community, and unstoppable innovation.
+        </p>
+        <p>
+          We’re creating the world’s first hyper-deflationary, fully fair-launched DeFi ecosystem — one that empowers
+          builders, rewards users, and restores trust in decentralized finance. If you believe in transparency,
+          composability, and merit-based value — you’re in the right place.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="my-32 md:my-64">
+    <ContentMedia imgSrc="/accessible-components.webp">
+      <h2>TitanX is the grassroots, pure crypto movement</h2>
+      <p class="text-2xl">
+        no insiders, no VC control, no inflation. Fair-launched on Ethereum, fully transparent, and built where the
+        users and builders already are. Checkout: <ExternalLink href="https://app.titanx.win/stats"
+          >TitanX Stats</ExternalLink
+        >
+      </p>
+    </ContentMedia>
+
+    <ContentMedia imgSrc="/accessible-components.webp" reverseImg={true}>
+      <h2>Build, invest, and earn in a deflationary DeFi ecosystem</h2>
+      <p class="text-2xl">
+        that rewards real usage, not hype. TitanX leverages proven L1 and L2 networks for instant compatibility with the
+        tools you already use.
+      </p>
+    </ContentMedia>
+  </section>
+
   <section class="my-32 md:my-64">
     <div class="container">
-      <h2 class="mb-16 text-6xl">Features</h2>
+      <h2 class="mb-16 text-6xl">Why TitanX</h2>
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-        <Feature icon="lucide:accessibility" title="Accessible by default">
-          Keyboard navigation, focus indicators, ARIA labels, semantic HTML, and more. This theme is designed to be
-          inclusive.
+        <Feature icon="lucide:banknote" title="Hyper-Deflationary by Design">
+          No inflation, no emissions, no supply creep. Every action that drives value also strengthens scarcity —
+          rewarding long-term participants.
         </Feature>
-        <Feature icon="lucide:puzzle" title="A11Y components">
-          25+ components and counting, all tried and tested for the most optimal accessible experience for your
-          visitors.
+        <Feature icon="lucide:blocks" title="Built by Builders, for Builders">
+          No teams hoarding tokens. No insiders waiting to dump. You build it, you earn. Value is created by
+          contributions, not connections.
         </Feature>
-        <Feature icon="lucide:moon" title="Dark mode">
-          Fully integrated Dark mode gives your users the choice for their favorite viewing mode.
+        <Feature icon="lucide:handshake" title="100% Fair Launch">
+          No presales, no allocations, no VC wallets. Everyone started at the same line — the only way to earn is to
+          contribute.
         </Feature>
-        <Feature icon="lucide:paintbrush" title="Tailwind 4.0">
-          Use the power of Tailwind to greatly improve your productivity and enhance your developer workflow.
+        <Feature icon="lucide:shield-check" title="Triple-Audited & Secure">
+          TitanX code has undergone multiple third-party audits, making it one of the most rigorously tested DeFi
+          projects on-chain.
         </Feature>
-        <Feature icon="lucide:sparkles" title="Prettier">
-          Less worry about formatting your code, let the Astro Prettier integration do the heavy lifting.
+        <Feature icon="lucide:puzzle" title="Composable Across Chains">
+          TitanX doesn’t compete with L1s — it amplifies them. By maximizing composability and integrating where users
+          already are, we enable seamless adoption.
         </Feature>
-        <Feature icon="lucide:code" title="ESLint">
-          Lint your code with strict a11y settings to ensure you stay on track with the WCAG standards.
+        <Feature icon="lucide:users" title="Fully Community-Owned">
+          Governance isn’t a gimmick — it’s how everything works. From protocol upgrades to ecosystem funding, the
+          community decides.
         </Feature>
-        <Feature icon="lucide:bookmark" title="Blog & portfolio">
-          This theme comes with a fully integrated blog and portfolio, dynamic pages and SEO optimization.
+        <Feature icon="lucide:flame" title="Proof of Burn 2.0">
+          Every protocol built in the ecosystem burns and/or locks $TITANX and makes it more rare.
         </Feature>
-        <Feature icon="lucide:file-text" title="Markdown & MDX">
-          Easily use .md and .mdx pages to build your websites or use it with Netlify CMS.
+        <Feature icon="lucide:layers" title="Vertically Stacked LPs">
+          Every protocol benefits from the adoption of another protocol by linking all LPs together.
         </Feature>
-        <Feature icon="lucide:blocks" title="Design system">
-          The theme offers some very handy utilities to help you build your website faster.
+        <Feature icon="lucide:goal" title="One core goal">
+          Create hyper deflationary, community-owned, DeFi 3.0 assets. Supporting eachother.
         </Feature>
       </div>
     </div>
   </section>
-  <ContentMedia imgSrc="/accessible-components.webp">
-    <h2>Accessible components</h2>
-    <p class="text-2xl">
-      This theme provides plenty of tried and tested Accessible Astro Components. Some are native to this theme and a
-      lot of others are integrated using a <ExternalLink href="https://github.com/incluud/accessible-astro-components"
-        >separate package</ExternalLink
-      >. They'll get you up and running in building an accessible solution for your visitors.
-    </p>
-  </ContentMedia>
-  <ContentMedia imgSrc="/wcag-compliant.webp" reverseImg={true}>
-    <h2>WCAG 2.2 AA compliant</h2>
-    <p class="text-2xl">
-      Using semantic HTML, landmarks, skip links, screen reader friendly content, aria-labels, keyboard accessible
-      navigation and components, clear outlines and tab indicators and the right color contrast, you're more certain of
-      reaching WCAG AA compliance.
-    </p>
-  </ContentMedia>
+
   <section class="my-32 md:my-64">
     <div class="container grid grid-cols-1 gap-12 md:grid-cols-2">
       <div class="flex flex-col items-start gap-4">
         <h2 class="text-6xl">FAQ</h2>
         <p class="text-2xl">
-          This section demonstrates how to effectively use the Accordion component to organize and display frequently
-          asked questions in an accessible and user-friendly way.
+          TitanX Is DeFi, as It Should Be — No shortcuts. No special treatment. Just a fair, secure, and scalable
+          ecosystem designed to unlock true decentralization — and reward those who help build it.
         </p>
-        <a class="button" href="/faq">Contact support team</a>
+
+        <a
+          class="button has-icon color-secondary"
+          href="https://titanxhub.com"
+          target="_blank"
+          rel="noopener noreferrer">Ecosystem</a
+        >
+        <a class="button has-icon" href="https://titanxinfo.com" target="_blank" rel="noopener noreferrer"
+          >More Information</a
+        >
       </div>
       <div class="space-content">
         <Accordion>
-          <AccordionItem name="exclusive" title="What is WCAG and why is it important?" open>
+          <AccordionItem name="exclusive" title="What is TITANX, and why is it so unique?" open>
             <p>
-              WCAG (Web Content Accessibility Guidelines) is a set of internationally recognized standards for web
-              accessibility. Following WCAG ensures your website is usable by people with various disabilities,
-              including visual, auditory, physical, and cognitive impairments. It's important not just for
-              accessibility, but also for legal compliance, SEO, and reaching a wider audience.
+              TITANX is a grassroots crypto ecosystem built around fairness, decentralization, and builder-first
+              principles. No VCs, no premines—just open infrastructure, fair launches, and code-driven alignment between
+              users and developers.
             </p>
           </AccordionItem>
-          <AccordionItem name="exclusive" title="What's the difference between ARIA labels and alt text?">
+          <AccordionItem name="exclusive" title="Why is $TITANX 'Hyper Deflationary'?">
             <p>
-              Alt text is specifically for describing images to screen reader users, while ARIA labels (aria-label,
-              aria-labelledby) can describe any element on a page. Alt text is HTML's native way to provide alternative
-              text for images, while ARIA labels are part of the ARIA specification that helps make dynamic content and
-              advanced UI controls more accessible.
+              $TITANX supply decreases over time via on-chain burn mechanics. Usage triggers burns, making the token
+              scarcer as adoption grows. There's no inflation or emissions schedule—only deflation tied to ecosystem
+              activity.
             </p>
           </AccordionItem>
-          <AccordionItem name="exclusive" title="Why is keyboard navigation important?">
+          <AccordionItem name="exclusive" title="Why are so many builders attracted to building on $TITANX?">
             <p>
-              Keyboard navigation is essential for users who can't use a mouse, including people with motor
-              disabilities, visual impairments, or those who simply prefer keyboard controls. A website should be fully
-              operable using only a keyboard, with visible focus indicators and logical tab order. This includes being
-              able to access all interactive elements and navigate through content efficiently.
+              TITANX gives builders full autonomy. No gatekeepers, no closed ecosystems. Smart contracts, tools, and
+              rewards are open to all. Builders earn visibility and value by shipping real products—not by marketing or
+              insider deals.
             </p>
           </AccordionItem>
-          <AccordionItem name="exclusive" title="What is a sufficient color contrast ratio?">
+          <AccordionItem name="exclusive" title="Where do I buy $TITANX?">
             <p>
-              According to WCAG 2.2 AA standards, text should have a minimum contrast ratio of 4.5:1 against its
-              background for regular text, and 3:1 for large text (18pt or 14pt bold). For non-text elements like icons
-              or buttons, a minimum ratio of 3:1 is required. This ensures content is readable for users with visual
-              impairments or color blindness.
+              $TITANX is traded on decentralized exchanges. Use official sources to verify token contracts. Availability
+              depends on the chain—no centralized listing, no custody risk, fully on-chain.
             </p>
           </AccordionItem>
-          <AccordionItem name="exclusive" title="How do I make custom components accessible?">
+          <AccordionItem name="exclusive" title="Why is the focus on fair launches so pronounced here?">
             <p>
-              To make custom components accessible, focus on these key aspects: use semantic HTML where possible,
-              implement proper keyboard support, add appropriate ARIA attributes, manage focus when needed, and ensure
-              adequate color contrast. Always test with screen readers and keyboard navigation. Consider using
-              established design patterns from the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/"
-                >ARIA Authoring Practices Guide</a
-              >.
+              Fair launches prevent early insider advantage and align incentives with actual contributors. TITANX
+              projects launch publicly, transparently, and without private allocations. Builders earn trust by
+              delivering—not by pre-sale hype.
+            </p>
+          </AccordionItem>
+          <AccordionItem name="exclusive" title="Where can I get more educated on $TITANX & its ecosystem?">
+            <p>
+              Start at <a href="https://titanx.win" target="_blank" rel="noopener noreferrer">titanx.win</a>. Read the
+              docs, explore builder tools, and follow on-chain deployments. Education is open, public, and driven by
+              contributors—not centralized marketing.
             </p>
           </AccordionItem>
         </Accordion>
       </div>
     </div>
   </section>
-  <section class="my-32 md:my-64">
+
+  <!-- <section class="my-32 md:my-64">
     <div class="space-content container">
       <h2 class="text-6xl">Our community</h2>
       <p class="text-2xl">
@@ -141,15 +180,21 @@ import { Accordion, AccordionItem, Avatar, AvatarGroup } from 'accessible-astro-
       </AvatarGroup>
     </div>
   </section>
+   -->
+
   <section class="mt-64 mb-32">
     <div class="container">
       <h2 class="mb-16 text-6xl">Impact in numbers</h2>
       <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
-        <Counter count="900+" title="Stars" sub="On GitHub" />
-        <Counter count="25+" title="Accessible" sub="Components" />
-        <Counter count="400+" title="Commits" sub="Merged" />
-        <Counter count="48+" title="Months" sub="Since launch" />
+        <Counter count="~$55M" title="ECO SYSTEM" sub="MCAP" />
+        <Counter count="~$252K" title="ECO SYSTEM" sub="VOLUME" />
+        <Counter count="~126T" title="TITANX" sub="BURNED" />
+        <Counter count="~20K" title="TITANX" sub="USERS" />
       </div>
+    </div>
+    <div class="container mt-16">
+      <h3 class="mb-8 text-3xl">Get precise data here:</h3>
+      <a class="button" href="https://www.titanxhub.com/">TitanXHub</a>
     </div>
   </section>
 </DefaultLayout>
