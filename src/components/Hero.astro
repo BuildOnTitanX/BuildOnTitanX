@@ -22,7 +22,12 @@ const { src = '/TitanX-Logo-round.png' }: Props = Astro.props
     <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-2">
       <div class="flex flex-col items-center gap-8 md:items-start">
         <h1 class="text-center text-4xl md:text-left lg:text-6xl">
-          <slot><div class="text-gradient">#BuildOnTitanX<br /></div></slot>
+          <slot>
+            <div class="text-gradient">#BuildOnTitanX<br /></div>
+            <div class="mt-4 text-2xl lg:text-4xl">
+              DeFi, Rebuilt for the People — Fair, Secure, and Community-Owned
+            </div>
+          </slot>
         </h1>
         <!-- <div class="flex flex-col gap-3 min-[500px]:flex-row">
           <a class="button has-icon" href="https://github.com/incluud/accessible-astro-starter">
