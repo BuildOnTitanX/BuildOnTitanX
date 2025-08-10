@@ -29,18 +29,18 @@ interface Props {
   author?: string
 }
 
-const { title, description, url, image, author = 'Mark Teekman' } = Astro.props
+const { title, description, url, image, author = 'Nona Median' } = Astro.props
 
-let subtitle = 'Accessible Astro Starter'
+let subtitle = 'Build On TitanX — Grassroots Crypto' // 38 Characters
 ---
 
 <!-- general meta -->
-<meta name="title" content={`${title} - ${subtitle}`} />
+<meta name="title" content={`${title} | ${subtitle}`} />
 <meta name="description" content={description} />
 <meta name="author" content={author} />
 
 <!-- open graph -->
-<meta property="og:title" content={`${title} - ${subtitle}`} />
+<meta property="og:title" content={`${title} | ${subtitle}`} />
 <meta property="og:description" content={description} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={url} />
@@ -49,6 +49,6 @@ let subtitle = 'Accessible Astro Starter'
 <!-- twitter card -->
 
 <!-- page title -->
-<title>{title} - {subtitle}</title>
+<title>{title} | {subtitle}</title>
 
 <ViewTransitions />
