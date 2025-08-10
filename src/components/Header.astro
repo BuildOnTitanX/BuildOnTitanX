@@ -14,6 +14,71 @@ import { Icon } from 'astro-icon/components'
   <SkipLink />
   <Navigation>
     <li class="menu-item">
+      <a href="/" title="Build on TitanX - Home">Home</a>
+    </li>
+    <li class="menu-item">
+      <a href="/about/" title="About TitanX - Vision and Ethos">About</a>
+    </li>
+    <li class="menu-item">
+      <a href="/how-it-works/" title="How TitanX Works - Tokenomics and Governance">How It Works</a>
+    </li>
+    <li class="menu-item has-dropdown">
+      <button aria-haspopup="true" aria-expanded="false" aria-controls="developers-dropdown" title="Developers Menu">
+        Developers
+        <Icon name="lucide:chevron-down" size="32" />
+      </button>
+      <ul class="dropdown-menu" id="developers-dropdown">
+        <li class="submenu-item">
+          <a href="/developers/overview/" title="Developer Overview and Build Philosophy">Overview</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/developers/docs/" title="API Documentation and Smart Contract Specs">Docs</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://github.com/titanx" title="TitanX GitHub Repositories" target="_blank" rel="noopener"
+            >GitHub</a
+          >
+        </li>
+        <li class="submenu-item">
+          <a href="/developers/tutorials/" title="Step-by-Step Integration Tutorials">Tutorials</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/developers/tools/" title="SDKs, CLI Tools, and Testing Environments">Tools</a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item has-dropdown">
+      <button aria-haspopup="true" aria-expanded="false" aria-controls="resources-dropdown" title="Resources Menu">
+        Resources
+        <Icon name="lucide:chevron-down" size="32" />
+      </button>
+      <ul class="dropdown-menu" id="resources-dropdown">
+        <li class="submenu-item">
+          <a href="/blog/" title="TitanX Blog - Updates and Insights">Blog</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/faqs/" title="Frequently Asked Questions">FAQs</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/media-kit/" title="Media Kit and Brand Assets">Media Kit</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/press/" title="Press Coverage and Releases">Press</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/status/" title="System Status and Incident Reports">Status</a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item">
+      <a href="/community/" title="Community Forums and Chat">Community</a>
+    </li>
+    <li class="menu-item">
+      <a href="/get-started/" title="Getting Started with TitanX Wallet and Staking">Get Started</a>
+    </li>
+
+    <!-- <Navigation>
+    <li class="menu-item">
       <a href="/">Home</a>
     </li>
     <li class="menu-item">
@@ -53,7 +118,7 @@ import { Icon } from 'astro-icon/components'
           <a href="/404-page">404 page</a>
         </li>
       </ul>
-    </li>
+    </li> -->
     <!-- the following highlight weirdly gets set to is-active!? -->
     <!-- <li class="menu-item highlight">
       <a href="https://accessible-astro.incluud.dev/">Docs </a>
