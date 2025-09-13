@@ -1,5 +1,5 @@
 ---
-title: test
+title: Test
 published: true
 description: monet
 blocks:
