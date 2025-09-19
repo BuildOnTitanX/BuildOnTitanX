@@ -13,6 +13,11 @@ import type { CollectionEntry } from 'astro:content'
 
 const md = new MarkdownIt()
 
+function normalizeContent(raw) {
+  // remove backslashes that PagesCMS injected
+  return raw.replace(/\\#/g, '#')
+}
+
 export async function getStaticPaths() {
   const entries = await getCollection('entries')
   return entries.map((entry) => ({
@@ -60,7 +65,7 @@ const author = {
                 <PageHeader
                   key={`block-${index}`}
                   title={block.title}
-                  subtitle={md.render(block.subtitle?.content)}
+                  subtitle={md.render(normalizeContent(block.subtitle?.content) ?? '')}
                   bgType={block.bgType}
                 />
               )
