@@ -143,7 +143,6 @@ content:
       - name: linkUrl
         label: Link Override
         type: string
-        default: true
       - name: description
         label: Description
         type: string
