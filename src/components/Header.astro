@@ -7,6 +7,15 @@ import { getCollection } from 'astro:content'
 
 const pages = await getCollection('pages', ({ data }) => data.published)
 
+// Group pages by first slug segment (top-level folder)
+const grouped = {}
+for (const page of pages) {
+  const parts = page.slug.split('/')
+  const top = parts[0]
+  if (!grouped[top]) grouped[top] = []
+  grouped[top].push(page)
+}
+
 /**
  * Header Component
  *
@@ -21,7 +30,7 @@ const pages = await getCollection('pages', ({ data }) => data.published)
       <a href="/" title="Build on TitanX - Home">Home</a>
     </li>
 
-    {
+    <!-- {
       pages.map((page) => (
         <li class="menu-item">
           <a href={`/${page.slug}/`} title={`${page.data.title} - ${page.data.description ?? ''}`}>
@@ -29,6 +38,48 @@ const pages = await getCollection('pages', ({ data }) => data.published)
           </a>
         </li>
       ))
+    } -->
+
+    {
+      Object.entries(grouped).map(([folder, items]) => {
+        if (items.length === 1 && folder === items[0].slug) {
+          const page = items[0]
+          const href = page.data.link ?? `/${page.slug}/`
+          return (
+            <li class="menu-item">
+              <a href={href} title={`${page.data.title} - ${page.data.description ?? ''}`}>
+                {page.data.title}
+              </a>
+            </li>
+          )
+        } else {
+          return (
+            <li class="menu-item has-dropdown">
+              <button
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls={`${folder}-dropdown`}
+                title={`${folder} Menu`}
+              >
+                {folder[0].toUpperCase() + folder.slice(1)}
+                <Icon name="lucide:chevron-down" size="32" />
+              </button>
+              <ul class="dropdown-menu" id={`${folder}-dropdown`}>
+                {items.map((page) => {
+                  const href = page.data.link ?? `/${page.slug}/`
+                  return (
+                    <li class="submenu-item">
+                      <a href={href} title={`${page.data.title} - ${page.data.description ?? ''}`}>
+                        {page.data.title}
+                      </a>
+                    </li>
+                  )
+                })}
+              </ul>
+            </li>
+          )
+        }
+      })
     }
 
     <li class="menu-item">

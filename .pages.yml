@@ -126,7 +126,6 @@ content:
                     type: rich-text
                     required: true
 
-
   - name: pages
     label: Modular Pages
     type: collection
@@ -140,6 +139,10 @@ content:
       - name: published
         label: Published
         type: boolean
+        default: true
+      - name: linkUrl
+        label: Link Override
+        type: string
         default: true
       - name: description
         label: Description
