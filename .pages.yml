@@ -130,6 +130,7 @@ content:
     label: Modular Pages
     type: collection
     path: src/content/pages
+    filename: '{fields.title}.md'
     format: yaml-frontmatter
     fields:
       - name: title

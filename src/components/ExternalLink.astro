@@ -15,12 +15,16 @@ interface Props {
    * The URL to link to
    */
   href: string
+  /**
+   * The Link title
+   */
+  title?: string
 }
 
-const { class: className, href } = Astro.props
+const { class: className, href, title } = Astro.props
 ---
 
-<a href={href} class:list={[className, 'external-link']} target="_blank" rel="noopener noreferrer">
+<a href={href} title={title} class:list={[className, 'external-link']} target="_blank" rel="noopener noreferrer">
   <slot />
   <Icon name="lucide:external-link" />
   <span class="sr-only">Opens in a new tab</span>

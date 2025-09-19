@@ -20,38 +20,75 @@ const currentYear = new Date().getFullYear()
         <h3 class="text-2xl font-bold">Navigation</h3>
         <ul class="flex flex-col gap-2">
           <li><a href="/">Home</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/portfolio">Portfolio</a></li>
+          <li>TBD</li>
+          <!-- <li><a href="/blog">Blog</a></li>
+          <li><a href="/portfolio">Portfolio</a></li> -->
         </ul>
       </div>
       <div class="flex flex-col gap-4">
-        <h3 class="text-2xl font-bold">Theme features</h3>
+        <h3 class="text-2xl font-bold">Page Highlights</h3>
         <ul class="flex flex-col gap-2">
-          <li><a href="/accessibility-statement">Accessibility statement</a></li>
+          <li><a href="/about" title="What is this page about">About</a></li>
+          <!-- <li><a href="/builders/overview/">Builders Overview</a></li> -->
+          <li>TBD</li>
+          <!-- <li><a href="/accessibility-statement">Accessibility statement</a></li>
           <li><a href="/accessible-components">Accessible components</a></li>
           <li><a href="/color-contrast-checker">Color contrast checker</a></li>
           <li><a href="/markdown-page">Markdown page</a></li>
           <li><a href="/mdx-page">MDX page</a></li>
-          <li><a href="/404-page">404 page</a></li>
+          <li><a href="/404-page">404 page</a></li> -->
         </ul>
       </div>
       <div class="flex flex-col gap-4">
-        <h3 class="text-2xl font-bold">Developer tools</h3>
+        <h3 class="text-2xl font-bold">Community Links</h3>
         <ul class="flex flex-col gap-2">
           <li>
-            <ExternalLink href="https://www.w3.org/WAI/ARIA/apg/">ARIA Authoring Practices</ExternalLink>
-          </li>
-          <li>
-            <ExternalLink href="https://web.dev/articles/focus">Focus Management</ExternalLink>
-          </li>
-          <li>
-            <ExternalLink href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML"
-              >Semantic HTML Guide</ExternalLink
+            <a
+              href="https://www.titanx.win/"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="TitanX Website - Mainpage explaining its Phylosophy">TitanX Mainpage</a
             >
           </li>
           <li>
-            <ExternalLink href="https://www.tpgi.com/screen-reader-user-survey-results/"
-              >Screen Reader Survey</ExternalLink
+            <a
+              href="https://app.titanx.win/stats"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="TitanX Dapp - Focusing on the Stats">TitanX Dapp Stats</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.titanxhub.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Titan X Hub by Mike Dean">Titan X Hub</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://titanfarms.win/"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="The TitanX Farms - Simply add LP and earn TINC">Titan Farms</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://titanxinfo.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="TitanXInfo -
+                TITANX Crypto For Beginners">TitanX Info</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.titanxutils.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="TitanXUtils - Your comprehensive dashboard for the TitanX ecosystem">TitanX Utils</a
             >
           </li>
         </ul>
@@ -60,9 +97,14 @@ const currentYear = new Date().getFullYear()
         <Logo loading="lazy" />
         <p class="leading-[1.75]">
           Tip: The TitanX Ecosystem is getting quite big, if you want to dig deeper into all the different Projects,
-          please check out <a href="https://www.titanxhub.com/">TitanX Hub</a> or <a href="https://titanxinfo.com/"
-            >TitanXInfo</a
-          >.
+          please check out the <ExternalLink
+            href="https://www.titanx.win/"
+            title="Hyper Deflationary, Secure and Fair DeFi 3.0 Ecosystem">TitanX Mainpage</ExternalLink
+          >
+          <ExternalLink href="https://www.titanxhub.com/" title="Titan X Hub by Mike Dean">TitanX Hub</ExternalLink> or <ExternalLink
+            href="https://titanxinfo.com/"
+            title="TitanXInfo - TITANX Crypto For Beginners">TitanX Info</ExternalLink
+          >
         </p>
         <!-- <p class="leading-[1.75]">
           Tip: always test for screen reader support. Press <kbd>⌘</kbd> + <kbd>F5</kbd> to start VoiceOver or <kbd
