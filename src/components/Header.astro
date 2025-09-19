@@ -3,6 +3,10 @@ import Navigation from '../components/Navigation.astro'
 import { DarkMode, SkipLink } from 'accessible-astro-components'
 import { Icon } from 'astro-icon/components'
 
+import { getCollection } from 'astro:content'
+
+const pages = await getCollection('pages', ({ data }) => data.published)
+
 /**
  * Header Component
  *
@@ -16,6 +20,17 @@ import { Icon } from 'astro-icon/components'
     <li class="menu-item">
       <a href="/" title="Build on TitanX - Home">Home</a>
     </li>
+
+    {
+      pages.map((page) => (
+        <li class="menu-item">
+          <a href={`/${page.slug}/`} title={`${page.data.title} - ${page.data.description ?? ''}`}>
+            {page.data.title}
+          </a>
+        </li>
+      ))
+    }
+
     <li class="menu-item">
       <a href="/about/" title="About TitanX - Vision and Ethos">About</a>
     </li>

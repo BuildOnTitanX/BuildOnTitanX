@@ -11,25 +11,59 @@ import MarkdownIt from 'markdown-it'
 
 const md = new MarkdownIt()
 
+// export async function getStaticPaths() {
+//   const pages = await getCollection('pages')
+//   return pages.map((page) => ({
+//     params: { slug: page.id },
+//     props: { page },
+//   }))
+// }
+
+// const { slug } = Astro.params
+// const entry = await getCollection('pages').then((pages) => pages.find((p) => p.id === slug))
+// console.log('Looking for entry:', fullSlug)
+// console.log('Found entry:', entry)
+
+// if (!entry) {
+//   throw new Error(`Page not found for slug: ${fullSlug}`)
+// }
+//
+
+// export async function getStaticPaths() {
+//   const pages = await getCollection('pages', ({ data }) => data.published)
+
+//   return pages.map((page) => ({
+//     params: { slug: page.slug.split('/') }, // array
+//     props: { page },
+//   }))
+// }
+
+// const fullSlug = Astro.params.slug.join('/')
+// const entry = await getCollection('pages').then((pages) => pages.find((p) => p.slug === fullSlug))
+
+// if (!entry) {
+//   throw new Error(`Page not found for slug: ${fullSlug}`)
+// }
+
+// 1. Static paths
 export async function getStaticPaths() {
-  const pages = await getCollection('pages')
+  const pages = await getCollection('pages', ({ data }) => data.published)
+
   return pages.map((page) => ({
-    params: { slug: page.id },
-    props: { page },
+    // params: { slug: page.slug.split('/') }, // array for catch-all
+    params: { slug: page.slug },
+    props: { page }, // pass entry directly
   }))
 }
 
-const { slug } = Astro.params
-const entry = await getCollection('pages').then((pages) => pages.find((p) => p.id === slug))
-console.log('Looking for entry:', fullSlug)
-console.log('Found entry:', entry)
-
-if (!entry) {
-  throw new Error(`Page not found for slug: ${fullSlug}`)
-}
-
-const { data: frontmatter } = entry
+// 2. Access the page prop from getStaticPaths
+const { page } = Astro.props
+const fullSlug = page.slug // already a string like 'test' or 'about/team'
+const frontmatter = page.data
 const blocks = frontmatter.blocks ?? []
+
+// const { data: frontmatter } = entry
+// const blocks = frontmatter.blocks ?? []
 ---
 
 <DefaultLayout title={frontmatter.title ?? 'Untitled'}>
