@@ -7,11 +7,25 @@ import { getCollection } from 'astro:content'
 
 const pages = await getCollection('pages', ({ data }) => data.published)
 
-// normalize helper
-function normalizeHref(page) {
-  let href = page.data.linkUrl ?? `/${page.slug}/`
-  if (href && !href.startsWith('/')) href = '/' + href
-  return href
+function checkLinkUrlOverride(page) {
+  if (page.data.linkUrl) {
+    let href = page.data.linkUrl.trim()
+
+    // If it's not starting with "/" and not absolute URL, prepend "/"
+    if (!href.startsWith('/') && !/^https?:\/\//i.test(href)) {
+      href = '/' + href
+    }
+
+    // External link check
+    const isExternal = /^https?:\/\//i.test(href)
+
+    return {
+      href,
+      ...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {}),
+    }
+  } else {
+    return { href: `/${page.slug}/` }
+  }
 }
 
 // split into "direct" vs "grouped"
@@ -61,10 +75,10 @@ for (const key in grouped) {
     } -->
     {
       direct.map((page) => {
-        const href = normalizeHref(page)
+        const { href, target, rel } = checkLinkUrlOverride(page)
         return (
           <li class="menu-item">
-            <a href={href} title={`${page.data.title} - ${page.data.description ?? ''}`}>
+            <a href={href} target={target} rel={rel} title={`${page.data.title} - ${page.data.description ?? ''}`}>
               {page.data.title}
             </a>
           </li>
@@ -76,10 +90,10 @@ for (const key in grouped) {
       Object.entries(grouped).map(([folder, items]) => {
         if (items.length === 1 && folder === items[0].slug) {
           const page = items[0]
-          const href = normalizeHref(page)
+          const { href, target, rel } = checkLinkUrlOverride(page)
           return (
             <li class="menu-item">
-              <a href={href} title={`${page.data.title} - ${page.data.description ?? ''}`}>
+              <a href={href} target={target} rel={rel} title={`${page.data.title} - ${page.data.description ?? ''}`}>
                 {page.data.title}
               </a>
             </li>
@@ -98,10 +112,15 @@ for (const key in grouped) {
               </button>
               <ul class="dropdown-menu" id={`${folder}-dropdown`}>
                 {items.map((page) => {
-                  const href = normalizeHref(page)
+                  const { href, target, rel } = checkLinkUrlOverride(page)
                   return (
                     <li class="submenu-item">
-                      <a href={href} title={`${page.data.title} - ${page.data.description ?? ''}`}>
+                      <a
+                        href={href}
+                        target={target}
+                        rel={rel}
+                        title={`${page.data.title} - ${page.data.description ?? ''}`}
+                      >
                         {page.data.title}
                       </a>
                     </li>
@@ -120,7 +139,7 @@ for (const key in grouped) {
     <!-- <li class="menu-item">
       <a href="/how-it-works/" title="How TitanX Works - Tokenomics and Governance">How It Works</a>
     </li> -->
-    <li class="menu-item has-dropdown">
+    <!-- <li class="menu-item has-dropdown">
       <button aria-haspopup="true" aria-expanded="false" aria-controls="developers-dropdown" title="Developers Menu">
         Developers
         <Icon name="lucide:chevron-down" size="32" />
@@ -133,8 +152,11 @@ for (const key in grouped) {
           <a href="/developers/docs/" title="API Documentation and Smart Contract Specs">Docs</a>
         </li>
         <li class="submenu-item">
-          <a href="https://github.com/titanx" title="TitanX GitHub Repositories" target="_blank" rel="noopener"
-            >GitHub</a
+          <a
+            href="https://github.com/titanx"
+            title="TitanX GitHub Repositories"
+            target="_blank"
+            rel="noopener noreferrer">GitHub</a
           >
         </li>
         <li class="submenu-item">
@@ -144,7 +166,7 @@ for (const key in grouped) {
           <a href="/developers/tools/" title="SDKs, CLI Tools, and Testing Environments">Tools</a>
         </li>
       </ul>
-    </li>
+    </li> -->
     <li class="menu-item has-dropdown">
       <button aria-haspopup="true" aria-expanded="false" aria-controls="resources-dropdown" title="Resources Menu">
         Resources
@@ -158,19 +180,67 @@ for (const key in grouped) {
           <a href="/faqs/" title="Frequently Asked Questions">FAQs</a>
         </li>
         <li class="submenu-item">
-          <a href="/media-kit/" title="Media Kit and Brand Assets">Media Kit</a>
-        </li>
-        <li class="submenu-item">
-          <a href="/press/" title="Press Coverage and Releases">Press</a>
-        </li>
-        <li class="submenu-item">
-          <a href="/status/" title="System Status and Incident Reports">Status</a>
+          <a href="/media-kit/" title="News">News</a>
         </li>
       </ul>
     </li>
-    <li class="menu-item">
-      <a href="/community/" title="Community Forums and Chat">Community</a>
+    <li class="menu-item has-dropdown">
+      <button aria-haspopup="true" aria-expanded="false" aria-controls="resources-dropdown" title="Resources Menu">
+        Community Links
+        <Icon name="lucide:chevron-down" size="32" />
+      </button>
+      <ul class="dropdown-menu" id="resources-dropdown">
+        <li class="submenu-item">
+          <a
+            href="https://www.titanx.win/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="TitanX Website - Mainpage explaining its Phylosophy">TitanX Mainpage</a
+          >
+        </li>
+        <li class="submenu-item">
+          <a
+            href="https://app.titanx.win/stats"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="TitanX Dapp - Focusing on the Stats">TitanX Dapp Stats</a
+          >
+        </li>
+        <li class="submenu-item">
+          <a href="https://www.titanxhub.com/" target="_blank" rel="noopener noreferrer" title="Titan X Hub"
+            >Titan X Hub</a
+          >
+        </li>
+        <li class="submenu-item">
+          <a
+            href="https://titanfarms.win/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="The TitanX Farms - Simply add LP and earn TINC">Titan Farms</a
+          >
+        </li>
+        <li class="submenu-item">
+          <a
+            href="https://titanxinfo.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="TitanXInfo -
+            TITANX Crypto For Beginners">TitanXInfo</a
+          >
+        </li>
+        <li class="submenu-item">
+          <a
+            href="https://www.titanxutils.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="TitanXUtils - Your comprehensive dashboard for the TitanX ecosystem">TitanXUtils</a
+          >
+        </li>
+      </ul>
     </li>
+    <!-- <li class="menu-item">
+      <a href="/community/" title="Community Forums and Chat">Community</a>
+    </li> -->
     <!-- <li class="menu-item">
       <a href="/get-started/" title="Getting Started with TitanX Wallet and Staking">Get Started</a>
     </li> -->

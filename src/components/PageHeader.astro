@@ -49,9 +49,39 @@ interface Props {
 const { class: className, title, subtitle, bgType, showBreadcrumbs = true, featuredImage, author } = Astro.props
 
 // Sanitize subtitle HTML if present
-const sanitizedSubtitle: string = subtitle
+// const sanitizedSubtitle: string = subtitle
+//   ? sanitizeHtml(subtitle, {
+//       allowedTags: ['b', 'i', 'em', 'strong', 'a', 'span', 'br'],
+//       allowedAttributes: {
+//         a: ['href', 'title', 'target', 'rel'],
+//         span: ['class']
+//       },
+//     })
+//   : ''
+
+const sanitizedSubtitle = subtitle
   ? sanitizeHtml(subtitle, {
-      allowedTags: ['b', 'i', 'em', 'strong', 'a', 'span', 'br'],
+      allowedTags: [
+        'p',
+        'h1',
+        'h2',
+        'h3',
+        'h4',
+        'h5',
+        'h6',
+        'b',
+        'i',
+        'em',
+        'strong',
+        'a',
+        'span',
+        'br',
+        'ul',
+        'ol',
+        'li',
+        'code',
+        'pre',
+      ],
       allowedAttributes: {
         a: ['href', 'title', 'target', 'rel'],
         span: ['class'],
@@ -106,7 +136,7 @@ const sanitizedSubtitle: string = subtitle
         )
       }
       <h1>{title}</h1>
-      {sanitizedSubtitle && <p class="text-2xl" set:html={sanitizedSubtitle} />}
+      {sanitizedSubtitle && <div class="text-2xl" set:html={sanitizedSubtitle} />}
       {
         author && (
           <div class="mt-6 flex items-center">

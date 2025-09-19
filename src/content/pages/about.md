@@ -42,15 +42,15 @@ blocks:
         in a nice way. Think of GitBook until this part is also online.
 
 
-        \## The Page Setup
+        \### The Page Setup
 
 
-        \## Extendablility
+        \### Extendablility
 
 
-        \## Write articles
+        \### Write articles
 
 
-        \## Share the articles
+        \### Share the articles
     bgType: default
 ---

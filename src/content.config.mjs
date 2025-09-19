@@ -20,6 +20,7 @@ const pages = defineCollection({
   schema: z.object({
     title: z.string(),
     published: z.boolean().default(true),
+    navOrder: z.number().optional(),
     linkUrl: z.string().optional(),
     description: z.string().optional(),
     blocks: z.array(z.any()).optional(),

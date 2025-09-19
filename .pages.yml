@@ -140,11 +140,14 @@ content:
         label: Published
         type: boolean
         default: true
-      - name: linkUrl
-        label: Link Override
-        type: string
+      - name: navOrder
+        label: Navigation Order
+        type: number
       - name: description
         label: Description
+        type: string
+      - name: linkUrl
+        label: Link Override
         type: string
       - name: blocks
         label: Content Blocks

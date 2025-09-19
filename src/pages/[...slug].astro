@@ -9,7 +9,13 @@ import { Fragment } from 'astro/jsx-runtime'
 import { getEntry, getCollection } from 'astro:content'
 import MarkdownIt from 'markdown-it'
 
-const md = new MarkdownIt()
+// const md = new MarkdownIt()
+const md = new MarkdownIt({ breaks: true })
+
+function normalizeContent(raw) {
+  // remove backslashes that PagesCMS injected
+  return raw.replace(/\\#/g, '#')
+}
 
 // export async function getStaticPaths() {
 //   const pages = await getCollection('pages')
@@ -83,7 +89,7 @@ const blocks = frontmatter.blocks ?? []
                 <PageHeader
                   key={`block-${index}`}
                   title={block.title}
-                  subtitle={md.render(block.subtitle?.content ?? '')}
+                  subtitle={md.render(normalizeContent(block.subtitle?.content) ?? '')}
                   bgType={block.bgType}
                 />
               )
