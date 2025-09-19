@@ -75,10 +75,10 @@ import Logo from './Logo.astro'
       }
     }
 
-    const isOutOfViewport = (element: Element): boolean => {
-      const elementBounds = element.getBoundingClientRect()
-      return elementBounds.right > (window.innerWidth || document.documentElement.clientWidth)
-    }
+    // const isOutOfViewport = (element: Element): boolean => {
+    //   const elementBounds = element.getBoundingClientRect()
+    //   return elementBounds.right > (window.innerWidth || document.documentElement.clientWidth)
+    // }
 
     const openDropdownMenu = (dropdownMenu: HTMLButtonElement): void => {
       const dropdownList = dropdownMenu.parentNode?.querySelector('ul') as HTMLUListElement | null
@@ -87,9 +87,9 @@ import Logo from './Logo.astro'
       dropdownMenu.classList.add('show')
       dropdownMenu.setAttribute('aria-expanded', 'true')
 
-      if (isOutOfViewport(dropdownList)) {
-        dropdownList.style.left = 'auto'
-      }
+      // if (isOutOfViewport(dropdownList)) {
+      //   dropdownList.style.left = 'auto'
+      // }
     }
 
     const closeDropdownMenu = (dropdownMenu: HTMLButtonElement): void => {
@@ -331,7 +331,7 @@ import Logo from './Logo.astro'
       }
 
       .submenu-item a {
-        display: block;
+        display: flex;
       }
     }
 

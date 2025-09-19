@@ -2,6 +2,7 @@
 import Navigation from '../components/Navigation.astro'
 import { DarkMode, SkipLink } from 'accessible-astro-components'
 import { Icon } from 'astro-icon/components'
+import ExternalLink from './ExternalLink.astro'
 
 import { getCollection } from 'astro:content'
 
@@ -191,52 +192,32 @@ for (const key in grouped) {
       </button>
       <ul class="dropdown-menu" id="resources-dropdown">
         <li class="submenu-item">
-          <a
-            href="https://www.titanx.win/"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="TitanX Website - Mainpage explaining its Phylosophy">TitanX Mainpage</a
+          <ExternalLink href="https://www.titanx.win/" title="TitanX Website - Mainpage explaining its Phylosophy"
+            >TitanX Mainpage</ExternalLink
           >
         </li>
         <li class="submenu-item">
-          <a
-            href="https://app.titanx.win/stats"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="TitanX Dapp - Focusing on the Stats">TitanX Dapp Stats</a
+          <ExternalLink href="https://app.titanx.win/stats" title="TitanX Dapp - Focusing on the Stats"
+            >TitanX Dapp Stats</ExternalLink
           >
         </li>
         <li class="submenu-item">
-          <a
-            href="https://www.titanxhub.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Titan X Hub by Mike Dean">Titan X Hub</a
+          <ExternalLink href="https://www.titanxhub.com/" title="Titan X Hub by Mike Dean">TitanX Hub</ExternalLink>
+        </li>
+        <li class="submenu-item">
+          <ExternalLink href="https://titanfarms.win/" title="The TitanX Farms - Simply add LP and earn TINC"
+            >Titan Farms</ExternalLink
           >
         </li>
         <li class="submenu-item">
-          <a
-            href="https://titanfarms.win/"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="The TitanX Farms - Simply add LP and earn TINC">Titan Farms</a
+          <ExternalLink href="https://titanxinfo.com/" title="TitanXInfo - TITANX Crypto For Beginners"
+            >TitanX Info</ExternalLink
           >
         </li>
         <li class="submenu-item">
-          <a
-            href="https://titanxinfo.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="TitanXInfo -
-            TITANX Crypto For Beginners">TitanXInfo</a
-          >
-        </li>
-        <li class="submenu-item">
-          <a
+          <ExternalLink
             href="https://www.titanxutils.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="TitanXUtils - Your comprehensive dashboard for the TitanX ecosystem">TitanXUtils</a
+            title="TitanXUtils - Your comprehensive dashboard for the TitanX Ecosystem">TitanX Utils</ExternalLink
           >
         </li>
       </ul>
