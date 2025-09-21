@@ -5,7 +5,7 @@ import Logo from './Logo.astro'
 /**
  * Navigation Component
  *
- * @description A component that displays the navigation menu for the website
+ * @description A component that displays the navigation menu for the websiter
  */
 ---
 
@@ -57,28 +57,29 @@ import Logo from './Logo.astro'
       })
     }
 
-    const checkMenuSize = (): void => {
-      const mainNavWidth = mainNav.getBoundingClientRect().width
-      const desktopMenuEl = document.querySelector('.desktop-menu') as HTMLElement | null
-      if (!desktopMenuEl) return
+    const setupMenuLayout = (): void => {
+      const media = window.matchMedia('(min-width: 1024px)')
 
-      const desktopMenuWidth = desktopMenuEl.getBoundingClientRect().width
-      const logoWidthBuffer = 300
-      const totalMenuWidth = Math.round(desktopMenuWidth) + logoWidthBuffer
-
-      if (totalMenuWidth >= mainNavWidth) {
-        mainNav.classList.remove('is-desktop')
-        mainNav.classList.add('is-mobile')
-      } else if (totalMenuWidth <= mainNavWidth) {
-        mainNav.classList.add('is-desktop')
-        mainNav.classList.remove('is-mobile')
+      const handleLayoutChange = (e: MediaQueryListEvent | MediaQueryList) => {
+        if (e.matches) {
+          // desktop
+          mainNav.classList.add('is-desktop')
+          mainNav.classList.remove('is-mobile')
+        } else {
+          // mobile
+          mainNav.classList.add('is-mobile')
+          mainNav.classList.remove('is-desktop')
+        }
       }
+
+      handleLayoutChange(media)
+      media.addEventListener('change', handleLayoutChange)
     }
 
-    // const isOutOfViewport = (element: Element): boolean => {
-    //   const elementBounds = element.getBoundingClientRect()
-    //   return elementBounds.right > (window.innerWidth || document.documentElement.clientWidth)
-    // }
+    const isOutOfViewport = (element: Element): boolean => {
+      const elementBounds = element.getBoundingClientRect()
+      return elementBounds.right > (window.innerWidth || document.documentElement.clientWidth)
+    }
 
     const openDropdownMenu = (dropdownMenu: HTMLButtonElement): void => {
       const dropdownList = dropdownMenu.parentNode?.querySelector('ul') as HTMLUListElement | null
@@ -87,9 +88,9 @@ import Logo from './Logo.astro'
       dropdownMenu.classList.add('show')
       dropdownMenu.setAttribute('aria-expanded', 'true')
 
-      // if (isOutOfViewport(dropdownList)) {
-      //   dropdownList.style.left = 'auto'
-      // }
+      if (isOutOfViewport(dropdownList)) {
+        dropdownList.style.left = 'auto'
+      }
     }
 
     const closeDropdownMenu = (dropdownMenu: HTMLButtonElement): void => {
@@ -222,9 +223,9 @@ import Logo from './Logo.astro'
       })
 
     setActiveMenuItem()
-    checkMenuSize()
 
-    window.addEventListener('resize', checkMenuSize)
+    setupMenuLayout()
+
     window.addEventListener('click', (event: MouseEvent) => {
       const element = event.target as Element
       if (!element.hasAttribute('aria-haspopup') && !element.classList.contains('submenu-item')) {
