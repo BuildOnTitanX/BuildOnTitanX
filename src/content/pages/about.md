@@ -111,5 +111,5 @@ blocks:
 
         | A table | is  | here |
 
-        |     |     |     |
+        | this | is  | the second row |
 ---
