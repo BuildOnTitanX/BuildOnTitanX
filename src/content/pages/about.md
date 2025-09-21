@@ -95,14 +95,12 @@ blocks:
         3.  list 2.3
             
 
-        ![](/uploads/Scale-logo.jpg)
+        <p style="text-align: right"><img src="/uploads/Scale-logo.jpg"></p>
 
 
         ```
 
-        This would be a codeblock
-
-        <div>test</div>
+        <div>This would be a codeblock</div>
 
         ```
 ---
