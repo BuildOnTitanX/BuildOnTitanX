@@ -95,7 +95,7 @@ blocks:
         3.  list 2.3
             
 
-        <p style="text-align: right"><img src="/uploads/Scale-logo.jpg"></p>
+        ![](/uploads/Scale-logo.jpg)
 
 
         ```
