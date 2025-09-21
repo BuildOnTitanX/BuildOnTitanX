@@ -13,8 +13,10 @@ blocks:
         All proper TitanX projects follow a couple of important rules and aim
         for deflating the TitanX supply and therefore push it more and more
         towards being hyper-deflationary by using its buy and burn functions.
-
-
+    bgType: default
+  - _block: rtecontent
+    content:
+      content: >-
         This page aims to support this vision by giving the community a platform
         to post long term content on. A platform which can easily be extended
         and build upon. A place where Ideas, Content and Code can be shared and
@@ -52,5 +54,13 @@ blocks:
 
 
         \### Share the articles
-    bgType: default
+
+
+        *   test item 1
+            
+        *   test item 2
+            
+        *   test item 3
+            
+        *   **dfdf** _dfsf_
 ---
