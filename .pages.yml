@@ -148,7 +148,7 @@ content:
         label: Description
         type: string
       - name: linkUrl
-        label: Link Override
+        label: Link Override (no blocks will be shown)
         type: string
       - name: blocks
         label: Content Blocks
@@ -219,6 +219,17 @@ content:
                   default: Default
                   bordered: Bordered
                   filled: Filled
+          - name: rtecontent
+            label: RTE Content
+            fields:
+              - name: content
+                label: Content
+                type: object
+                required: true
+                fields:
+                  - name: content
+                    label: Content
+                    type: rich-text
           - name: accordion
             label: Accordion
             fields:

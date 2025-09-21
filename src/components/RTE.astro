@@ -1,0 +1,67 @@
+---
+import { Image } from 'astro:assets'
+import sanitizeHtml from 'sanitize-html'
+
+/**
+ * RTE Component
+ *
+ * @description RTE description
+ */
+interface Props {
+  /**
+   * Additional classes to apply to the RTE
+   */
+  class?: string
+  /**
+   * The content RTE element (filled by pages-cms)
+   */
+  content: string
+}
+
+const { class: className, content } = Astro.props
+
+// Sanitize content HTML if present
+const sanitizedContent = content
+  ? sanitizeHtml(content, {
+      allowedTags: [
+        'p',
+        'h1',
+        'h2',
+        'h3',
+        'h4',
+        'h5',
+        'h6',
+        'b',
+        'i',
+        'em',
+        'strong',
+        'a',
+        'span',
+        'br',
+        'ul',
+        'ol',
+        'li',
+        'code',
+        'pre',
+      ],
+      allowedAttributes: {
+        a: ['href', 'title', 'target', 'rel'],
+        span: ['class'],
+      },
+    })
+  : ''
+---
+
+<section class:list={[className, 'rte-content']}>
+  <div class:list={['py-16']}>
+    <div class="space-content container">
+      {sanitizedContent && <div class="text-2xl" set:html={sanitizedContent} />}
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .rte-content {
+
+  }
+</style>

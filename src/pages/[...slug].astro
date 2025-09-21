@@ -4,6 +4,7 @@ import HeroBlock from '@blocks/HeroBlock.astro'
 import CardBlock from '@blocks/CardBlock.astro'
 import CodeBlock from '@blocks/CodeBlock.astro'
 import PageHeader from '@components/PageHeader.astro'
+import RTE from '@components/RTE.astro'
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 import { Fragment } from 'astro/jsx-runtime'
 import { getEntry, getCollection } from 'astro:content'
@@ -91,6 +92,13 @@ const blocks = frontmatter.blocks ?? []
                   title={block.title}
                   subtitle={md.render(normalizeContent(block.subtitle?.content) ?? '')}
                   bgType={block.bgType}
+                />
+              )
+            case 'RTE':
+              return (
+                <RTE
+                  key={`block-${index}`}
+                  content={md.render(normalizeContent(block.content?.content) ?? '')}
                 />
               )
             case 'accordion':
