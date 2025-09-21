@@ -103,4 +103,13 @@ blocks:
         <div>This would be a codeblock</div>
 
         ```
+
+
+        | h1  | h2  | h3  |
+
+        | --- | --- | --- |
+
+        | A table | is  | here |
+
+        |     |     |     |
 ---
