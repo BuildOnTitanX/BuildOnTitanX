@@ -42,11 +42,15 @@ const sanitizedContent = content
         'li',
         'code',
         'pre',
-        'img'
+        'img',
+        'table','thead','tbody','tfoot','tr','th','td'
       ],
       allowedAttributes: {
         a: ['href', 'title', 'target', 'rel'],
         span: ['class'],
+        img: ['src', 'alt', 'title'],
+        th: ['colspan', 'rowspan'],
+        td: ['colspan', 'rowspan']
       },
     })
   : ''
@@ -60,8 +64,28 @@ const sanitizedContent = content
   </div>
 </section>
 
-<style lang="scss">
+<style lang="scss" is:global>
   .rte-content {
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+        font-size: 0.95rem;
 
+        th,
+        td {
+          border: 1px solid #ddd;
+          padding: 0.5rem 0.75rem;
+          text-align: left;
+        }
+
+        th {
+          font-weight: 600;
+        }
+
+        /* tr:nth-child(even) {
+          background-color: var(--color-neutral-500);
+        } */
+      }
   }
 </style>
