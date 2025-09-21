@@ -12,11 +12,15 @@ blocks:
 
         All proper TitanX projects follow a couple of important rules and aim
         for deflating the TitanX supply and therefore push it more and more
-        towards being hyper-deflationary by using its buy and burn functions.
+        towards being hyper-deflationary by using its buy and burn (bnb)
+        functions.
     bgType: default
   - _block: rtecontent
     content:
       content: >-
+        ## The Page Setup
+
+          
         This page aims to support this vision by giving the community a platform
         to post long term content on. A platform which can easily be extended
         and build upon. A place where Ideas, Content and Code can be shared and
@@ -25,10 +29,10 @@ blocks:
 
         The page supports two styles for the content, one is more like the
         typically website with simple and good content elements, for general
-        texts and informations. This part will be extendable and over time we
-        can establish new and nice components to present the content nicely.
-        Like maybe we want to show some thirdparty charts or even show our own
-        data in a chart. But the main focus here should be the texts and ideas
+        texts and information. This part will be extendable and over time we can
+        establish new and nice components to present the content nicely. Like
+        maybe we want to show some thirdparty charts or even show our own data
+        in a chart. But the main focus here should be the texts and ideas
         themself. We got other great sites already like our beloved and still
         far ahead: [Titanxhub.com](http://Titanxhub.com) . But don't miss out on
         [titanxinfo.com](http://titanxinfo.com) or
@@ -44,16 +48,35 @@ blocks:
         in a nice way. Think of GitBook until this part is also online.
 
 
-        \### The Page Setup
+        ## Extendablility
 
 
-        \### Extendablility
+        While this Element here is a classical RTE-Element it can be a
+        collection of fields to be filled into any kind of predefined
+        html-element. We will show you some Youtube Tutorials about all of this
+        very soon. The main point to take away, is that extending the page isn't
+        difficult while still being able to also add the CMS-Part for easy
+        content creation.
 
 
-        \### Write articles
+        ## Write articles
 
 
-        \### Share the articles
+        Don't get us wrong, it is still up to all of us to create content and to
+        write articles. Most importantly to offer support in understanding
+        Blockchain, Bitcoin, Ethereum and most of all the TitanX Ecosystem. The
+        goal is to become a SEO-relevant Website which gets found by Crypto
+        Newbies, Experts, Builders, and Developers.
+
+
+        ## Share the articles
+
+
+        So please get in contact, get involved, get inspired and share the
+        content. This is just the start.
+
+
+        ## Example RTE-Html-Elements
 
 
         *   test item 1
@@ -63,4 +86,23 @@ blocks:
         *   test item 3
             
         *   **dfdf** _dfsf_
+            
+
+        1.  list 2.1
+            
+        2.  list 2.2
+            
+        3.  list 2.3
+            
+
+        ![](/uploads/Scale-logo.jpg)
+
+
+        ```
+
+        This would be a codeblock
+
+        <div>test</div>
+
+        ```
 ---
