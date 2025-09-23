@@ -1,10 +1,10 @@
 {
-  "name": "accessible-astro-starter",
-  "description": "An Accessible Starter Theme for Astro including several accessibility features and tools to help you build faster.",
-  "version": "4.0.0",
-  "author": "Incluud",
+  "name": "build-on-titanx",
+  "description": "TITANX is a revolutionary hyper-deflationary cryptocurrency project built on the principles of DeFi 3.0",
+  "version": "1.0.0",
+  "author": "Nona Median",
   "license": "MIT",
-  "homepage": "https://accessible-astro.netlify.app/",
+  "homepage": "https://buildontitanx.com",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -29,10 +29,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/incluud/accessible-astro-starter.git"
+    "url": "git+https://github.com/BuildOnTitanX/BuildOnTitanX.git"
   },
   "bugs": {
-    "url": "https://github.com/incluud/accessible-astro-starter/issues"
+    "url": "https://github.com/BuildOnTitanX/BuildOnTitanX/issues"
   },
   "devDependencies": {
     "@astrojs/mdx": "latest",

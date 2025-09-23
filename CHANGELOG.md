@@ -1,3 +1,9 @@
+## [0.0.4] - 2025-09-23
+
+### Fixed main URL
+
+- Setup everything so the URL can be shared on X for example.
+
 ## [0.0.3] - 2025-09-21
 
 ### Fixed Navigation added a Footer
@@ -6,7 +12,6 @@
 - Added some Navigation Points
 - Added a proper first Footer with some content
 - The About page got some content
-
 
 ## [0.0.2] - 2025-07-26
 
