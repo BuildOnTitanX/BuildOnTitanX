@@ -1,3 +1,10 @@
+## [0.0.5] - 2025-09-24
+
+### Update share-image and improve releases
+
+- The old image is showing on eg. X when sharing the URL, now we changed the name of the file too
+- The releases workflow keeps failing without a new tag, now it exits silently if the CHANGELOG is still the same
+
 ## [0.0.4] - 2025-09-23
 
 ### Fixed main URL

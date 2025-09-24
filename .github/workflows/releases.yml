@@ -17,6 +17,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Skip if changelog not updated
+        run: |
+          LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+          if [ -n "$LAST_TAG" ]; then
+            if git diff --quiet "$LAST_TAG"..HEAD -- CHANGELOG.md; then
+              echo "No CHANGELOG.md update since $LAST_TAG. Skipping release."
+              exit 0
+            fi
+          fi
+
       - name: Extract version and changelog notes
         id: changelog
         run: |
@@ -48,7 +58,6 @@ jobs:
             TAG="${TAG}-${DATE_SUFFIX}"
           fi
 
-          # Use PAT for push
           git remote set-url origin https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}
           git tag "$TAG"
           git push origin "$TAG"
