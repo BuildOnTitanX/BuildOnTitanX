@@ -2,6 +2,7 @@
 title: About
 published: true
 description: About TitanX - Vision and Ethos
+navOrder: 1
 blocks:
   - _block: pageheader
     title: What is TitanX about and how does this page support its vision?
@@ -20,7 +21,7 @@ blocks:
       content: >-
         ## The Page Setup
 
-          
+
         This page aims to support this vision by giving the community a platform
         to post long term content on. A platform which can easily be extended
         and build upon. A place where Ideas, Content and Code can be shared and
@@ -80,20 +81,20 @@ blocks:
 
 
         *   test item 1
-            
+
         *   test item 2
-            
+
         *   test item 3
-            
+
         *   **dfdf** _dfsf_
-            
+
 
         1.  list 2.1
-            
+
         2.  list 2.2
-            
+
         3.  list 2.3
-            
+
 
         ![](/uploads/Scale-logo.jpg)
 

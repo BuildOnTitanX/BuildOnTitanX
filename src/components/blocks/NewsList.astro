@@ -1,0 +1,141 @@
+---
+// NewsList.astro
+
+import { Icon } from 'astro-icon/components'
+
+const { items } = Astro.props;
+
+function badgeClass(type) {
+  switch (type.toLowerCase()) {
+    case "news": return "bg-blue-500/10 text-blue-400 border border-blue-500/20";
+    case "info": return "bg-amber-500/10 text-amber-400 border border-amber-500/20";
+    case "event": return "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20";
+    default: return "bg-gray-500/10 text-gray-400 border border-gray-500/20";
+  }
+}
+
+function typeText(type) {
+  switch (type.toLowerCase()) {
+    case "news": return "text-blue-400 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]";
+    case "info": return "text-amber-400 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]";
+    case "event": return "text-emerald-400 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]";
+    default: return "text-gray-400 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]";
+  }
+}
+
+function iconForType(type: string) {
+  switch (type.toLowerCase()) {
+    case 'news':
+      return 'lucide:megaphone'; // or 'lucide:radio' — both good for news
+    case 'info':
+      return 'lucide:info';
+    case 'event':
+      return 'lucide:calendar-days'; // or 'lucide:calendar'
+    default:
+      return 'lucide:file-text';
+  }
+}
+
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  // return date.toLocaleDateString("en-GB", {
+  return date.toLocaleDateString("en-US", {
+    day: "2-digit",
+    // month: "short",
+    month: "long",
+    year: "numeric",
+  });
+}
+
+---
+
+<div class="space-y-10 newsList">
+  {items
+    .sort((a, b) => new Date(b.date) - new Date(a.date)) // newest first
+    .map((item) => {
+      const isUpcoming = new Date(item.date) > new Date(); // future date
+
+      return (
+  <article class="grid grid-cols-4 gap-8 pb-10 border-b border-white/10 items-center">
+    <div class={"col-span-1 flex justify-center items-center rounded-xl newsCard relative type_" + item.type.toLowerCase()}>
+      <div class={`flex items-center gap-3 z-20 ${typeText(item.type)}`}>
+        <Icon
+          name={iconForType(item.type)}
+          class="icon w-10 h-10 "
+          aria-hidden="true"
+        />
+        <span class="text-xl font-semibold tracking-wide">
+          {item.type}
+        </span>
+      </div>
+      {item.image &&
+        <img
+          src={item.image}
+          alt={item.title}
+          class="rounded-xl w-full h-full absolute z-10 object-cover"
+        />
+      }
+    </div>
+
+    <div class="col-span-3 flex justify-between items-center">
+      <div>
+        <h3 class="text-2xl font-semibold text-white leading-tight mt-0!">{item.title}</h3>
+        <p class="text-base text-gray-200 mt-1">{item.description}</p>
+        <div class="flex items-center gap-4 mt-3">
+          <span class="text-sm text-gray-400">{formatDate(item.date)}</span>
+          {item.link && (
+            <a href={item.link} class="text-sm text-lime-400 font-medium hover:underline">
+              Read more →
+            </a>
+          )}
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        {isUpcoming && (
+          <span class="ml-6 px-3 py-1 text-sm font-semibold rounded-full whitespace-nowrap self-start text-black bg-emerald-400 border border-emerald-500/20">
+            Upcoming
+          </span>
+        )}
+        <span
+          class={`ml-6 px-3 py-1 text-sm font-semibold rounded-full whitespace-nowrap self-start ${badgeClass(item.type)}`}
+        >
+          {item.type}
+        </span>
+      </div>
+    </div>
+  </article>
+  );
+})}
+</div>
+
+<style lang="scss" is:global>
+  .newsList {
+    /* type variants */
+    .type_news {
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), #4aa0ff);
+    }
+
+    .type_info {
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), oklch(76.9% 0.188 70.08));
+    }
+
+    .type_event {
+      background: linear-gradient(135deg,rgba(255,255,255,0.08), var(--color-emerald-400));
+    }
+
+    .newsCard {
+      height: 140%;
+    }
+
+    /* subtle decorative overlay to echo inspiration image */
+    .newsCard::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at 20% 20%, rgba(255,255,255,0.06), transparent 20%),
+                  linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+      pointer-events:none;
+    }
+  }
+</style>
