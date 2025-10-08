@@ -30,5 +30,5 @@ blocks:
         type: Event
         description: 'Join us to celebrate TitanX’s 2 year anniversary with exciting announcements'
         # image: '/images/news/conference.jpg'
-        link: 'https://www.titanxhub.com/'
+        link: 'https://x.com/PLANAAA101'
 ---

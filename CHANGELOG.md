@@ -1,3 +1,10 @@
+## [0.0.6] - 2025-10-08
+
+### Add News List block
+
+- We now got a NewsList element for News, Info and Events.
+- It's main job is to be used on the specific News page but it could be used anywhere.
+
 ## [0.0.5] - 2025-09-24
 
 ### Update share-image and improve releases

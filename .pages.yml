@@ -254,3 +254,37 @@ content:
                     label: Content
                     type: rich-text
                     required: true
+          - name: news
+            label: News List
+            fields:
+              - name: items
+                label: News Items
+                type: list
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: date
+                    label: Date
+                    type: date
+                    required: true
+                  - name: type
+                    label: Type
+                    type: select
+                    options:
+                      - News
+                      - Info
+                      - Event
+                    required: true
+                  - name: description
+                    label: Description
+                    type: text
+                  - name: image
+                    label: Image
+                    type: image
+                    required: false
+                  - name: link
+                    label: Link
+                    type: string
+                    required: false
