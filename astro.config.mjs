@@ -41,6 +41,7 @@ export default defineConfig({
       },
     },
     plugins: [tailwindcss()],
+    // plugins: [tailwindcss({ config: './tailwind.config.js', runtime: true })],
     resolve: {
       alias: {
         '@components': fileURLToPath(new URL('./src/components', import.meta.url)),
