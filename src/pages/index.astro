@@ -4,7 +4,7 @@ import Hero from '@components/Hero.astro'
 import Feature from '@components/Feature.astro'
 import Counter from '@components/Counter.astro'
 import ContentMedia from '@components/ContentMedia.astro'
-import ExternalLink from '@components/ExternalLink.astro'
+import LinkComponent from '@components/LinkComponent.astro'
 import { Accordion, AccordionItem, Avatar, AvatarGroup } from 'accessible-astro-components'
 ---
 
@@ -38,8 +38,8 @@ import { Accordion, AccordionItem, Avatar, AvatarGroup } from 'accessible-astro-
       <h2>TitanX is the grassroots, pure crypto movement</h2>
       <p class="text-2xl">
         no insiders, no VC control, no inflation. Fair-launched on Ethereum, fully transparent, and built where the
-        users and builders already are. Checkout: <ExternalLink href="https://app.titanx.win/stats"
-          >TitanX Stats</ExternalLink
+        users and builders already are. Checkout: <LinkComponent href="https://app.titanx.win/stats"
+          >TitanX Stats</LinkComponent
         >
       </p>
     </ContentMedia>
@@ -103,11 +103,11 @@ import { Accordion, AccordionItem, Avatar, AvatarGroup } from 'accessible-astro-
           TitanX Is DeFi, as It Should Be — No shortcuts. No special treatment. Just a fair, secure, and scalable
           ecosystem designed to unlock true decentralization — and reward those who help build it.
         </p>
-        <ExternalLink class="button color-secondary" href="https://www.titanxhub.com/">Ecosystem</ExternalLink>
-        <ExternalLink class="button" href="https://www.titanxinfo.com/">More Information</ExternalLink>
+        <LinkComponent class="button color-secondary" href="https://www.titanxhub.com/">Ecosystem</LinkComponent>
+        <LinkComponent class="button" href="https://www.titanxinfo.com/">More Information</LinkComponent>
       </div>
       <div class="space-content">
-        <Accordion>
+        <Accordion class="accordionReset">
           <AccordionItem name="exclusive" title="What is TITANX, and why is it so unique?" open>
             <p>
               TITANX is a grassroots crypto ecosystem built around fairness, decentralization, and builder-first
@@ -188,15 +188,19 @@ import { Accordion, AccordionItem, Avatar, AvatarGroup } from 'accessible-astro-
     </div>
     <div class="container mt-16">
       <h3 class="mb-8 text-3xl">Get precise data here:</h3>
-      <ExternalLink class="button" href="https://www.titanxhub.com/">TitanXHub</ExternalLink>
+      <LinkComponent class="button" href="https://www.titanxhub.com/">TitanXHub</LinkComponent>
     </div>
   </section>
 </DefaultLayout>
 
-<style lang="scss">
+<style lang="scss" is:global>
   .avatar {
     border: 1px solid var(--border-color-subtle);
     border-radius: var(--radius-md);
     padding: var(--space-s);
+  }
+
+  .accordionReset h3 {
+    margin-top: 0 !important;
   }
 </style>

@@ -1,0 +1,50 @@
+---
+import { Icon } from 'astro-icon/components'
+
+/**
+ * LinkComponent Component
+ *
+ * @description LinkComponent description
+ */
+interface Props {
+  /**
+   * Additional classes to apply to the LinkComponent
+   */
+  class?: string
+  /**
+   * The URL to link to
+   */
+  href: string
+  /**
+   * The Link title
+   */
+  title?: string
+  /**
+   * The internal
+   */
+  internal?: boolean
+}
+
+const { class: className, href, title, internal = false } = Astro.props
+---
+
+<a
+  href={href}
+  title={title}
+  class:list={[className, !internal && 'external-link']}
+  {...(!internal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+>
+  <slot />
+  {!internal &&
+    <Icon name="lucide:external-link" />
+    <span class="sr-only">Opens in a new tab</span>
+  }
+</a>
+
+<style>
+  .external-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3xs);
+  }
+</style>

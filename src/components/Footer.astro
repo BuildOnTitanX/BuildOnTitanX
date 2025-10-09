@@ -1,6 +1,6 @@
 ---
 import CallToAction from './CallToAction.astro'
-import ExternalLink from './ExternalLink.astro'
+import LinkComponent from './LinkComponent.astro'
 import Logo from './Logo.astro'
 
 /**
@@ -31,7 +31,7 @@ const currentYear = new Date().getFullYear()
           <li><a href="/about" title="What is this page about">About</a></li>
           <!-- <li><a href="/builders/overview/">Builders Overview</a></li> -->
           <li>TBD</li>
-          <li><ExternalLink href="https://github.com/BuildOnTitanX/BuildOnTitanX/">GitHub</ExternalLink></li>
+          <li><LinkComponent href="https://github.com/BuildOnTitanX/BuildOnTitanX/">GitHub</LinkComponent></li>
           <!-- <li><a href="/accessible-components">Accessible components</a></li>
           <li><a href="/color-contrast-checker">Color contrast checker</a></li>
           <li><a href="/markdown-page">Markdown page</a></li>
@@ -43,32 +43,32 @@ const currentYear = new Date().getFullYear()
         <h3 class="text-2xl font-bold">Community Links</h3>
         <ul class="flex flex-col gap-2">
           <li>
-            <ExternalLink href="https://www.titanx.win/" title="TitanX Website - Mainpage explaining its Phylosophy"
-              >TitanX Mainpage</ExternalLink
+            <LinkComponent href="https://www.titanx.win/" title="TitanX Website - Mainpage explaining its Phylosophy"
+              >TitanX Mainpage</LinkComponent
             >
           </li>
           <li>
-            <ExternalLink href="https://app.titanx.win/stats" title="TitanX Dapp - Focusing on the Stats"
-              >TitanX Dapp Stats</ExternalLink
+            <LinkComponent href="https://app.titanx.win/stats" title="TitanX Dapp - Focusing on the Stats"
+              >TitanX Dapp Stats</LinkComponent
             >
           </li>
           <li>
-            <ExternalLink href="https://www.titanxhub.com/" title="Titan X Hub by Mike Dean">Titan X Hub</ExternalLink>
+            <LinkComponent href="https://www.titanxhub.com/" title="Titan X Hub by Mike Dean">Titan X Hub</LinkComponent>
           </li>
           <li>
-            <ExternalLink href="https://titanfarms.win/" title="The TitanX Farms - Simply add LP and earn TINC"
-              >Titan Farms</ExternalLink
+            <LinkComponent href="https://titanfarms.win/" title="The TitanX Farms - Simply add LP and earn TINC"
+              >Titan Farms</LinkComponent
             >
           </li>
           <li>
-            <ExternalLink href="https://titanxinfo.com/" title="TitanXInfo - TITANX Crypto For Beginners"
-              >TitanX Info</ExternalLink
+            <LinkComponent href="https://titanxinfo.com/" title="TitanXInfo - TITANX Crypto For Beginners"
+              >TitanX Info</LinkComponent
             >
           </li>
           <li>
-            <ExternalLink
+            <LinkComponent
               href="https://www.titanxutils.com/"
-              title="TitanXUtils - Your comprehensive dashboard for the TitanX ecosystem">TitanX Utils</ExternalLink
+              title="TitanXUtils - Your comprehensive dashboard for the TitanX ecosystem">TitanX Utils</LinkComponent
             >
           </li>
         </ul>
@@ -77,13 +77,13 @@ const currentYear = new Date().getFullYear()
         <Logo loading="lazy" />
         <p class="leading-[1.75]">
           Tip: The TitanX Ecosystem is getting quite big, if you want to dig deeper into all the different Projects,
-          please check out the <ExternalLink
+          please check out the <LinkComponent
             href="https://www.titanx.win/"
-            title="Hyper Deflationary, Secure and Fair DeFi 3.0 Ecosystem">TitanX Mainpage</ExternalLink
+            title="Hyper Deflationary, Secure and Fair DeFi 3.0 Ecosystem">TitanX Mainpage</LinkComponent
           >
-          <ExternalLink href="https://www.titanxhub.com/" title="Titan X Hub by Mike Dean">TitanX Hub</ExternalLink> or <ExternalLink
+          <LinkComponent href="https://www.titanxhub.com/" title="Titan X Hub by Mike Dean">TitanX Hub</LinkComponent> or <LinkComponent
             href="https://titanxinfo.com/"
-            title="TitanXInfo - TITANX Crypto For Beginners">TitanX Info</ExternalLink
+            title="TitanXInfo - TITANX Crypto For Beginners">TitanX Info</LinkComponent
           >
         </p>
         <!-- <p class="leading-[1.75]">

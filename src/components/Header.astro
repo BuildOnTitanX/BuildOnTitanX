@@ -2,7 +2,7 @@
 import Navigation from '../components/Navigation.astro'
 import { DarkMode, SkipLink } from 'accessible-astro-components'
 import { Icon } from 'astro-icon/components'
-import ExternalLink from './ExternalLink.astro'
+import LinkComponent from './LinkComponent.astro'
 
 import { getCollection } from 'astro:content'
 
@@ -192,32 +192,32 @@ for (const key in grouped) {
       </button>
       <ul class="dropdown-menu" id="resources-dropdown">
         <li class="submenu-item">
-          <ExternalLink href="https://www.titanx.win/" title="TitanX Website - Mainpage explaining its Phylosophy"
-            >TitanX Mainpage</ExternalLink
+          <LinkComponent href="https://www.titanx.win/" title="TitanX Website - Mainpage explaining its Phylosophy"
+            >TitanX Mainpage</LinkComponent
           >
         </li>
         <li class="submenu-item">
-          <ExternalLink href="https://app.titanx.win/stats" title="TitanX Dapp - Focusing on the Stats"
-            >TitanX Dapp Stats</ExternalLink
+          <LinkComponent href="https://app.titanx.win/stats" title="TitanX Dapp - Focusing on the Stats"
+            >TitanX Dapp Stats</LinkComponent
           >
         </li>
         <li class="submenu-item">
-          <ExternalLink href="https://www.titanxhub.com/" title="Titan X Hub by Mike Dean">TitanX Hub</ExternalLink>
+          <LinkComponent href="https://www.titanxhub.com/" title="Titan X Hub by Mike Dean">TitanX Hub</LinkComponent>
         </li>
         <li class="submenu-item">
-          <ExternalLink href="https://titanfarms.win/" title="The TitanX Farms - Simply add LP and earn TINC"
-            >Titan Farms</ExternalLink
+          <LinkComponent href="https://titanfarms.win/" title="The TitanX Farms - Simply add LP and earn TINC"
+            >Titan Farms</LinkComponent
           >
         </li>
         <li class="submenu-item">
-          <ExternalLink href="https://titanxinfo.com/" title="TitanXInfo - TITANX Crypto For Beginners"
-            >TitanX Info</ExternalLink
+          <LinkComponent href="https://titanxinfo.com/" title="TitanXInfo - TITANX Crypto For Beginners"
+            >TitanX Info</LinkComponent
           >
         </li>
         <li class="submenu-item">
-          <ExternalLink
+          <LinkComponent
             href="https://www.titanxutils.com/"
-            title="TitanXUtils - Your comprehensive dashboard for the TitanX Ecosystem">TitanX Utils</ExternalLink
+            title="TitanXUtils - Your comprehensive dashboard for the TitanX Ecosystem">TitanX Utils</LinkComponent
           >
         </li>
       </ul>

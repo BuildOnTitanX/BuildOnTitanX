@@ -1,3 +1,11 @@
+## [0.0.7] - 2025-10-09
+
+### Add Builders Overview
+
+- Add Overview Content to the builders page
+- Improve the Link Component, allowing internal usage as well TODO: Add to pages-cms (yml-config)
+- Add hyphens auto with fallback for headlines and p-tags
+
 ## [0.0.6] - 2025-10-08
 
 ### Add News List block

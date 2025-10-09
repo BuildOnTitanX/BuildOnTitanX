@@ -5,14 +5,15 @@ import CardBlock from '@blocks/CardBlock.astro'
 import CodeBlock from '@blocks/CodeBlock.astro'
 import NewsList from '@blocks/NewsList.astro'
 import PageHeader from '@components/PageHeader.astro'
-import RTE from '@components/RTE.astro'
+import RTE from '@blocks/RTE.astro'
+import LinkComponent from '@components/LinkComponent.astro'
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 import { Fragment } from 'astro/jsx-runtime'
 import { getEntry, getCollection } from 'astro:content'
 import MarkdownIt from 'markdown-it'
 
-// const md = new MarkdownIt()
-const md = new MarkdownIt({ breaks: true })
+const md = new MarkdownIt()
+// const md = new MarkdownIt({ breaks: true }) //dangerous, removes p-tags
 
 function normalizeContent(raw) {
   // remove backslashes that PagesCMS injected
@@ -119,6 +120,12 @@ const blocks = frontmatter.blocks ?? []
               )
             case 'news':
               return <NewsList key={`block-${index}`} items={block.items} />
+            case 'link':
+              return (
+                <div class="container -mt-6">
+                  <LinkComponent key={`block-${index}`} class={block.class} href={block.href} title={block.title} internal={block.internal}>{block.content}</LinkComponent>
+                </div>
+              )
             default:
               return null
           }
