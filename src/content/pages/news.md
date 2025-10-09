@@ -35,7 +35,7 @@ blocks:
         date: 2025-10-09
         type: News
         description: 'Checkout Cyfrins new Jobplatform, it looks and feel great! It is worth a visit for sure!'
-        # image: '/news/Cyfrin_Jobs_platform.jpg'
+        image: '/news/Cyfrin_Jobs_platform.jpg'
         link: 'https://jobs.cyfrin.io/'
         link2: 'https://www.cyfrin.io/blog/introducing-cyfrin-jobs-blockchain-native-recruitment'
         link2text: 'Blog posting'
