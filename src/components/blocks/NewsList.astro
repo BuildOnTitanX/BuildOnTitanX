@@ -100,7 +100,15 @@ function formatDate(dateString) {
                   href={item.link}
                   class="text-sm text-lime-400 font-medium hover:underline"
                 >
-                  Read more
+                  {item.linktext ? item.linktext : 'Read more'}
+                </LinkComponent>
+              )}
+              {item.link2 && (
+                <LinkComponent
+                  href={item.link2}
+                  class="text-sm text-lime-400 font-medium hover:underline"
+                >
+                  {item.link2text ? item.link2text : 'More details'}
                 </LinkComponent>
               )}
             </div>

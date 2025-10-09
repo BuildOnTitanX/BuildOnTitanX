@@ -31,4 +31,12 @@ blocks:
         description: 'Join us to celebrate TitanX’s 2 year anniversary with exciting announcements'
         # image: '/images/news/conference.jpg'
         link: 'https://x.com/PLANAAA101'
+      - title: 'Cyfrin hosted its own Jobplatform today!'
+        date: 2025-10-09
+        type: News
+        description: 'Checkout Cyfrins new Jobplatform, it looks and feel great! It is worth a visit for sure!'
+        # image: '/news/Cyfrin_Jobs_platform.jpg'
+        link: 'https://jobs.cyfrin.io/'
+        link2: 'https://www.cyfrin.io/blog/introducing-cyfrin-jobs-blockchain-native-recruitment'
+        link2text: 'Blog posting'
 ---
