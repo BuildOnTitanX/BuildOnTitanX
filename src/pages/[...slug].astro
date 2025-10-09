@@ -123,7 +123,7 @@ const blocks = frontmatter.blocks ?? []
             case 'link':
               return (
                 <div class="container -mt-6">
-                  <LinkComponent key={`block-${index}`} class={block.class} href={block.href} title={block.title} internal={block.internal}>{block.content}</LinkComponent>
+                  <LinkComponent key={`block-${index}`} class={block.class} href={block.href} title={block.title} internal={block.internal} showArrow={block.showArrow}>{block.content}</LinkComponent>
                 </div>
               )
             default:

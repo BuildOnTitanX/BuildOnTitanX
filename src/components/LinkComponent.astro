@@ -23,9 +23,13 @@ interface Props {
    * The internal
    */
   internal?: boolean
+  /**
+   * showArrow right? (only if internal true)
+   */
+  showArrow?: boolean
 }
 
-const { class: className, href, title, internal = false } = Astro.props
+const { class: className, href, title, internal = false, showArrow = false } = Astro.props
 ---
 
 <a
@@ -39,6 +43,9 @@ const { class: className, href, title, internal = false } = Astro.props
     <Icon name="lucide:external-link" />
     <span class="sr-only">Opens in a new tab</span>
   }
+  {internal && showArrow &&
+    <Icon name="lucide:arrow-right" />
+  }
 </a>
 
 <style>
@@ -46,5 +53,22 @@ const { class: className, href, title, internal = false } = Astro.props
     display: inline-flex;
     align-items: center;
     gap: var(--space-3xs);
+  }
+
+  a,
+  a:visited {
+    [data-icon] {
+      transition: translate var(--animation-speed-fast) var(--cubic-bezier);
+    }
+
+    [data-icon] {
+      translate: 4px 0;
+    }
+
+    &:where(:hover, :focus) {
+      [data-icon] {
+        translate: 8px 0;
+      }
+    }
   }
 </style>

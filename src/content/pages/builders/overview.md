@@ -28,6 +28,7 @@ blocks:
     href: '/builders/tutorials/'
     title: 'The List of Tutorials'
     internal: true
+    showArrow: true
     content: 'Tutorials'
 
   - _block: rtecontent
@@ -47,5 +48,6 @@ blocks:
     href: '/builders/docs/'
     title: 'The Starlight Documentation Page'
     internal: true
+    showArrow: true
     content: 'Docs'
 ---

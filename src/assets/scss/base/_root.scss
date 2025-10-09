@@ -43,7 +43,8 @@
   --text-decoration-color: light-dark(var(--color-neutral-700), var(--color-neutral-100));
   --text-decoration-color-hover: light-dark(var(--color-neutral-100), var(--color-neutral-200));
   --text-brand-color-theme: light-dark(var(--brand-primary), var(--brand-secondary));
-  --bgGutter: #040b14;
+  /* --bgGutter: #040b14; */ /* darker */
+  --bgGutter: #0b192a; /* lighter dark */
   --bgGutterSize: 20px;
 
   // theme settings
