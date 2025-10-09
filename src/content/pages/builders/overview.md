@@ -8,7 +8,9 @@ blocks:
     title: The Builders startingpoint, Tutorials and Documentation
     subtitle:
       content: >-
-        Let's look at two main parts of this Page the Tutorials and the Docs. They are the center of this whole website and focus will mostly be on. Both areas will become the biggest resources of this website, with many different articles and topics to learn from.
+        Let's look at two main parts of this Page the Tutorials and the Docs. They are the center of this whole website and focus will mostly be on those two. Both areas will become the biggest resources of this website, with many different articles and topics to learn from.
+
+        Are you missing something or do you want to write an article? Write us on [X](https://x.com/Build0nTitanX).
 
     bgType: default
   - _block: rtecontent
