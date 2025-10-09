@@ -42,22 +42,22 @@ const currentPage = page.currentPage
 const totalPages = Math.ceil(page.total / page.size)
 ---
 
-<DefaultLayout title="Entries" description="A collection of entries showcasing various topics and content.">
+<DefaultLayout title="Tutorials" description="A collection of tutorials showcasing various topics and content.">
   <PageHeader
-    title="Entries"
-    subtitle='A collection of entries showcasing various topics and content. Learn more about <a href="https://docs.astro.build/en/guides/content-collections/">Astro Content Collections</a> in the official documentation.'
+    title="Tutorials"
+    subtitle='This is a demo collection of tutorials showcasing various topics and content. It is just dummy content to be replaced soon with community content.'
     bgType="bordered"
   />
   <section class="my-12">
     <div class="container">
-      <p class="text-sm"><em>Entry {page.start + 1} through {page.end + 1} of {page.total} total entries</em></p>
+      <p class="text-sm"><em>Tutorial {page.start + 1} through {page.end + 1} of {page.total} total tutorials</em></p>
       <ul class="my-3 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {
           page.data.map((entry) => (
             <li>
               <Card
                 imageComponent={entry.featuredImage}
-                url={'/entries/' + entry.id}
+                url={'/tutorials/' + entry.id}
                 title={entry.data.title}
                 footer={'Author: ' + entry.data.author}
               >
