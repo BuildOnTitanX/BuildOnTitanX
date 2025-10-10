@@ -25,7 +25,7 @@ blocks:
 
   - _block: link
     class: 'button color-secondary'
-    href: '/builders/tutorials/'
+    href: '/tutorials/'
     title: 'The List of Tutorials'
     internal: true
     showArrow: true
