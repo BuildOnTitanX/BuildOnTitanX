@@ -56,7 +56,7 @@ function formatDate(dateString) {
       const isUpcoming = new Date(item.date) > new Date(); // future date
 
       return (
-      <article class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 pb-10 border-b border-white/10 items-center">
+      <article class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 pb-10 darkmodeBorder items-center">
         <div
           class={
             "col-span-1 flex justify-center items-center rounded-xl newsCard relative type_" +
@@ -89,10 +89,10 @@ function formatDate(dateString) {
 
         <div class="col-span-1 sm:col-span-1 lg:col-span-3 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
           <div class="flex-1">
-            <h3 class="text-xl sm:text-2xl font-semibold text-white leading-tight mt-0!">
+            <h3 class="text-xl sm:text-2xl font-semibold leading-tight mt-0!">
               {item.title}
             </h3>
-            <p class="text-sm sm:text-base text-gray-200 mt-1">{item.description}</p>
+            <p class="text-sm sm:text-base mt-1">{item.description}</p>
             <div class="flex items-center gap-4 mt-3">
               <span class="text-sm text-gray-400">{formatDate(item.date)}</span>
               {item.link && (
@@ -161,6 +161,10 @@ function formatDate(dateString) {
       background:radial-gradient(circle at 20% 20%, rgba(255,255,255,0.06), transparent 20%),
                   linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
       pointer-events:none;
+    }
+
+    .darkmodeBorder {
+      border-bottom: 1px solid var(--border-color-subtle);
     }
   }
 </style>

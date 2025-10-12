@@ -12,6 +12,6 @@ export default {
     extend: {},
   },
   plugins: [],
-  darkMode: ['class', '.darkmode'],
+  darkMode: ['class', '.darkmode'], //might not be working correctly in Tailwind 4 anymore
   safelist: ["hidden", "sm:hidden"],
 }

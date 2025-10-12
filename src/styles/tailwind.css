@@ -15,6 +15,11 @@
   --font-size-8: clamp(4.2999rem, 3.5601rem + 3.6935vw, 6.6856rem);
 }
 
+.darkmode {
+  /* Tell Tailwind: treat .darkmode as .dark */
+  @apply dark;
+}
+
 /* Override Tailwind default font-size vars */
 .text-sm {
   --text-sm: var(--font-size--1);
