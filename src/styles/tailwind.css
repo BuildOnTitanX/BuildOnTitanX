@@ -15,10 +15,7 @@
   --font-size-8: clamp(4.2999rem, 3.5601rem + 3.6935vw, 6.6856rem);
 }
 
-.darkmode {
-  /* Tell Tailwind: treat .darkmode as .dark */
-  @apply dark;
-}
+@custom-variant dark (&:where(.darkmode, .darkmode *));
 
 /* Override Tailwind default font-size vars */
 .text-sm {
