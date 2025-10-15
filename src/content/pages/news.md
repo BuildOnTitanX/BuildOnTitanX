@@ -28,7 +28,7 @@ blocks:
       - title: 'TitanX 2 Year Anniversary'
         date: 2025-10-28
         type: Event
-        description: 'Join us to celebrate TitanX’s 2 year anniversary with exciting announcements'
+        description: 'Join us to celebrate TitanX’s 2 year anniversary with exciting announcements. @UTAH_KRYPTO (X) and @PLANAAA101 (X) are on it. On 2025-11-01 and 2025-11-02 the $TITANX community will come together. There will be one hour blocks for the speakers.'
         # image: '/images/news/conference.jpg'
         link: 'https://x.com/PLANAAA101'
       - title: 'Cyfrin hosted its own Jobplatform today!'
