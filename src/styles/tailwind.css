@@ -18,6 +18,10 @@
 @custom-variant dark (&:where(.darkmode, .darkmode *));
 
 /* Override Tailwind default font-size vars */
+.text-xs {
+  --text-sm: var(--font-size--2);
+  --text-sm--line-height: var(--font-size--1);
+}
 .text-sm {
   --text-sm: var(--font-size--1);
   --text-sm--line-height: var(--font-size-0);

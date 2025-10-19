@@ -25,6 +25,17 @@ body {
   color: var(--foreground-color);
 }
 
+body::-webkit-scrollbar-track {
+  background-color: var(--background-color);
+}
+body::-webkit-scrollbar {
+  width: 8px;
+  background-color: var(--background-color);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--link-color);
+}
+
 .darkmode {
   body {
     background-image:
