@@ -23,34 +23,23 @@ const { imgSrc, reverseImg = false }: Props = Astro.props
 
 <section class="my-32 md:my-64">
   <div class="container">
-    <div class="grid grid-cols-1 gap-24 md:grid-cols-2">
-      {
-        !reverseImg ? (
-          <>
-            <div class="mediaBox rounded-lg">
-              <Media class="mediaBoxImg rounded-lg" src={imgSrc} />
-              <div class="mediaBoxBackdrop" />
-            </div>
-          </>
-        ) : (
-          ''
-        )
-      }
-      <div class="space-content flex flex-col justify-center">
+    <div class="grid grid-cols-1 gap-24 md:grid-cols-2 items-center">
+      <div
+        class={`mediaBox rounded-lg ${
+          reverseImg ? 'order-1 md:order-2' : 'order-1 md:order-1'
+        }`}
+      >
+        <Media class="mediaBoxImg rounded-lg" src={imgSrc} />
+        <div class="mediaBoxBackdrop" />
+      </div>
+
+      <div
+        class={`space-content flex flex-col justify-center ${
+          reverseImg ? 'order-2 md:order-1' : 'order-2 md:order-2'
+        }`}
+      >
         <slot />
       </div>
-      {
-        reverseImg ? (
-          <>
-            <div class="mediaBox rounded-lg">
-              <Media class="mediaBoxImg rounded-lg" src={imgSrc} />
-              <div class="mediaBoxBackdrop" />
-            </div>
-          </>
-        ) : (
-          ''
-        )
-      }
     </div>
   </div>
 </section>
