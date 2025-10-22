@@ -125,7 +125,23 @@ content:
                     label: Content
                     type: rich-text
                     required: true
-
+          - name: imageText
+            label: ImageText (2 cols)
+            fields:
+              - name: title
+                label: Title
+                type: string
+              - name: text
+                label: Text
+                type: string
+              - name: image
+                label: Image
+                type: image
+                required: true
+              - name: reverseImg
+                label: Image Last
+                type: boolean
+                default: false
   - name: pages
     label: Modular Pages
     type: collection

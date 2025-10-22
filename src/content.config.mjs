@@ -76,6 +76,18 @@ const entries = defineCollection({
               }),
             ),
           }),
+          z.object({
+            _block: z.literal('rtecontent'),
+            content: z.string()
+          }),
+          z.object({
+            _block: z.literal('imageText'),
+            image: z.string(),
+            reverseImg: z.boolean().default(false),
+            title: z.string().optional(),
+            text: z.string().optional(),
+            link: z.string().optional(),
+          }),
         ]),
       )
       .optional(),

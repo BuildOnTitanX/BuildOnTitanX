@@ -4,12 +4,16 @@ import HeroBlock from '@blocks/HeroBlock.astro'
 import CardBlock from '@blocks/CardBlock.astro'
 import CodeBlock from '@blocks/CodeBlock.astro'
 import PageHeader from '@components/PageHeader.astro'
+import RTE from '@blocks/RTE.astro'
+import LinkComponent from '@components/LinkComponent.astro'
 import SocialShares from '@components/SocialShares.astro'
 import { getCollection } from 'astro:content'
 import { Fragment } from 'astro/jsx-runtime'
 import MarkdownIt from 'markdown-it'
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 import type { CollectionEntry } from 'astro:content'
+import ContentMedia from '@components/ContentMedia.astro'
+import NewsList from '@components/blocks/NewsList.astro'
 
 const md = new MarkdownIt()
 
@@ -69,21 +73,52 @@ const author = {
                   bgType={block.bgType}
                 />
               )
-            case 'accordion':
-              return (
-                <Accordion key={`block-${index}`} allowMultiple={block.allowMultiple}>
-                  {Array.isArray(block.items) &&
-                    block.items.map((item, i) => (
-                      <AccordionItem
-                        key={`accordion-item-${i}`}
-                        title={item.title}
-                        variant={block.useChevron ? 'chevron' : undefined}
-                      >
-                        <Fragment set:html={md.render(item.content)} />
-                      </AccordionItem>
-                    ))}
-                </Accordion>
-              )
+              case 'rtecontent':
+                return (
+                  <RTE
+                    key={`block-${index}`}
+                    content={md.render(normalizeContent(block.content?.content) ?? '')}
+                  />
+                )
+              case 'accordion':
+                return (
+                  <Accordion key={`block-${index}`} allowMultiple={block.allowMultiple}>
+                    {Array.isArray(block.items) &&
+                      block.items.map((item, i) => (
+                        <AccordionItem
+                          key={`accordion-item-${i}`}
+                          title={item.title}
+                          variant={block.useChevron ? 'chevron' : undefined}
+                        >
+                          <Fragment set:html={md.render(item.content)} />
+                        </AccordionItem>
+                      ))}
+                  </Accordion>
+                )
+              case 'imageText':
+                return (
+                  <ContentMedia
+                    key={`block-${index}`}
+                    imgSrc = {block.image},
+                    reverseImg = {block.reverseImg}
+                  >
+                    {block.title && <h2>{block.title}</h2>}
+                    {block.text &&
+                      <p class="text-2xl">
+                        {block.text}
+                      </p>
+                    }
+                    {block.link && <LinkComponent href="https://app.titanx.win/stats">{block.link}</LinkComponent>}
+                  </ContentMedia>
+                )
+              // case 'news':
+              //   return <NewsList key={`block-${index}`} items={block.items} />
+              // case 'link':
+              //   return (
+              //     <div class="container -mt-6">
+              //       <LinkComponent key={`block-${index}`} class={block.class} href={block.href} title={block.title} internal={block.internal} showArrow={block.showArrow}>{block.content}</LinkComponent>
+              //     </div>
+              //   )
             default:
               return null
           }
