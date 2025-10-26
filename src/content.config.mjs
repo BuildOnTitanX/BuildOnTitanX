@@ -87,7 +87,9 @@ const entries = defineCollection({
             reverseImg: z.boolean().default(false),
             title: z.string().optional(),
             text: z.string().optional(),
-            link: z.string().optional(),
+            linkText: z.string().optional(),
+            linkUrl: z.string().optional(),
+            linkInternal: z.string().optional(),
           }),
         ]),
       )

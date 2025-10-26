@@ -149,6 +149,16 @@ content:
                 label: Image Last
                 type: boolean
                 default: false
+              - name: linkText
+                label: Link Text
+                type: string
+              - name: linkUrl
+                label: Link Url
+                type: string
+              - name: linkInternal
+                label: Link Internal
+                type: boolean
+                default: false
   - name: pages
     label: Modular Pages
     type: collection
