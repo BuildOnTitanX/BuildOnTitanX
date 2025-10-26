@@ -1,5 +1,6 @@
 ---
 id: "12345"
+date: 2025-10-26
 title: New entry with imageText Component
 published: true
 description: SEO Stuff
@@ -10,9 +11,13 @@ blocks:
     text: What is TitanX about and how does this page support its vision?
     image: /uploads/6F6A44A2-769F-42EE-BBD2-A46681F14F31-1024x585.png
     reverseImg: false
+    linkText: Link
+    linkUrl: https://diamonds1111.win/
+    linkInternal: false
   - _block: imageText
     title: Image Text 2
     text: What is TitanX about and how does ....
     image: /uploads/Scale-logo.jpg
     reverseImg: true
+    linkInternal: false
 ---
