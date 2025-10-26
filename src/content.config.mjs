@@ -34,6 +34,7 @@ const entries = defineCollection({
     published: z.boolean().default(true),
     description: z.string(),
     title: z.string(),
+    date: z.date().optional(),
     author: z.string().optional(),
     blocks: z
       .array(

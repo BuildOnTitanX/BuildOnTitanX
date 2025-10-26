@@ -7,8 +7,8 @@ content:
     label: Entries
     type: collection
     path: src/content/entries
-    filename: '{fields.title}.md'
     #filename: '{year}-{month}-{day}-{fields.title}.mdx'
+    filename: '{fields.title}.md'
     format: yaml-frontmatter
     fields:
       - name: id

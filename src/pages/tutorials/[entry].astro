@@ -40,7 +40,7 @@ const blocks = entry.data.blocks || []
 const author = {
   name: entry.data.author || 'Unknown Author',
   image: '/posts/post-image-1.png',
-  bio: 'Entry Author',
+  bio: entry.data.date || '',
 }
 ---
 
@@ -64,15 +64,15 @@ const author = {
                   language={block.language?.toLowerCase() || 'javascript'}
                 />
               )
-            case 'pageheader':
-              return (
-                <PageHeader
-                  key={`block-${index}`}
-                  title={block.title}
-                  subtitle={md.render(normalizeContent(block.subtitle?.content) ?? '')}
-                  bgType={block.bgType}
-                />
-              )
+            // case 'pageheader':
+            //   return (
+            //     <PageHeader
+            //       key={`block-${index}`}
+            //       title={block.title}
+            //       subtitle={md.render(normalizeContent(block.subtitle?.content) ?? '')}
+            //       bgType={block.bgType}
+            //     />
+            //   )
               case 'rtecontent':
                 return (
                   <RTE
@@ -143,4 +143,9 @@ const author = {
     margin-inline: auto;
     max-width: 65ch;
   }
+
+  .avatar p.subtitle {
+    margin: 0;
+  }
+
 </style>
