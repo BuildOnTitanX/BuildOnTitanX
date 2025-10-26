@@ -1,5 +1,6 @@
 ---
 id: "12346"
+date: 26-10-2025
 title: Holders of DIAMOND CERTIFICATES (NFT's) earn ETH rewards
 published: true
 description: 80% of the BLAZE that is taken in from mining, is then staked by
