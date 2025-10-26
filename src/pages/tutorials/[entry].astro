@@ -37,10 +37,23 @@ interface Props {
 const { entry } = Astro.props
 const blocks = entry.data.blocks || []
 
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  console.log({date})
+  // return date.toLocaleDateString("en-GB", {
+  return date.toLocaleDateString("en-US", {
+    day: "2-digit",
+    // month: "short",
+    month: "long",
+    year: "numeric",
+  });
+}
+
 const author = {
   name: entry.data.author || 'Unknown Author',
   image: '/posts/post-image-1.png',
-  bio: entry.data.date || '',
+  bio: '',
+  date: formatDate(entry.data.date) || '',
 }
 ---
 

@@ -38,6 +38,7 @@ interface Props {
     name: string
     image: string
     bio: string
+    date: Date
   }
   bgType?: 'primary' | 'secondary' | 'neutral' | 'gradient' | 'bordered'
   /**
@@ -140,7 +141,7 @@ const sanitizedSubtitle = subtitle
       {
         author && (
           <div class="mt-6 flex items-center">
-            <Avatar title={author.name} image={author.image} subtitle={author.bio} />
+            <Avatar title={author.name} image={author.image} subtitle={author.bio != '' ? author.bio : author.date} />
           </div>
         )
       }
