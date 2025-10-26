@@ -7,6 +7,7 @@ content:
     label: Entries
     type: collection
     path: src/content/entries
+    filename: '{fields.title}.md'
     #filename: '{year}-{month}-{day}-{fields.title}.mdx'
     format: yaml-frontmatter
     fields:
@@ -14,6 +15,12 @@ content:
         label: ID
         type: string
         required: true
+      - name: date
+        label: date
+        type: date
+        default: '{year}-{month}-{day}'
+        options:
+          format: dd-MM-yyyy
       - name: title
         label: Title
         type: string
