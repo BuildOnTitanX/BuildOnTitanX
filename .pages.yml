@@ -159,6 +159,14 @@ content:
                 label: Link Internal
                 type: boolean
                 default: false
+              - name: linkStyle
+                label: Link Style
+                type: select
+                options:
+                  - Button
+                  - Button2
+                  - Link
+                required: true
   - name: pages
     label: Modular Pages
     type: collection

@@ -90,6 +90,7 @@ const entries = defineCollection({
             linkText: z.string().optional(),
             linkUrl: z.string().optional(),
             linkInternal: z.boolean().default(false),
+            linkStyle: z.string().default('link'),
           }),
         ]),
       )

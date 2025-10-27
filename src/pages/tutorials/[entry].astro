@@ -39,7 +39,7 @@ const blocks = entry.data.blocks || []
 
 function formatDate(dateString) {
   const date = new Date(dateString);
-  console.log({date})
+  // console.log({date})
   // return date.toLocaleDateString("en-GB", {
   return date.toLocaleDateString("en-US", {
     day: "2-digit",
@@ -48,6 +48,18 @@ function formatDate(dateString) {
     year: "numeric",
   });
 }
+
+function linkStyleClass(linkStyle: string) {
+  switch (linkStyle) {
+    case "button":
+      return "button color-secondary";
+    case "button2":
+      return "button";
+    default:
+      return "";
+  }
+}
+
 
 const author = {
   name: entry.data.author || 'Unknown Author',
@@ -121,7 +133,7 @@ const author = {
                         {block.text}
                       </p>
                     }
-                    {block.linkText && block.linkUrl && <LinkComponent class="button" href={block.linkUrl} internal={block.linkInternal}>{block.linkText}</LinkComponent>}
+                    {block.linkText && block.linkUrl && <LinkComponent class={linkStyleClass(block.linkStyle)}  href={block.linkUrl} internal={block.linkInternal}>{block.linkText}</LinkComponent>}
                   </ContentMedia>
                 )
               // case 'news':

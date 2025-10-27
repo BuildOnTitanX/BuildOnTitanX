@@ -1,5 +1,5 @@
 ---
-id: "12345"
+id: '12345'
 date: 2025-10-26
 title: New entry with imageText Component
 published: true
@@ -14,10 +14,14 @@ blocks:
     linkText: Link
     linkUrl: https://diamonds1111.win/
     linkInternal: false
+    linkStyle: 'button'
   - _block: imageText
     title: Image Text 2
     text: What is TitanX about and how does ....
     image: /uploads/Scale-logo.jpg
     reverseImg: true
+    linkText: DIAMONDS
+    linkUrl: https://diamonds1111.win/
     linkInternal: false
+    linkStyle: 'link'
 ---
