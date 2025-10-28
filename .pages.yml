@@ -9,15 +9,15 @@ content:
     path: src/content/entries
     #filename: '{year}-{month}-{day}-{fields.title}.mdx'
     #filename: '{fields.title}.md' #doesn't work!?
-    filename: '{primary}.md'
+    # filename: '{primary}.md' #this works
     format: yaml-frontmatter
     view:
       primary: title #default
     fields:
-      - name: id
-        label: ID
-        type: string
-        required: true
+      # - name: id
+      #   label: ID
+      #   type: string
+      #   required: true
       - name: date
         label: date
         type: date
@@ -36,6 +36,9 @@ content:
         label: Description
         type: string
         required: true
+      - name: image
+        label: Image
+        type: image
       - name: author
         label: Author
         type: string

@@ -9,26 +9,27 @@ import type { GetStaticPaths, Page } from 'astro'
 import type { CollectionEntry } from 'astro:content'
 
 // Import images directly for optimization
-import entryImage1 from '@assets/images/posts/post-image-1.png'
-import entryImage2 from '@assets/images/posts/post-image-2.png'
-import entryImage3 from '@assets/images/posts/post-image-3.png'
-import entryImage4 from '@assets/images/posts/post-image-4.png'
-import entryImage5 from '@assets/images/posts/post-image-5.png'
-import entryImage6 from '@assets/images/posts/post-image-6.png'
+// import entryImage1 from '@assets/images/posts/post-image-1.png'
+// import entryImage2 from '@assets/images/posts/post-image-2.png'
+// import entryImage3 from '@assets/images/posts/post-image-3.png'
+// import entryImage4 from '@assets/images/posts/post-image-4.png'
+// import entryImage5 from '@assets/images/posts/post-image-5.png'
+// import entryImage6 from '@assets/images/posts/post-image-6.png'
 
 export const getStaticPaths = (async ({ paginate }) => {
   const entries = await getCollection('entries')
 
-  const entryImages = [entryImage1, entryImage2, entryImage3, entryImage4, entryImage5, entryImage6]
+  // const entryImages = [entryImage1, entryImage2, entryImage3, entryImage4, entryImage5, entryImage6]
 
-  const entriesWithImages = entries.map((entry, index) => {
-    return {
-      ...entry,
-      featuredImage: entryImages[index % entryImages.length],
-    }
-  })
+  // const entriesWithImages = entries.map((entry, index) => {
+  //   return {
+  //     ...entry,
+  //     featuredImage: entryImages[index % entryImages.length],
+  //   }
+  // })
 
-  return paginate(entriesWithImages, { pageSize: 6 })
+  // return paginate(entriesWithImages, { pageSize: 6 })
+  return paginate(entries, { pageSize: 6 })
 }) satisfies GetStaticPaths
 
 interface Props {
@@ -56,7 +57,7 @@ const totalPages = Math.ceil(page.total / page.size)
           page.data.map((entry) => (
             <li>
               <Card
-                imageComponent={entry.featuredImage}
+                img={entry.data.image}
                 url={'/tutorials/' + entry.id}
                 title={entry.data.title}
                 footer={'Author: ' + entry.data.author}

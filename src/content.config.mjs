@@ -30,10 +30,11 @@ const pages = defineCollection({
 // Define your "entries" collection schema, adjust fields as needed
 const entries = defineCollection({
   schema: z.object({
-    id: z.string(),
-    published: z.boolean().default(true),
-    description: z.string(),
+    // id: z.string(),
     title: z.string(),
+    description: z.string(),
+    image: z.string().optional(),
+    published: z.boolean().default(true),
     date: z.date().optional(),
     author: z.string().optional(),
     blocks: z
