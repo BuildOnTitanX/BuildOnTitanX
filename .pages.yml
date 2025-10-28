@@ -48,20 +48,6 @@ content:
         type: block
         list: true
         blocks:
-          - name: hero
-            label: Hero Section
-            fields:
-              - name: heading
-                label: Heading
-                type: string
-                required: true
-              - name: subheading
-                label: Subheading
-                type: string
-              - name: image
-                label: Image
-                type: image
-                required: true
           - name: card
             label: Card
             fields:
@@ -89,28 +75,6 @@ content:
                   lintFn: () => []
                   language: javascript
                   format: javascript
-          - name: pageheader
-            label: Page Header
-            fields:
-              - name: title
-                label: Title
-                type: string
-                required: true
-              - name: subtitle
-                label: Subtitle
-                type: object
-                fields:
-                  - name: content
-                    label: Content
-                    type: rich-text
-              - name: bgType
-                label: Background Type
-                type: string
-                default: default
-                options:
-                  default: Default
-                  bordered: Bordered
-                  filled: Filled
           - name: accordion
             label: Accordion
             fields:
