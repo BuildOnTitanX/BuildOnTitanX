@@ -2,9 +2,10 @@
 id: '12345'
 date: 2025-10-26
 title: New entry with imageText Component
+image: /uploads/Scale-logo.jpg
 published: true
-description: SEO Stuff
 author: Nona at Home
+description: SEO Stuff
 blocks:
   - _block: imageText
     title: What is TitanX about...

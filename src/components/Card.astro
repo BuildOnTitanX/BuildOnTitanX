@@ -28,7 +28,7 @@ const {
           {title}
         </h3>
         <div class="flex grow flex-col justify-between">
-          <div class="text-ellipsis-4">
+          <div class="text-ellipsis-3">
             <p>
               <slot>Default description.</slot>
             </p>
@@ -126,6 +126,7 @@ const {
     }
 
     .card__content h3 {
+      margin-top: var(--space-xs);
       margin-bottom: var(--space-xs);
       width: 100%;
       font-weight: 200;

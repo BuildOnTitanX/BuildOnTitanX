@@ -48,6 +48,31 @@ content:
         type: block
         list: true
         blocks:
+          - name: hero
+            label: Hero Section
+            fields:
+              - name: heading
+                label: Heading
+                type: string
+                required: true
+              - name: subheading
+                label: Subheading
+                type: string
+              - name: image
+                label: Image
+                type: image
+                required: true
+          - name: rtecontent
+            label: RTE Content
+            fields:
+              - name: content
+                label: Content
+                type: object
+                required: true
+                fields:
+                  - name: content
+                    label: Content
+                    type: rich-text
           - name: card
             label: Card
             fields:
@@ -141,7 +166,7 @@ content:
     label: Modular Pages
     type: collection
     path: src/content/pages
-    filename: '{fields.title}.md'
+    filename: '{primary}.md'
     format: yaml-frontmatter
     fields:
       - name: title

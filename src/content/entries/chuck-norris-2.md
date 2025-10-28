@@ -3,19 +3,19 @@ id: chuck-norris-2
 title: Chuck Norris Facts Vol. 2
 published: true
 description: More incredible facts about the legendary Chuck Norris
-author: "Chuck Norris"
+author: 'Chuck Norris'
 blocks:
   - _block: hero
     heading: "Chuck Norris Doesn't Do Pushups"
-    subheading: "He pushes the Earth down"
-    image: "/posts/post-image-3.png"
+    subheading: 'He pushes the Earth down'
+    image: /uploads/diamonds1111win.jpg
   - _block: pageheader
-    title: "The Legend Continues"
+    title: 'The Legend Continues'
     subtitle:
       content: "Chuck Norris doesn't read books. He stares them down until he gets the information he wants."
-    bgType: "filled"
+    bgType: 'filled'
   - _block: code
-    language: "javascript"
+    language: 'javascript'
     code: |
       // Chuck Norris's version of Hello World
       function helloWorld() {
@@ -27,9 +27,9 @@ blocks:
     allowMultiple: false
     items:
       - title: Fact #4
-        content: "Chuck Norris can slam a revolving door."
+        content: 'Chuck Norris can slam a revolving door.'
       - title: Fact #5
         content: "Chuck Norris doesn't wear a watch. He decides what time it is."
       - title: Fact #6
-        content: "Chuck Norris can unscramble an egg."
+        content: 'Chuck Norris can unscramble an egg.'
 ---

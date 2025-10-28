@@ -6,8 +6,9 @@ const html = await highlight(code, language)
 // const codeContent = typeof code === 'string' ? code.trim() : String(code || '').trim()
 // const languageContent = typeof language === 'string' ? language.trim().toLowerCase() : 'javascript'
 ---
-
-<div class="astro-code" set:html={html} />
+<section class="px-6 py-12">
+  <div class="astro-code" set:html={html} />
+</section>
 
 <style is:global>
   .astro-code {

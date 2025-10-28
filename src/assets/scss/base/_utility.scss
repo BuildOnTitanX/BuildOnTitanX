@@ -94,6 +94,13 @@
   overflow: clip;
 }
 
+.text-ellipsis-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: clip;
+}
+
 .text-ellipsis-4 {
   display: -webkit-box;
   -webkit-line-clamp: 4;
