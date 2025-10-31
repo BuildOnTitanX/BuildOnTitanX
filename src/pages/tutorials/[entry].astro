@@ -10,10 +10,12 @@ import SocialShares from '@components/SocialShares.astro'
 import { getCollection } from 'astro:content'
 import { Fragment } from 'astro/jsx-runtime'
 import MarkdownIt from 'markdown-it'
-import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Accordion, AccordionItem, Video } from 'accessible-astro-components'
 import type { CollectionEntry } from 'astro:content'
 import ContentMedia from '@components/ContentMedia.astro'
+import ContentMediaYoutube from '@components/ContentMediaYoutube.astro'
 import NewsList from '@components/blocks/NewsList.astro'
+
 
 const md = new MarkdownIt()
 
@@ -48,18 +50,6 @@ function formatDate(dateString) {
     year: "numeric",
   });
 }
-
-function linkStyleClass(linkStyle: string) {
-  switch (linkStyle) {
-    case "button":
-      return "button color-secondary";
-    case "button2":
-      return "button";
-    default:
-      return "";
-  }
-}
-
 
 const author = {
   name: entry.data.author || 'Unknown Author',
@@ -127,23 +117,51 @@ const author = {
                     imgSrc = {block.image},
                     reverseImg = {block.reverseImg}
                   >
-                    {block.title && <h2>{block.title}</h2>}
+                    {block.headline && <h2>{block.headline}</h2>}
                     {block.text &&
                       <p class="text-2xl">
                         {block.text}
                       </p>
                     }
-                    {block.linkText && block.linkUrl && <LinkComponent class={linkStyleClass(block.linkStyle)}  href={block.linkUrl} internal={block.linkInternal}>{block.linkText}</LinkComponent>}
+                    {block.linkText && block.linkUrl && <LinkComponent linkStyle={block.linkStyle} href={block.linkUrl} internal={block.linkInternal}>{block.linkText}</LinkComponent>}
                   </ContentMedia>
                 )
+                case 'youtubeText':
+                  return (
+                    <ContentMediaYoutube
+                      key={`block-${index}`}
+                      youtubeUrl = {block.youtubeUrl},
+                      reverse = {block.reverse}
+                      title = {block.title}
+                      ratio = {block.ratio}
+                    >
+                      {block.headline && <h2>{block.headline}</h2>}
+                      {block.text &&
+                        <p class="text-2xl">
+                          {block.text}
+                        </p>
+                      }
+                      {block.linkText && block.linkUrl && <LinkComponent linkStyle={block.linkStyle} href={block.linkUrl} internal={block.linkInternal}>{block.linkText}</LinkComponent>}
+                    </ContentMediaYoutube>
+                  )
+                case 'youtube':
+                  return (
+                      <section class="mt-32 mb-12">
+                          <div class="container">
+                              {block.headline && <h2>{block.headline}</h2>}
+                              <Video src={block.youtubeUrl} title={block.title} ratio={block.ratio} />
+                          </div>
+                      </section>
+                  )
               // case 'news':
               //   return <NewsList key={`block-${index}`} items={block.items} />
-              // case 'link':
-              //   return (
-              //     <div class="container -mt-6">
-              //       <LinkComponent key={`block-${index}`} class={block.class} href={block.href} title={block.title} internal={block.internal} showArrow={block.showArrow}>{block.content}</LinkComponent>
-              //     </div>
-              //   )
+              case 'link':
+                return (
+                  <div class="container -mt-6">
+                    <LinkComponent key={`block-${index}`} class={block.class} href={block.linkUrl} title={block.title} internal={block.linkInternal} linkStyle={block.linkStyle} showArrow={block.showArrow}>{block.linkText}</LinkComponent>
+                  </div>
+                )
+
             default:
               return null
           }

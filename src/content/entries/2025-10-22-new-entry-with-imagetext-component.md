@@ -8,7 +8,7 @@ author: Nona at Home
 description: SEO Stuff
 blocks:
   - _block: imageText
-    title: What is TitanX about...
+    headline: What is TitanX about...
     text: What is TitanX about and how does this page support its vision?
     image: /uploads/6F6A44A2-769F-42EE-BBD2-A46681F14F31-1024x585.png
     reverseImg: false
@@ -17,7 +17,7 @@ blocks:
     linkInternal: false
     linkStyle: 'button'
   - _block: imageText
-    title: Image Text 2
+    headline: Image Text 2
     text: What is TitanX about and how does ....
     image: /uploads/Scale-logo.jpg
     reverseImg: true

@@ -20,6 +20,10 @@ interface Props {
    */
   title?: string
   /**
+   * The Link Style (Button1, Button2, TextLink)
+   */
+  linkStyle?: string
+  /**
    * The internal
    */
   internal?: boolean
@@ -29,13 +33,24 @@ interface Props {
   showArrow?: boolean
 }
 
-const { class: className, href, title, internal = false, showArrow = false } = Astro.props
+function linkStyleClass(linkStyle: string) {
+  switch (linkStyle) {
+    case "button":
+      return "button color-secondary";
+    case "button2":
+      return "button";
+    default:
+      return "";
+  }
+}
+
+const { class: className, href, title, internal = false, showArrow = false, linkStyle = ''} = Astro.props
 ---
 
 <a
   href={href}
   title={title}
-  class:list={[className, !internal && 'external-link']}
+  class:list={[className, !internal && 'external-link', linkStyleClass(linkStyle)]}
   {...(!internal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
 >
   <slot />

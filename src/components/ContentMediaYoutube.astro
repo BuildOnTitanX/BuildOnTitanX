@@ -1,0 +1,59 @@
+---
+import { Video } from 'accessible-astro-components'
+
+/**
+ * ContentMedia Component
+ *
+ * @description A component that displays content alongside media, with the option to reverse the image position
+ */
+interface Props {
+  /**
+   * The Youtube Title
+   */
+  title: string
+  /**
+   * The Youtube Url
+   */
+  youtubeUrl: string
+  /**
+   * The Youtube Ratio
+   * @default '16:9'
+   */
+  ratio: string
+  /**
+   * Whether to display the image on the right side instead of the left
+   * @default false
+   */
+  reverse?: boolean
+}
+
+const {
+  title,
+  youtubeUrl = '',
+  ratio = '16:9',
+  reverse = false,
+}: Props = Astro.props
+---
+
+<section class="my-32 md:my-64">
+  <div class="container">
+    <div class="grid grid-cols-1 items-center gap-24 md:grid-cols-2">
+      <div
+        class={`mediaBox rounded-lg ${
+          reverse ? 'order-1 md:order-2' : 'order-1 md:order-1'
+        }`}
+      >
+        <Video src={youtubeUrl} title={title} ratio={ratio} />
+        <div class="mediaBoxBackdrop"></div>
+      </div>
+
+      <div
+        class={`space-content flex flex-col justify-center ${
+          reverse ? 'order-2 md:order-1' : 'order-2 md:order-2'
+        }`}
+      >
+        <slot />
+      </div>
+    </div>
+  </div>
+</section>

@@ -130,8 +130,8 @@ content:
           - name: imageText
             label: ImageText (2 cols)
             fields:
-              - name: title
-                label: Title
+              - name: headline
+                label: Headline
                 type: string
               - name: text
                 label: Text
@@ -152,6 +152,102 @@ content:
                 type: string
               - name: linkInternal
                 label: Link Internal
+                type: boolean
+                default: false
+              - name: linkStyle
+                label: Link Style
+                type: select
+                options:
+                  - Button
+                  - Button2
+                  - Link
+                required: true
+          - name: YoutubeText
+            label: Youtube Text (2 cols)
+            fields:
+              - name: headline
+                label: Headline
+                type: string
+              - name: text
+                label: Text
+                type: string
+              - name: title
+                label: Title
+                type: string
+              - name: youtubeUrl
+                label: Youtube Url
+                type: string
+              - name: ratio
+                label: Ratio
+                type: select
+                options:
+                  - '16:9'
+                  - '1:1'
+                  - '21:9'
+                  - '4:3'
+              - name: reverse
+                label: Youtube Last
+                type: boolean
+                default: false
+              - name: linkText
+                label: Link Text
+                type: string
+              - name: linkUrl
+                label: Link Url
+                type: string
+              - name: linkInternal
+                label: Link Internal
+                type: boolean
+                default: false
+              - name: linkStyle
+                label: Link Style
+                type: select
+                options:
+                  - Button
+                  - Button2
+                  - Link
+                required: true
+          - name: youtube
+            label: Youtube
+            fields:
+              - name: headline
+                label: Headline
+                type: string
+              - name: title
+                label: Title
+                type: string
+              - name: youtubeUrl
+                label: Youtube Url
+                type: string
+              - name: ratio
+                label: Ratio
+                type: select
+                options:
+                  - '16:9'
+                  - '1:1'
+                  - '21:9'
+                  - '4:3'
+          - name: link
+            label: Button/Link
+            fields:
+              - name: title
+                label: Title
+                type: string
+              - name: class
+                label: Class
+                type: string
+              - name: linkText
+                label: Link Text
+                type: string
+              - name: linkUrl
+                label: Link Url
+                type: string
+              - name: linkInternal
+                label: Link Internal
+                type: boolean
+                default: false
+              - name: showArrow
+                label: Show Arrow
                 type: boolean
                 default: false
               - name: linkStyle

@@ -65,7 +65,9 @@ const entries = defineCollection({
                 content: z.string(),
               })
               .optional(),
-            bgType: z.enum(['default', 'bordered', 'filled']).default('default'),
+            bgType: z
+              .enum(['default', 'bordered', 'filled'])
+              .default('default'),
           }),
           z.object({
             _block: z.literal('accordion'),
@@ -80,18 +82,48 @@ const entries = defineCollection({
           }),
           z.object({
             _block: z.literal('rtecontent'),
-            content: z.string()
+            content: z.string(),
           }),
           z.object({
             _block: z.literal('imageText'),
             image: z.string(),
             reverseImg: z.boolean().default(false),
-            title: z.string().optional(),
+            headline: z.string().optional(),
             text: z.string().optional(),
             linkText: z.string().optional(),
             linkUrl: z.string().optional(),
             linkInternal: z.boolean().default(false),
             linkStyle: z.string().default('link'),
+          }),
+          z.object({
+            _block: z.literal('youtubeText'),
+            headline: z.string().optional(),
+            text: z.string().optional(),
+            title: z.string().optional(),
+            youtubeUrl: z.string().default(''),
+            ratio: z.string().default('16:9'),
+            reverse: z.boolean().default(false),
+            linkText: z.string().optional(),
+            linkUrl: z.string().optional(),
+            linkInternal: z.boolean().default(false),
+            linkStyle: z.string().default('link'),
+          }),
+          z.object({
+            _block: z.literal('link'),
+            title: z.string().optional(),
+            class: z.string().optional(),
+            linkText: z.string().optional(),
+            linkUrl: z.string().optional().default(''),
+            linkInternal: z.boolean().default(false),
+            showArrow: z.boolean().default(false),
+            linkStyle: z.string().default('link'),
+          }),
+          z.object({
+            _block: z.literal('youtube'),
+            headline: z.string().optional(),
+            title: z.string().optional(),
+            youtubeUrl: z.string().default(''),
+            ratio: z.string().optional().default('16:9'),
           }),
         ]),
       )
