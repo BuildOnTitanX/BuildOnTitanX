@@ -7,7 +7,7 @@ content:
     label: Tutorials
     type: collection
     path: src/content/tutorials
-    filename: '{year}-{month}-{day}-{primary}'
+    #filename: '{year}-{month}-{day}-{primary}'
     #filename: '{fields.title}.md' #doesn't work!?
     # filename: '{primary}.md' #this works
     format: yaml-frontmatter
@@ -393,9 +393,7 @@ content:
                     label: Type
                     type: select
                     options:
-                      - News
-                      - Info
-                      - Event
+                      values: [News, Info, Event]
                     required: true
                   - name: description
                     label: Description
