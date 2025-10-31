@@ -43,15 +43,23 @@ const currentPage = page.currentPage
 const totalPages = Math.ceil(page.total / page.size)
 ---
 
-<DefaultLayout title="Tutorials" description="A collection of tutorials showcasing various topics and content.">
+<DefaultLayout
+  title="Tutorials"
+  description="A collection of tutorials showcasing various topics and content."
+>
   <PageHeader
     title="Tutorials"
-    subtitle='This is a demo collection of tutorials showcasing various topics and content. It is just dummy content to be replaced soon with community content.'
+    subtitle="This is a demo collection of tutorials showcasing various topics and content. It is just dummy content to be replaced soon with community content."
     bgType="bordered"
   />
   <section class="my-12">
     <div class="container">
-      <p class="text-sm"><em>Tutorial {page.start + 1} through {page.end + 1} of {page.total} total tutorials</em></p>
+      <p class="text-sm">
+        <em
+          >Tutorial {page.start + 1} through {page.end + 1} of {page.total} total
+          tutorials</em
+        >
+      </p>
       <ul class="my-3 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {
           page.data.map((entry) => (
@@ -73,7 +81,9 @@ const totalPages = Math.ceil(page.total / page.size)
           firstPage={page.url.prev ? '/entries' : null}
           previousPage={page.url.prev ? page.url.prev : null}
           nextPage={page.url.next ? page.url.next : null}
-          lastPage={page.url.next ? `/entries/${Math.ceil(page.total / page.size)}` : null}
+          lastPage={page.url.next
+            ? `/entries/${Math.ceil(page.total / page.size)}`
+            : null}
           currentPage={`${page.currentPage}`}
           totalPages={`${Math.ceil(page.total / page.size)}`}
           ariaLabel="Entries pagination"

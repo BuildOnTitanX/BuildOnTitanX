@@ -4,7 +4,7 @@ media:
 
 content:
   - name: entries
-    label: Entries
+    label: Tutorials
     type: collection
     path: src/content/tutorials
     filename: '{year}-{month}-{day}-{primary}'
