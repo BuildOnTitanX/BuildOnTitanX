@@ -6,7 +6,7 @@ content:
   - name: entries
     label: Entries
     type: collection
-    path: src/content/entries
+    path: src/content/tutorials
     filename: '{year}-{month}-{day}-{primary}'
     #filename: '{fields.title}.md' #doesn't work!?
     # filename: '{primary}.md' #this works
