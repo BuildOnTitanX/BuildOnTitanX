@@ -158,9 +158,7 @@ content:
                 label: Link Style
                 type: select
                 options:
-                  - Button
-                  - Button2
-                  - Link
+                  values: [Button, Button2, Link]
                 required: true
           - name: YoutubeText
             label: Youtube Text (2 cols)
@@ -181,10 +179,7 @@ content:
                 label: Ratio
                 type: select
                 options:
-                  - '16:9'
-                  - '1:1'
-                  - '21:9'
-                  - '4:3'
+                  values: ['16:9', '4:3', '1:1', '21:9']
               - name: reverse
                 label: Youtube Last
                 type: boolean
@@ -203,9 +198,7 @@ content:
                 label: Link Style
                 type: select
                 options:
-                  - Button
-                  - Button2
-                  - Link
+                  values: [Button, Button2, Link]
                 required: true
           - name: youtube
             label: Youtube
@@ -223,10 +216,7 @@ content:
                 label: Ratio
                 type: select
                 options:
-                  - '16:9'
-                  - '1:1'
-                  - '21:9'
-                  - '4:3'
+                  values: ['16:9', '4:3', '1:1', '21:9']
           - name: link
             label: Button/Link
             fields:
@@ -254,9 +244,7 @@ content:
                 label: Link Style
                 type: select
                 options:
-                  - Button
-                  - Button2
-                  - Link
+                  values: [Button, Button2, Link]
                 required: true
   - name: pages
     label: Modular Pages
