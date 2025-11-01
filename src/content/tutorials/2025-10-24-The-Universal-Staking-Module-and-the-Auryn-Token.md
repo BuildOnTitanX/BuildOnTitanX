@@ -18,7 +18,7 @@ blocks:
   - _block: imageText
     headline: Distribution Mechanics
     text: The AU token itself is a plain, mintable/burnable token, but minting rights are granted to a sale curve, with a Maximum Total Supply of 88,000,000 AURYN
-    image: /uploads/Auryn.avif
+    image: /uploads/Auryn.jpg
     reverseImg: true
     linkText: Auryn Docs
     linkUrl: https://docs.ouroboros.foundation/ouroboros-products/the-auryn-usdau-token#purpose
