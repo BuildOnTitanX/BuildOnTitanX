@@ -1,7 +1,7 @@
 ---
 id: test-entry
 title: Test Entry
-published: true
+published: false
 description: This is a test entry demonstrating the block system
 blocks:
   - _block: accordion
