@@ -21,7 +21,7 @@ blocks:
     linkUrl: https://diamonds1111.win/
     linkInternal: false
     linkStyle: Button
-  - _block: YoutubeText
+  - _block: youtubeText
     headline: DIAMONDS STORE OPEN - PROTOCOL DEEP DIVE
     text: Total Certificates Minted 651, Half price until the 11.11.2025, Get 28
       NfTs to join the 888 Diamond Hands Payout Pools
