@@ -19,7 +19,7 @@ blocks:
     linkText: Introduction
     linkUrl: https://docs.ouroboros.foundation/ouroboros-products/universal-staking-module#introduction
     linkInternal: false
-    linkStyle: Link
+    linkStyle: Button
   - _block: imageText
     headline: Distribution Mechanics
     text: The AU token itself is a plain, mintable/burnable token, but minting
@@ -30,5 +30,5 @@ blocks:
     linkText: Auryn Docs
     linkUrl: https://docs.ouroboros.foundation/ouroboros-products/the-auryn-usdau-token#purpose
     linkInternal: false
-    linkStyle: Link
+    linkStyle: Button2
 ---
