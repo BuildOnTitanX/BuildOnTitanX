@@ -10,29 +10,23 @@ image: /uploads/diamonds1111win.jpg
 author: Nona
 blocks:
   - _block: imageText
-    headline: What is TitanX about...
-    text: What is TitanX about and how does this page support its vision?
+    headline: A PROTOCOL HIGHLIGHT
+    text: " DIAMONDS was built to support the BLAZE and X28 tokens on Ethereum
+      simultaneously at its core, while also being able to function
+      independently on it's own, ensuring that value is not directed away from
+      the protocol, thus promoting a harmonious existence. "
     image: /uploads/DiamondsGraph.jpg
     reverseImg: false
     linkText: Link
     linkUrl: https://diamonds1111.win/
     linkInternal: false
     linkStyle: Button
-  - _block: imageText
-    headline: Image Text 2
-    text: What is TitanX about and how does ....
-    image: /uploads/Scale-logo.jpg
-    reverseImg: true
-    linkText: DIAMONDS
-    linkUrl: https://diamonds1111.win/
-    linkInternal: false
-    linkStyle: Link
-  - _block: youtubeText
+  - _block: YoutubeText
     headline: DIAMONDS STORE OPEN - PROTOCOL DEEP DIVE
     text: Total Certificates Minted 651, Half price until the 11.11.2025, Get 28
       NfTs to join the 888 Diamond Hands Payout Pools
     title: 11.11.2025 Launch Date of the diamonds1111.win
-    youtubeUrl: https://www.youtube.com/live/ZFzwBYYLwic?si=Wcg_uS8i3QkZtCsY
+    youtubeUrl: https://www.youtube.com/embed/ZFzwBYYLwic?si=T2ehfNNXSy_1xFDE
     ratio: 16:9
     reverse: true
     linkText: diamonds1111.win
