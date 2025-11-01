@@ -8,6 +8,8 @@
       "@assets/*": ["src/assets/*"],
       "@blocks/*": ["src/components/blocks/*"],
       "@content/*": ["src/content/*"]
-    }
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
   }
 }

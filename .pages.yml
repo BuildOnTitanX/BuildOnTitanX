@@ -160,7 +160,7 @@ content:
                 options:
                   values: [Button, Button2, Link]
                 required: true
-          - name: YoutubeText
+          - name: youtubeText
             label: Youtube Text (2 cols)
             fields:
               - name: headline

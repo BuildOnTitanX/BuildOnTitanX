@@ -4,7 +4,55 @@ import { defineCollection, z } from 'astro:content'
 // 2. Import loader(s)
 import { glob } from 'astro/loaders'
 
-// 3. Define your collection(s)
+import { docsLoader } from '@astrojs/starlight/loaders'
+import { docsSchema } from '@astrojs/starlight/schema'
+
+// Rte block schema (markdown)
+const RteBlockSchema = z.object({
+  type: z.literal('rte'),
+  title: z.string(),
+  description: z.string(),
+  content: z.string(),
+})
+
+// Filetree block schema
+const FiletreeBlockSchema = z.object({
+  type: z.literal('filetree'),
+  title: z.string(),
+  tree: z.string(), // assuming it's always a string literal (not parsed structure)
+})
+
+// Step block schema
+const StepItemSchema = z.object({
+  title: z.string(),
+  content: z.string(),
+  lang: z.string().optional(),
+  code: z.string().optional(),
+  filetree: FiletreeBlockSchema.optional(),
+})
+
+const StepsBlockSchema = z.object({
+  type: z.literal('steps'),
+  title: z.string(),
+  steps: z.array(StepItemSchema),
+})
+
+// Code block schema
+const CodeBlockSchema = z.object({
+  type: z.literal('code'),
+  title: z.string(),
+  lang: z.string().optional(), // e.g., 'json', 'js', etc.
+  code: z.string(),
+})
+
+// Union of all block types
+const BlockSchema = z.discriminatedUnion('type', [
+  RteBlockSchema,
+  StepsBlockSchema,
+  FiletreeBlockSchema,
+  CodeBlockSchema,
+])
+
 const projects = defineCollection({
   loader: glob({ pattern: '**/*.mdx', base: './src/content/projects' }),
   schema: z.object({
@@ -132,5 +180,20 @@ const entries = defineCollection({
   }),
 })
 
-// 4. Export a single `collections` object to register you collection(s)
-export const collections = { projects, pages, entries }
+export const collections = {
+  docs: defineCollection({
+    loader: docsLoader(),
+    schema: docsSchema({
+      extend: z.object({
+        // Make a built-in field required instead of optional.
+        description: z.string(),
+        // Add a new field to the schema.
+        blocks: z.array(BlockSchema).optional(),
+        category: z.enum(['tutorial', 'guide', 'reference']).optional(),
+      }),
+    }),
+  }),
+  projects,
+  pages,
+  entries,
+}

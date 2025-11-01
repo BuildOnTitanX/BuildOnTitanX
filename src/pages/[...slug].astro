@@ -55,21 +55,48 @@ function normalizeContent(raw) {
 // }
 
 // 1. Static paths
+// export async function getStaticPaths() {
+//   const pages = await getCollection('pages', ({ data }) => data.published)
+
+//   return pages.map((page) => ({
+//     // params: { slug: page.slug.split('/') }, // array for catch-all
+//     params: { slug: page.slug },
+//     props: { page }, // pass entry directly
+//   }))
+// }
+
 export async function getStaticPaths() {
   const pages = await getCollection('pages', ({ data }) => data.published)
 
-  return pages.map((page) => ({
-    // params: { slug: page.slug.split('/') }, // array for catch-all
-    params: { slug: page.slug },
-    props: { page }, // pass entry directly
-  }))
+  // ignore /docs
+  const blockedSlugs = ["docs"]
+
+  return pages
+    .filter(page => !blockedSlugs.includes(page.slug.split('/')[0]))
+    .map(page => ({
+      params: { slug: page.slug }, // pass as string, NOT array
+      props: { page },
+    }))
+}
+
+// --- Runtime check for /docs ---
+const requestedPath = Astro.request?.url?.pathname?.slice(1)
+if (requestedPath && (requestedPath === "docs" || requestedPath.startsWith("docs/"))) {
+  // Let Astro serve the static Starlight docs page
+  throw Astro.redirect("/docs/")
+}
+// --- Access CMS page data ---
+const { page } = Astro.props
+if (!page) {
+  throw new Error(`CMS page not found for slug: ${Astro.params.slug}`)
 }
 
 // 2. Access the page prop from getStaticPaths
-const { page } = Astro.props
-const fullSlug = page.slug // already a string like 'test' or 'about/team'
+// const { page } = Astro.props
+// const fullSlug = page.slug // already a string like 'test' or 'about/team'
 const frontmatter = page.data
 const blocks = frontmatter.blocks ?? []
+
 
 // const { data: frontmatter } = entry
 // const blocks = frontmatter.blocks ?? []
