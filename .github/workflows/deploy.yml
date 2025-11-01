@@ -7,8 +7,6 @@ on:
       - develop
 
 jobs:
-    - name: Checkout submodules
-      run: git submodule update --init --recursive
   build:
     runs-on: ubuntu-latest
 
