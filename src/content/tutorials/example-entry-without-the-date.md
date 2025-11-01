@@ -1,8 +1,9 @@
 ---
-id: "12345"
 date: 2025-10-27
-title: Example Entry without the date
+title: BuilDeFi - the next gen fair-launchpad
 published: true
-description: no date in filename
+description: BuilDeFi.Win democratizes DeFi, protects users, and fosters
+  sustainable token ecosystems.
+image: /uploads/BuildDefi_Testnet.jpg
 author: Nona
 ---
