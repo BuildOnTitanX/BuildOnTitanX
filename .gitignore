@@ -2,7 +2,7 @@
 dist
 
 #submodules folder
-integrations/
+submodules/
 
 # dependencies
 node_modules/
