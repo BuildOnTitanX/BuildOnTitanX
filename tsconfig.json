@@ -10,6 +10,7 @@
       "@content/*": ["src/content/*"]
     },
     "jsx": "react-jsx",
-    "jsxImportSource": "preact"
+    "jsxImportSource": "preact",
+    "types": ["astro/client"]
   }
 }

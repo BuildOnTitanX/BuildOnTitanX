@@ -18,8 +18,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Checkout submodules
-        run: git submodule update --init --recursive
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0 # ensure full history for submodules
+
+      - name: Checkout specific submodule branch
+        run: |
+          git submodule foreach 'branch=pagesCmsFileSupport
+          echo "→ Checking out $branch in $name"
+          git fetch origin $branch
+          git checkout $branch || git checkout -b $branch origin/$branch
+          git pull origin $branch
+          '
 
       - name: Use Node.js
         uses: actions/setup-node@v4

@@ -83,6 +83,16 @@ export default defineConfig({
     },
     plugins: [tailwindcss()],
     // plugins: [tailwindcss({ config: './tailwind.config.js', runtime: true })],
+    esbuild: {
+      jsx: 'automatic', // 👈 make sure esbuild knows we’re using automatic JSX
+      jsxImportSource: 'preact', // 👈 tell esbuild to use preact as the import source
+    },
+    optimizeDeps: {
+      include: ['preact', 'preact/hooks', 'preact/jsx-runtime'],
+    },
+    ssr: {
+      noExternal: ['starlight'],
+    },
     resolve: {
       alias: {
         '@components': fileURLToPath(
@@ -99,6 +109,9 @@ export default defineConfig({
         '@project-images': fileURLToPath(
           new URL('./public/projects', import.meta.url),
         ),
+        react: 'preact/compat',
+        'react-dom': 'preact/compat',
+        '@': path.resolve('./src'),
       },
     },
   },
