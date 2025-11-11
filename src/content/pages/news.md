@@ -28,7 +28,7 @@ blocks:
       - title: 'TitanX 2 Year Anniversary'
         date: 2025-10-28
         type: Event
-        description: 'Join us to celebrate TitanX’s 2 year anniversary with exciting announcements. @UTAH_KRYPTO (X) and @PLANAAA101 (X) are on it. On 2025-11-01 and 2025-11-02 the $TITANX community will come together. There will be one hour blocks for the speakers.'
+        description: 'Join us to celebrate TitanX’s 2 year anniversary with exciting announcements. @UTAH_KRYPTO (X) and @PLANAAA101 (X) are on it. On 2025-11-01 and 2025-11-02 the $TITANX community will come together.'
         # image: '/images/news/conference.jpg'
         link: 'https://x.com/UTAH_KRYPTO/status/1977864381955199130'
         linktext: 'The Post on X'
@@ -41,4 +41,12 @@ blocks:
         link: 'https://jobs.cyfrin.io/'
         link2: 'https://www.cyfrin.io/blog/introducing-cyfrin-jobs-blockchain-native-recruitment'
         link2text: 'Blog posting'
+      - title: 'The Diamonds Protocol has launched'
+        date: 2025-11-11
+        type: News
+        description: 'The Protocol went live today and the New Website looks great! ETH Payouts are back!'
+        image: '/uploads/diamonds1111win.jpg'
+        link: 'https://diamonds1111.win/'
+        link2: 'https://richs-crypto-projects.gitbook.io/diamonds/diagram-overview'
+        link2text: 'Docs'
 ---
