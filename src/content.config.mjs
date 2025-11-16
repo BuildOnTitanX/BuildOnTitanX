@@ -77,7 +77,7 @@ const pages = defineCollection({
 
 // Define your "entries" collection schema, adjust fields as needed
 const entries = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/tutorials' }),
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
   schema: z.object({
     // id: z.string(),
     title: z.string(),

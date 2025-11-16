@@ -75,8 +75,9 @@ blocks:
 
         So please get in contact, get involved, get inspired and share the
         content. This is just the start.
+---
 
-
+<!--
         ## Example RTE-Html-Elements
 
 
@@ -112,5 +113,4 @@ blocks:
 
         | A table | is  | here |
 
-        | this | is  | the second row |
----
+        | this | is  | the second row |-->

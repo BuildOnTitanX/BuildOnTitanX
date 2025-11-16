@@ -1,7 +1,7 @@
 ---
-title: Tutorials
+title: Articles
 published: true
-navOrder: 1
+navOrder: 3
 description: Simple Step-by-Step Tutorials
-linkUrl: /tutorials
+linkUrl: /blog
 ---
