@@ -4,9 +4,9 @@ media:
 
 content:
   - name: entries
-    label: Tutorials
+    label: Articles
     type: collection
-    path: src/content/tutorials
+    path: src/content/blog
     #filename: '{year}-{month}-{day}-{primary}'
     #filename: '{fields.title}.md' #doesn't work!?
     # filename: '{primary}.md' #this works
