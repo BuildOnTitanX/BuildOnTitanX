@@ -1,0 +1,59 @@
+DeFi ConVergence Ecosystem — V2 Fee & Phase Flow
+│
+├── PHASE 1 : FARM PHASE – Entry, Yield & Liquidity Growth
+│   │
+│   ├── User Action : Deposit / Enter a Farm
+│   │
+│   ├── One-Time Dynamic Entry Fee (8.88 %)
+│   │   ├── 2.22 % → Burn (paired token, e.g., HEX/ETH/PLS/TitanX)
+│   │   │     • Permanently reduces the paired asset supply
+│   │   │     • External deflation that supports charts
+│   │   │
+│   │   ├── 2.22 % → Buy Srey0x 888
+│   │   │     • Market buy Srey0x 888 -> Treasury / Single-sided stake
+│   │   │     • Supports long-term protocol reserves & rewards
+│   │   │
+│   │   ├── 4.44 % → Buy + Build LP (paired token ↔️ Srey0x 888)
+│   │         • Auto-creates liquidity for the chosen farm pair
+│   │         • Stabilizes pool ratios and reduces volatility
+│   │
+│   ├── Farming Cycle
+│   │   ├── Users receive emission rewards per farm logic (e.g., 888 / 8888 tiers)
+│   │   ├── Pools show visible fee breakdown per pair for transparency
+│   │   └── Outcome → Deflation + Liquidity Reinforcement + Stable Yield
+│   │
+│   └── Key Goal → Fix traditional farms by converting entry fees into
+│         liquidity, burns and treasury support (incentivize long-term farming)
+│
+└── PHASE 2 : MINER / POWER CHAMBER PHASE – Lock-Up, Mining & Core LP Growth
+    │
+    ├── Trigger → User gets directed to enter Power Chamber (post-farming or on-claim)
+    │
+    ├── Secondary Dynamic Fee (8.88 %) — Applied when entering Miner/Power Chamber
+    │   ├── 2.22 % → Burn (ConVergence Token Burn)
+    │   │     • Permanent deflation targeted at core Incentive token
+    │   │
+    │   ├── 2.22 % → Buy Srey0x 888
+    │   │     • Market buy to Treasury or to top-up single-sided staking pools
+    │   │     • Bolsters reserve used for bonus emissions or treasury-backed rewards
+    │   │
+    │   ├── 4.44 % → Buy + Build LP (ConVergence ↔️ Srey0x 888 core LP)
+    │         • Builds and strengthens DeFi ConVergence core LPs
+    │         • Ensures continued liquidity for ConVergence <> Srey0x 888 pair
+    │
+    ├── Power Chamber Mechanics
+    │   ├── Users stake tokens into Power Chamber (choose lock duration)
+    │   ├── Lock multipliers: longer locks → higher Power Multiplier → larger boosts
+    │   ├── Boosted rewards & bonus APRs paid from treasury + protocol emissions
+    │   └── Timed unlocks and staged release to control inflation
+    │
+    ├── Miner Phase Objective
+    │   • Transition participants from short-term farm play to long-term mining/staking
+    │   • Expand ConVergence core liquidity and sustainably compound treasury-backed rewards
+    │
+    └── Result
+        • Dual 8.88 % model (Farm + Miner) creates layered sustainability:
+          - Phase 1 fees immediately reinforce farm pools and burns
+          - Phase 2 fees grow core protocol LPs and power locked staking
+        • Encourages long-term participation, reduces tokenomic churn, and
+          aligns incentives for farmers, stakers and LP providers
